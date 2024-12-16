@@ -1,0 +1,51 @@
+.about-me{
+    display: flex;
+    justify-content: space-between; /* Ensures space between the two children */
+    align-items: center; /* Centers items vertically */
+    margin-bottom: 100px;
+    transition: font-size 0.1s ease-in-out;
+}
+
+.about-me-children:nth-child(1){
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    margin: auto; /* Centers the element horizontally in the container */
+}
+
+.about-me-children:nth-child(2){
+    flex: 2;
+    margin: 10px;
+    
+}
+
+.about-me-children img{
+    width: 50%;
+    border-radius: 30%;
+    padding: 100px; 
+}
+
+.centered-text {
+    text-align: center; /* Ensures text inside is horizontally centered */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically (if in a flex container) */
+    flex-direction: column; /* Ensures vertical stacking */
+}
+
+
+.home{
+    margin: 100px; 
+}
+
+.stack-icon {
+    width: 60px; 
+    margin: 10px;        /* Margin between icons */
+    transition: transform 0.1s ease-in-out; /* Smooth hover effect */
+
+}
+
+.stack-icon:hover {
+    transform: scale(1.5); /* Zoom effect on hover */
+}

@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  
+}
+
+body{
+  background-color: #eeeee6;
+  /*background-color: #071C27;*/
+  /*color: rgb(124, 235, 219); */
+  color: #4d2e0c;
+  font-family: 'Courier New', Courier, monospace; 
+}
+
+p{
+  font-size: 15px;
+  font-weight:bold;
+}

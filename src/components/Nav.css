@@ -1,0 +1,33 @@
+nav {
+    padding-left: 30px;
+    color: white; 
+    height: 80px; 
+    display: flex;  /* Use flexbox to align items inline */
+    align-items: center;  /* Vertically center the text */
+    position: relative;  /* For position-based effects like gradient */
+    overflow: hidden;  /* Prevent background overflow */
+    background: linear-gradient(90deg,#1D2725 50%, #72705B 50%); /* Gradient from left to right */
+    background-position: right center;  /* Initially positioned from left */
+    background-size: 200% 100%;  /* Ensures the gradient starts off stretched */
+    transition: background-position 0.1s ease-in-out; /* Smooth transition effect */
+}
+
+nav:hover {
+    background-position: left center;  /* Move the gradient from left to right */
+}
+
+.nav-children{
+    display: inline-block;
+    text-decoration: none; 
+    padding: 20px; 
+    transition: font-size 0.1s ease-in-out;
+}
+
+.nav-children a {
+    color: inherit;  /* To inherit the text color from the parent */
+    text-decoration: none;
+}
+
+.nav-children:hover{
+    font-size: 30px; 
+}
