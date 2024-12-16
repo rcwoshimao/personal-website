@@ -8,10 +8,10 @@ import './ConceptMap.css';
 const bg = '#0a0a0a';
 
 const initialTransform = {
-  scaleX: 1,
-  scaleY: 1,
-  translateX: 0,
-  translateY: 0,
+  scaleX: 0.3,
+  scaleY: 0.3,
+  translateX: -200,
+  translateY: -150,
   skewX: 0,
   skewY: 0,
 };
@@ -37,6 +37,8 @@ export default function ConceptMap({ imageSrc }) {
     width: window.innerWidth,
     height: window.innerHeight - navbarHeight,
   });
+
+  
   const [showMiniMap, setShowMiniMap] = useState(true);
 
   useEffect(() => {
@@ -54,14 +56,28 @@ export default function ConceptMap({ imageSrc }) {
     return () => window.removeEventListener('resize', handleResize);
   }, [navbarHeight]); // Dependency on navbarHeight to adjust window size
 
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = imageSrc;
+
+    img.onload = () => {
+      setImageDimensions({ width: img.width, height: img.height });
+    };
+  }, [imageSrc]);
+
+  const { width: imageWidth, height: imageHeight } = imageDimensions;
+  
+
   return (
     <Zoom
       width={windowSize.width}
       height={windowSize.height}
-      scaleXMin={0.5}
-      scaleXMax={4}
-      scaleYMin={0.5}
-      scaleYMax={4}
+      scaleXMin={0.1}
+      scaleXMax={1.5}
+      scaleYMin={0.1}
+      scaleYMax={1.5}
       transformMatrix={initialTransform}
     >
       {zoom => (
@@ -76,8 +92,7 @@ export default function ConceptMap({ imageSrc }) {
             <g transform={zoom.toString()}>
               <image
                 href={imageSrc}
-                width={windowSize.width}
-                height={windowSize.height}
+                
                 preserveAspectRatio="xMidYMid slice"
               />
             </g>
@@ -107,7 +122,7 @@ export default function ConceptMap({ imageSrc }) {
                   translate(${windowSize.width * 4 - windowSize.width - 60}, ${windowSize.height * 4 - windowSize.height - 60})
                 `}
               >
-                <rect width={windowSize.width} height={windowSize.height} fill="#1a1a1a" style={{ borderRadius: 0 }} />
+                <rect width={imageWidth} height={imageHeight} fill="#1a1a1a" />
                 <image
                   href={imageSrc}
                   width={windowSize.width}
@@ -115,12 +130,12 @@ export default function ConceptMap({ imageSrc }) {
                   preserveAspectRatio="xMidYMid slice"
                 />
                 <rect
-                  width={windowSize.width}
-                  height={windowSize.height}
-                  fill="white"
-                  fillOpacity={0.2}
-                  stroke="white"
-                  strokeWidth={4}
+                  width={imageWidth}
+                  height={imageHeight}
+                  fill="blue"
+                  fillOpacity={0.5}
+                  stroke="blue"
+                  strokeWidth={2}
                   transform={zoom.toStringInvert()}
                 />
               </g>
@@ -150,9 +165,7 @@ export default function ConceptMap({ imageSrc }) {
               {showMiniMap ? 'Hide' : 'Show'} Mini Map
             </button>
           </div>
-
           <div className="mini-map" style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 100 }}>
-            
           </div>
         </div>
       )}

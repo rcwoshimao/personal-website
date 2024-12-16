@@ -4,6 +4,7 @@
     margin: 4px;
     font-size: 16px;  
     border-radius: 10px; 
+    box-shadow: 4px 4px 4px 4px rgb(0 0 0 / 50%);
 }
   .relative {
     position: relative;
@@ -12,5 +13,7 @@
 
   image {
     image-rendering: pixelated;
+
   }
   
+
