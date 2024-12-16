@@ -1,11 +1,13 @@
 import React from "react";
 import "./ProjectElement.css"; 
-const ProjectElement = () => {
+import testImage from './../../assets/test.jpg'; 
+const ProjectElement = ({name, description, thumbnail, link}) => {
     return(
     <div className='project-element'>
-        <h1> Hello World </h1>
+        <img src={testImage} alt=""></img>
+        <h1> {name|| "Project name"} </h1>
         <p> 
-            something something something something something something something something something something something something 
+            {description || "default description"}
         </p>
     </div>
     ); 

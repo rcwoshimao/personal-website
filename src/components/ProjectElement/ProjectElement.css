@@ -17,3 +17,11 @@
     transform: translateY(2px); /* Slight vertical lift on hover */
     cursor: pointer; 
 }
+
+p{
+    font-size: 12px; 
+}
+
+img{
+    width: 100%; 
+}

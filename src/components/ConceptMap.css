@@ -4,7 +4,11 @@
     margin: 4px;
     font-size: 16px;  
     border-radius: 10px; 
-    box-shadow: 4px 4px 4px 4px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 50%);
+    background-color:#1D2725; 
+    color: white; 
+    font-family: inherit; 
+    font-weight: bold
 }
   .relative {
     position: relative;

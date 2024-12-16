@@ -5,6 +5,7 @@ import './../App.css';
 import pfp from './../assets/pfp.jpeg';
 import sclearn from './../assets/scikit-learn.png';
 import StackIcon from "tech-stack-icons";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Home = () => {
     return (
@@ -13,8 +14,8 @@ const Home = () => {
                 <div className="about-me-children">
                     <img src={pfp} alt="profile" />
                 </div>
-                <div className="about-me-children">
-                    <h1>
+                <div className="about-me-children" >
+                    <h1 style={{fontSize:20}}>
                         <Typewriter
                             text="About me"
                             cursor=""
@@ -27,12 +28,26 @@ const Home = () => {
                             text="Hi! My name is Rebecca Chen. I am an undergraduate student at UCSD majoring in Cognitive Science and minoring in Computer Science. My field of interest spans from Machine Learning to web development."
                             cursor=""
                             typeSpeed={5} 
-                            hideCursorAfterText={true} 
+                            hideCursorAfterText={true}
                         />
                     </p>
+                    <p>
+                        <Typewriter
+                            text="Test pagragraph 2"
+                            cursor=""
+                            typeSpeed={10} 
+                            hideCursorAfterText={true}
+                        />
+                    </p>
+                    <div className='connect-icons'>
+                        <FaGithub className="connect-icon" />
+                        <FaLinkedin className="connect-icon" />
+                    </div>
+                    
+
                 </div>
             </div>
-                <h1 className="centered-text">
+                <h1 className="centered-text" style={{fontSize:20}}>
                     <Typewriter
                         text="Techstacks"
                         cursor=""
@@ -41,23 +56,24 @@ const Home = () => {
                         className="centered-text"
                     />
                 </h1>
-                <h2>
+                <h2 className="centered-text">
                     <Typewriter
                         text="General"
                         cursor=""
                         typeSpeed={50} 
                         hideCursorAfterText={true} 
-                        className="centered-text"
+                        
                     />
                 </h2>
-                <StackIcon name="c++" className="stack-icon" />
-                <StackIcon name="python" className="stack-icon" />
-                <StackIcon name="java" className="stack-icon" />
-                <StackIcon name="streamlit" className="stack-icon" />
-                <StackIcon name="vscode" className="stack-icon" />
-                <StackIcon name="neovim" className="stack-icon" />
-
-                <h2>
+                <div className='icons'> 
+                    <StackIcon name="c++" className="stack-icon" />
+                    <StackIcon name="python" className="stack-icon" />
+                    <StackIcon name="java" className="stack-icon" />
+                    <StackIcon name="streamlit" className="stack-icon" />
+                    <StackIcon name="vscode" className="stack-icon" />
+                    <StackIcon name="neovim" className="stack-icon" />
+                </div>
+                <h2 className="centered-text">
                     <Typewriter
                         text="Web and mobile development"
                         className="centered-text"
@@ -66,17 +82,17 @@ const Home = () => {
                         hideCursorAfterText={true}
                     />
                 </h2>
-                
-                <StackIcon name="reactjs" className="stack-icon" />
-                <StackIcon name="swift" className="stack-icon" />
-                <StackIcon name="tailwindcss" className="stack-icon" />
-                <StackIcon name="postman" className="stack-icon" />
-                <StackIcon name="typescript" className="stack-icon" />
-                <StackIcon name="figma" className="stack-icon" />
-                <StackIcon name="firebase" className="stack-icon" />
-                <StackIcon name="nodejs" className="stack-icon" />
-
-                <h2>
+                <div className='icons'> 
+                    <StackIcon name="reactjs" className="stack-icon" />
+                    <StackIcon name="swift" className="stack-icon" />
+                    <StackIcon name="tailwindcss" className="stack-icon" />
+                    <StackIcon name="postman" className="stack-icon" />
+                    <StackIcon name="typescript" className="stack-icon" />
+                    <StackIcon name="figma" className="stack-icon" />
+                    <StackIcon name="firebase" className="stack-icon" />
+                    <StackIcon name="nodejs" className="stack-icon" />
+                </div>
+                <h2 className="centered-text">
                     <Typewriter
                         text="Machine learning"
                         cursor=""
@@ -85,18 +101,10 @@ const Home = () => {
                         className="centered-text"
                     />
                 </h2>
+                <div className='icons'> 
                 <StackIcon name="pytorch" className="stack-icon" />
                 <img src={sclearn} alt="profile" className="stack-icon" />
-
-                <h1 className="centered-text">
-                    <Typewriter
-                        text="Connect with me"
-                        cursor=""
-                        typeSpeed={50} 
-                        hideCursorAfterText={true}
-                        className="centered-text"
-                    />
-                </h1>
+                </div>
             </div>
     );
 };

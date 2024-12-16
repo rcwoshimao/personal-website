@@ -3,7 +3,6 @@
     justify-content: space-between; /* Ensures space between the two children */
     align-items: center; /* Centers items vertically */
     margin-bottom: 100px;
-    transition: font-size 0.1s ease-in-out;
 }
 
 .about-me-children:nth-child(1){
@@ -23,7 +22,7 @@
 .about-me-children img{
     width: 50%;
     border-radius: 30%;
-    padding: 100px; 
+    
 }
 
 .centered-text {
@@ -39,7 +38,7 @@
 }
 
 .stack-icon {
-    width: 60px; 
+    width: 40px; 
     margin: 10px;        /* Margin between icons */
     transition: transform 0.1s ease-in-out; /* Smooth hover effect */
 
@@ -47,4 +46,23 @@
 
 .stack-icon:hover {
     transform: scale(1.5); /* Zoom effect on hover */
+}
+
+.icons{
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically (if in a flex container) */
+}
+
+.connect-icon {
+    height: 30px; 
+    width: 30px; 
+    margin: 5px;        /* Margin between icons */
+    transition: transform 0.1s ease-in-out; /* Smooth hover effect */
+
+}
+
+.connect-icon:hover {
+    transform: scale(1.5); /* Zoom effect on hover */
+    cursor: pointer;
 }
