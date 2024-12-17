@@ -5,10 +5,11 @@
     font-size: 16px;  
     border-radius: 10px; 
     box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 50%);
-    background-color:#1D2725; 
+    background-color:#eeeee6; 
     color: white; 
     font-family: inherit; 
-    font-weight: bold
+    font-weight: bold;
+    color: #4d2e0c;
 }
   .relative {
     position: relative;
@@ -21,3 +22,11 @@
   }
   
 
+.btn:hover{
+  background-color: #1D2725; 
+  color: white; 
+  cursor: pointer; 
+  transition: color  0.2s ease-in-out;
+  transition: background-color  0.2s ease-in-out;
+  
+}

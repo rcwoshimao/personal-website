@@ -155,9 +155,6 @@ export default function ConceptMap({ imageSrc }) {
             >
               -
             </button>
-            <button className="btn btn-lg" onClick={zoom.center}>
-              Center
-            </button>
             <button className="btn btn-lg" onClick={zoom.reset}>
               Reset
             </button>

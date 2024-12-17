@@ -10,6 +10,7 @@
     background-color: white; /* Background color */
     color: black; /* Text color */
     border-radius: 8px; /* Optional border-radius */
+    color: #4d2e0c;
     
 }
 .project-element:hover {

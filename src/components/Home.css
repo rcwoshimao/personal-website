@@ -1,3 +1,7 @@
+.home{
+    margin: 100px; 
+}
+
 .about-me{
     display: flex;
     justify-content: space-between; /* Ensures space between the two children */
@@ -33,9 +37,6 @@
     flex-direction: column; /* Ensures vertical stacking */
 }
 
-.home{
-    margin: 100px; 
-}
 
 .stack-icon {
     width: 40px; 
@@ -65,4 +66,9 @@
 .connect-icon:hover {
     transform: scale(1.5); /* Zoom effect on hover */
     cursor: pointer;
+}
+
+
+.home .paragraph{
+    font-size: 18px; 
 }
