@@ -1,16 +1,26 @@
+
+.project-element img{
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+    display: block;
+    border-radius: 8px 8px 0px 0px ; 
+    max-height: 150px;
+}
+
 .project-element{
     display: inline-block; 
     margin: 15px; 
-    padding: 20px; 
-    width: 20%; 
+    padding: 0px 0px 20px 0px; 
+    width: 300px; 
     color: white; 
     box-shadow: 0 10px 0 rgb(0, 0, 0); /* Initial shadow */
     transition: box-shadow 0.2s ease-out, transform 0.2s ease-out; /* Smooth transition for shadow and translate */
     text-align: center; /* Optional if you want centered text */
     background-color: white; /* Background color */
-    color: black; /* Text color */
     border-radius: 8px; /* Optional border-radius */
     color: #4d2e0c;
+
     
 }
 .project-element:hover {
@@ -23,6 +33,27 @@ p{
     font-size: 12px; 
 }
 
-img{
-    width: 100%; 
+.view-more-button{
+    color: #4d2e0c;
+    background-color: inherit;
+    border: none; 
+    left: 0px; 
+    font-size: 15px; 
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold; 
+
+}
+
+
+.view-more-button:disabled{
+    color: rgb(163, 163, 163); 
+    background-color: inherit;
+}
+
+.view-more-button:hover:enabled{
+    background-color: black;
+    color: white; 
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; 
+    cursor: pointer; 
 }

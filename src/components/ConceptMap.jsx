@@ -5,6 +5,8 @@ import { localPoint } from '@vx/event';
 import { RectClipPath } from '@vx/clip-path';
 import './ConceptMap.css'; 
 
+/* https://vx-demo.vercel.app/zoom-i */ 
+
 const bg = '#0a0a0a';
 
 const initialTransform = {
