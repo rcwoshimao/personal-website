@@ -1,4 +1,3 @@
-
 .project-element img{
     width: 100%; 
     height: auto; 
@@ -57,3 +56,15 @@ p{
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; 
     cursor: pointer; 
 }
+
+
+
+.project-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em; /* Approximate height for 3 lines */
+  }
+  
