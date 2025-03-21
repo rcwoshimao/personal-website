@@ -8,15 +8,15 @@ import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return(
-    <div>
-      <Nav /> 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/misc" element={<Misc />} />
-        <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
-      </Routes>
-    </div>
+      <div>
+        <Nav /> 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/misc" element={<Misc />} />
+          <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
+        </Routes>
+      </div>
   ); 
 }
 

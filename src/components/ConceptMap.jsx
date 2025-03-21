@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Zoom } from '@vx/zoom';
-import { localPoint } from '@vx/event';
-import { RectClipPath } from '@vx/clip-path';
+import { Zoom } from '@visx/zoom';
+import { localPoint } from '@visx/event';
+import { RectClipPath } from '@visx/clip-path';
 import './ConceptMap.css'; 
 
 /* https://vx-demo.vercel.app/zoom-i */ 

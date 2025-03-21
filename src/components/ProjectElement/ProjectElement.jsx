@@ -1,32 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./ProjectElement.css"; 
-import testImage from './../../assets/test.jpg'; 
+import testImage from "./../../assets/test.jpg"; 
 
-const ProjectElement = ({ image, name, shortDescription, description, link }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
-
-    const toggleDescription = () => {
-        setIsExpanded(!isExpanded);
-    };
-
+const ProjectElement = ({ image, name, shortDescription, link }) => {
     return (
         <div className='project-element'>
             <img src={image || testImage} alt="" />
-            <h1>{name || "Project name"}</h1>
-            <p className={isExpanded ? "" : "project-description"}>
-                {shortDescription || "default description"}
-            </p>
-            <button 
-                className="toggle-description-button" 
-                onClick={toggleDescription}
-            >
-                {isExpanded ? "Show Less" : "Read More"}
-            </button>
+            <h2 className="project-title">{name || "Project name"}</h2>
+            <p className="project-description">{shortDescription || ""}</p>
             {link ? (
-                <Link to={link}>
+                <a rel="noreferrer" target="_blank" href={link}>
                     <button className="view-more-button">View More &gt;&gt; </button>
-                </Link>
+                </a>
             ) : (
                 <button className="view-more-button" disabled>View More &gt;&gt; </button>
             )}

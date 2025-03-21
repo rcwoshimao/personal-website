@@ -61,10 +61,13 @@ p{
 
 .project-description {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 4.5em; /* Approximate height for 3 lines */
+    padding: 0px 20px; 
   }
   
+.project-title{
+    padding: 0px 20px; 
+}

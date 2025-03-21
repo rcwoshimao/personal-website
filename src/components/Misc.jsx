@@ -6,13 +6,22 @@ import { Link } from "react-router-dom";
 const Misc = () => {
     return (
         <div className='misc' >
-            <h1> Cool little things I've done</h1>
-            <h2> Concept maps for courses </h2>
-            <p> I was fairly interested in proofs during the time I took CSE 20 with professor Miles Jones in UCSD. Something about the process of being able to show something is true step by step just appeals to my brain- so when I took the entire CSE 20-21-101 pipeline, I couldn't help but map all the concepts onto a huge document. Check out those graphs I have created. </p>
-            <p className='bolden'> CSE 20 </p> 
-            <Link className='link' to="/misc/cse20">CSE 20 &gt;&gt;</Link> 
+            <h1> Recommendations and resources </h1>
+            <p> My undergraduate major at UCSD is Cogntive science major with a specialization in Machine Learnimg. The course content are interesting, the materials I learn are not the most helpful for industry. Thus, a lot of the learning I have done consist of researching resources online and making an effort to follow the pipeline I created for myself. </p>
+            <p> Here are some resources I would like to share with folks on the same boat as me, or are simply interested in learning more on your free time! </p>
+
+
+            <p>
+            neetcode 
+            codepath 
+            freecodecamp.io
+            roadmap.sh
+
+
+            </p>
         </div>
     );
 }
+
 
 export default Misc;
