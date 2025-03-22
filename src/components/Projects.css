@@ -4,8 +4,6 @@
     padding-left : 15%; 
 }
 
-
-
 .project-subdiv {
     display: flex;
     flex-wrap: wrap; /* Allows elements to wrap to the next row if needed */

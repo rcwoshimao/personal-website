@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 const App = () => {
   return(
       <div>
+        <div className="w-full">
         <Nav /> 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -16,7 +17,7 @@ const App = () => {
           <Route path="/misc" element={<Misc />} />
           <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
         </Routes>
-        
+        </div>
       </div>
   ); 
 }

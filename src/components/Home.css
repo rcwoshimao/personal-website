@@ -55,6 +55,11 @@
     justify-content: center; /* Centers content horizontally */
     align-items: center; /* Centers content vertically (if in a flex container) */
 }
+.connect-icons{
+    margin: 30px 0px; 
+    display: flex;
+}
+
 
 .connect-icon {
     height: 30px; 

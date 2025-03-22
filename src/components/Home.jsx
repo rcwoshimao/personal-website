@@ -19,9 +19,9 @@ const Home = () => {
                     <img src={pfp} alt="profile"/>
                 </div>
                 <div className="about-me-children">
-                    <h1>About me</h1>
+                    <h1>Hi! This is Rebecca</h1>
                     <p className='paragraph'>
-                        Hi! My name is Rebecca Chen. I am an undergraduate student at UCSD majoring in Cognitive Science and minoring in Computer Science. My field of interest spans from Machine Learning to web development. I have a strong interest in general education, having done tutoring for numerous organizations for STEM or none-STEM. 
+                       I am an undergraduate student at UCSD majoring in Cognitive Science and minoring in Computer Science. My field of interest spans from Machine Learning to web development. I have a strong interest in general education, having done tutoring for numerous organizations for STEM or none-STEM. 
                     </p>
                     <div className='connect-icons'>
                         <a href="https://github.com/rcwoshimao"  target="_blank" rel="noopener noreferrer">

@@ -5,5 +5,14 @@ module.exports = withMT({
   theme: {
     extend: {},
   },
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+        mono: ['Menlo', 'monospace'], // Ensure the mono font is defined
+      },
+    },
+  },
   plugins: [],
 });
