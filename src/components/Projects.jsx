@@ -5,6 +5,7 @@ import SmashHack25 from "./../assets/smashhack25thumbnail.png";
 import RSDB from "./../assets/RSDB.png"; 
 import cse20 from "./../assets/cse20thumbnail.png"; 
 import cogs107a from "./../assets/cogs107Athumbnail.png"
+import Nav from "./Nav";
 
 import './Projects.css'; 
 //import { Link } from "react-router-dom";
@@ -37,6 +38,10 @@ const Projects = () => {
 
             <ProjectElement image={cogs107a} name={"COGS 107A"} shortDescription="" link="https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273" /> 
             <br/> 
+
+
+            
+
 
         </div>
     ); 

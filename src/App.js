@@ -16,6 +16,7 @@ const App = () => {
           <Route path="/misc" element={<Misc />} />
           <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
         </Routes>
+        
       </div>
   ); 
 }

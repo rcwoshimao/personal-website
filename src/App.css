@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
   
@@ -8,7 +12,13 @@ body{
   /*background-color: #071C27;*/
   /*color: rgb(124, 235, 219); */
   color: #4d2e0c;
-  font-family: 'Courier New', Courier, monospace; 
+  /*font-family: 'Courier New', Courier, monospace; */ 
+  @apply bg-[#eeeee6] text-[#4d2e0c] font-sans;
+}
+
+h1{
+  font-size: 30px; 
+  font-weight: bold; 
 }
 
 h2{
@@ -17,7 +27,7 @@ h2{
 
 p{
   font-size: 10px;
-  font-weight:bold;
+
 }
 
 

@@ -26,6 +26,7 @@
 .about-me-children img{
     width: 50%;
     border-radius: 30%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
     
 }
 
@@ -109,3 +110,32 @@
     text-decoration: none; /* Removes the underline */
     color: inherit; /* Inherits the text color from the parent */
   }
+
+
+  @media (max-width: 768px) {
+    .about-me {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align content */
+        text-align: center;
+    }
+
+    .about-me-children {
+        width: 100%; /* Ensure full width usage */
+        text-align: center;
+    }
+
+    .about-me-children img {
+        width: 50%; /* Adjust image size for better visibility */
+        max-width: 200px; /* Prevent it from getting too large */
+    }
+
+    .home {
+        margin: 20px; /* Reduce margin for smaller screens */
+    }
+
+    .paragraph {
+        font-size: 16px; /* Reduce text size for readability */
+    }
+
+}
+
