@@ -6,16 +6,17 @@ import Cse20 from './components/Maps/Cse20';
 import Nav from './components/Nav';
 import { Routes, Route } from 'react-router-dom'; 
 
+
 const App = () => {
   return(
-      <div>
-        <div className="w-full">
-        <Nav /> 
+      <div className='something'>
+        <div>
+        <Nav/> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/misc" element={<Misc />} />
-          <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
+           <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
         </Routes>
         </div>
       </div>

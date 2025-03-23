@@ -6,7 +6,18 @@ import sclearn from './../assets/scikit-learn.png';
 import StackIcon from "tech-stack-icons";
 import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
+import ProjectElement from "./ProjectElement/ProjectElement";
+import cogs107a from "./../assets/cogs107Athumbnail.gif";
+import RSDB from "./../assets/RSDB.png"; 
 
+
+// Reusable TooltipIcon Component
+const TooltipIcon = ({ icon, label }) => (
+    <div className="tooltip">
+        <StackIcon name={icon} className="stack-icon" />
+        <span className="tooltiptext">{label}</span>
+    </div>
+);
 
 const Home = () => {
     let webDevResume = "https://docs.google.com/document/d/1b72j3ZAOqG8z63yta5wi4md5NnWhQsHg5oi2bGXguKk/edit?usp=sharing"; 
@@ -37,7 +48,6 @@ const Home = () => {
                         <GoogleDocPDF docLink={dsResume}>
                             <FaFileAlt className="connect-icon" style={{ color: '#b52849' }}  title="Data science resume" />
                         </GoogleDocPDF>
-
                     </div>
                 </div>
             </div>
@@ -46,86 +56,42 @@ const Home = () => {
             
             <h3 className="centered-text">General </h3>
             <div className='icons'> 
-                <div className="tooltip">
-                <StackIcon name="c++" className="stack-icon" />
-                    <span className="tooltiptext">c++</span>
-                </div> 
-
-                <div className="tooltip">
-                <StackIcon name="python" className="stack-icon" />
-                    <span className="tooltiptext">python</span>
-                </div> 
-
-                <div className="tooltip">
-                <StackIcon name="java" className="stack-icon" />
-                    <span className="tooltiptext">java</span>
-                </div> 
-
-                <div className="tooltip">
-                <StackIcon name="streamlit" className="stack-icon" />
-                    <span className="tooltiptext">streamlit</span>
-                </div> 
-
-                <div className="tooltip">
-                <StackIcon name="vscode" className="stack-icon" />
-                    <span className="tooltiptext">vscode</span>
-                </div> 
-
-                <div className="tooltip">
-                <StackIcon name="neovim" className="stack-icon" />
-                    <span className="tooltiptext">neovim</span>
-                </div>
+                <TooltipIcon icon="c++" label="c++" />
+                <TooltipIcon icon="python" label="python" />
+                <TooltipIcon icon="java" label="java" />
+                <TooltipIcon icon="streamlit" label="streamlit" />
+                <TooltipIcon icon="vscode" label="vscode" />
+                <TooltipIcon icon="neovim" label="neovim" />
             </div>
 
             <h3 className="centered-text">Web and mobile development</h3>
             <div className='icons'> 
-                <div className="tooltip">
-                    <StackIcon name="reactjs" className="stack-icon" />
-                    <span className="tooltiptext">reactjs & react native</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="swift" className="stack-icon" />
-                    <span className="tooltiptext">swift</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="tailwindcss" className="stack-icon" />
-                    <span className="tooltiptext">tailwindcss</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="postman" className="stack-icon" />
-                    <span className="tooltiptext">postman</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="typescript" className="stack-icon" />
-                    <span className="tooltiptext">typescript</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="figma" className="stack-icon" />
-                    <span className="tooltiptext">figma</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="firebase" className="stack-icon" />
-                    <span className="tooltiptext">firebase</span>
-                </div>
-                <div className="tooltip">
-                    <StackIcon name="nodejs" className="stack-icon" />
-                    <span className="tooltiptext">nodejs</span>
-                </div>
-
-
+                <TooltipIcon icon="reactjs" label="reactjs & react native" />
+                <TooltipIcon icon="swift" label="swift" />
+                <TooltipIcon icon="tailwindcss" label="tailwindcss" />
+                <TooltipIcon icon="postman" label="postman" />
+                <TooltipIcon icon="typescript" label="typescript" />
+                <TooltipIcon icon="figma" label="figma" />
+                <TooltipIcon icon="firebase" label="firebase" />
+                <TooltipIcon icon="nodejs" label="nodejs" />
             </div>
 
             <h3 className="centered-text">Machine learning</h3>
             <div className='icons'> 
+                <TooltipIcon icon="pytorch" label="pytorch" />
                 <div className="tooltip">   
-                    <StackIcon name="pytorch" className="stack-icon" />
-                    <span className="tooltiptext">pytorch</span>
-                </div>
-                <div className="tooltip">
                     <img src={sclearn} alt="profile" className="stack-icon" />
-                    <span className="tooltiptext">sckit learn</span>
+                    <span className="tooltiptext">scikit-learn</span>
                 </div>
             </div>
+            
+            <h1 className="centered-text"> Featured projects</h1>
+            <ProjectElement image={cogs107a} name={"COGS 107A"}  shortDescription="concept map for cogs 107A,  Neuroanatomy and Physiology. A course focused on principles of brain organization, from neurons to circuits to functional networks " link="https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273" /> 
+
+            <ProjectElement image={RSDB} name={"Recommendation for Business owners (RSDB)"} shortDescription="A hybrid recommender system for predicting a user's rating of a business." link={"https://github.com/KevinBian107/RSDB"} /> 
+            
+
+            <h1 className="centered-text"> Teaching experiences</h1>
         </div>
     );
 };

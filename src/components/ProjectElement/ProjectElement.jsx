@@ -11,10 +11,10 @@ const ProjectElement = ({ image, name, shortDescription, link }) => {
             <p className="project-description">{shortDescription || ""}</p>
             {link ? (
                 <a rel="noreferrer" target="_blank" href={link}>
-                    <button className="view-more-button">View More &gt;&gt; </button>
+                    <button className="view-more-button">View Project &gt;&gt; </button>
                 </a>
             ) : (
-                <button className="view-more-button" disabled>View More &gt;&gt; </button>
+                <button className="view-more-button" disabled>View Project &gt;&gt; </button>
             )}
         </div>
     );

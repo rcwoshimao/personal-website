@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
   text-align: center;
-  
+  width: 100%;
+  height: 100%;
 }
 
+
 body{
-  background-color: #eeeee6;
-  /*background-color: #071C27;*/
-  /*color: rgb(124, 235, 219); */
   color: #4d2e0c;
   /*font-family: 'Courier New', Courier, monospace; */ 
   @apply bg-[#eeeee6] text-[#4d2e0c] font-mono;
