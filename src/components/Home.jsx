@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Home.css'; 
 import './../App.css'; 
 import pfp from './../assets/pfp.jpeg';
@@ -11,6 +12,7 @@ import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import RSDB from "./../assets/RSDB.png"; 
 
 
+
 // Reusable TooltipIcon Component
 const TooltipIcon = ({ icon, label }) => (
     <div className="tooltip">
@@ -18,6 +20,40 @@ const TooltipIcon = ({ icon, label }) => (
         <span className="tooltiptext">{label}</span>
     </div>
 );
+
+const TeachingExperiences = [
+    {
+      institution: "Halıcıoğlu Data Science Institute",
+      role: "Instructional Assistant",
+      period: "2024 - Ongoing",
+      courses: "DSC 10, 40A",
+      details: [
+        "Provided 100+ hours of in-person instruction weekly",
+        "Supported 1,000+ students in Python programming, data analysis, and foundational concepts",
+      ],
+    },
+    {
+      institution: "CodePath",
+      role: "Tech Fellow",
+      period: "2023",
+      courses: "Intro to iOS Development",
+      details: [
+        "Mentored & supported 200+ students in iOS development using Swift",
+        "Provided technical assistance during sessions, assignments, & labs",
+      ],
+    },
+    {
+      institution: "4S Foundation",
+      role: "Mentor",
+      period: "2022 - Ongoing",
+      courses: "College essay preparation",
+      details: [
+        "Offered personalized guidance for students navigating college applications",
+        "Assisted with essays, financial aid, and equitable access to education",
+      ],
+    },
+  ];
+
 
 const Home = () => {
     let webDevResume = "https://docs.google.com/document/d/1b72j3ZAOqG8z63yta5wi4md5NnWhQsHg5oi2bGXguKk/edit?usp=sharing"; 
@@ -32,7 +68,7 @@ const Home = () => {
                 <div className="about-me-children">
                     <h1>Hi! This is Rebecca</h1>
                     <p className='paragraph'>
-                       I am an undergraduate student at UCSD majoring in Cognitive Science and minoring in Computer Science. My field of interest spans from Machine Learning to web development. I have a strong interest in general education, having done tutoring for numerous organizations for STEM or none-STEM. 
+                        I am a passionate developer proficient in Java, Python, Swift, and React with hands-on experience in web and mobile development and data analysis ☺️. I also enjoy the process of teaching, and have experience tutoring for non-profit organizations in a wide range of technical fields.
                     </p>
                     <div className='connect-icons'>
                         <a href="https://github.com/rcwoshimao"  target="_blank" rel="noopener noreferrer">
@@ -84,14 +120,38 @@ const Home = () => {
                     <span className="tooltiptext">scikit-learn</span>
                 </div>
             </div>
-            
+
+            <br/>
+            <br/>
             <h1 className="centered-text"> Featured projects</h1>
+            <div className="featured-projects">
             <ProjectElement image={cogs107a} name={"COGS 107A"}  shortDescription="concept map for cogs 107A,  Neuroanatomy and Physiology. A course focused on principles of brain organization, from neurons to circuits to functional networks " link="https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273" /> 
 
             <ProjectElement image={RSDB} name={"Recommendation for Business owners (RSDB)"} shortDescription="A hybrid recommender system for predicting a user's rating of a business." link={"https://github.com/KevinBian107/RSDB"} /> 
-            
+            </div>
+            <br/>
+            <h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </h2>
 
-            <h1 className="centered-text"> Teaching experiences</h1>
+            <br/>
+            <br/>
+            <h1 className="centered-text"> 🎓 Tutoring experiences</h1>
+            <br/>
+            <div className="centered-text">
+            {TeachingExperiences.map((exp, index) => (
+                <div key={index} className="mb-6 border-b pb-4">
+                <h3 className="text-xl font-semibold">{exp.institution} – <span className="italic">{exp.role}</span></h3>
+                <p className="text-gray-600">🗓️ <strong>{exp.period}</strong> | 📚 <strong>{exp.courses}</strong></p>
+                <ul className="list-disc pl-5 mt-2">
+                    {exp.details.map((detail, i) => (
+                    <li key={i} className="text-gray-700">{detail}</li>
+                    ))}
+                </ul>
+                </div>
+            ))}
+     
+            </div>
+
+
         </div>
     );
 };
