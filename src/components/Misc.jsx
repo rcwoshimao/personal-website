@@ -6,7 +6,7 @@ import './Misc.css';
 const Misc = () => {
     return (
         <div className='misc'>
-            <h1> Tech Recommendations and Resources</h1>
+            <h1> Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
             </p>
@@ -33,8 +33,10 @@ const Misc = () => {
 
             <h1> What do I do in my free time? </h1>
 
-            <h2>I draw some.</h2> 
-            
+            <h3> <a href="https://www.instagram.com/rc_woshimao/" style={{ textDecoration: 'underline'}}>I draw some.</a> </h3>
+            <p> (Will probably make a separate art portfolio site...one day!)</p>
+    
+            <h3> Monekytype </h3>
             <h2>Mental Health & Books</h2>
             <ul>
                 <li><i>The Subtle Art of Not Giving a F*ck</i> by Mark Manson</li>

@@ -38,23 +38,25 @@
     flex-direction: column; /* Ensures vertical stacking */
 }
 
+.icons {
+    display: flex;
+    flex-wrap: wrap; /* Allows icons to wrap on smaller screens */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically (if in a flex container) */
+    padding: 0; 
+    gap: 10px; /* Adds spacing between wrapped items */
+}
 
 .stack-icon {
     width: 30px; 
-    margin: 0px 10px;        /* Margin between icons */
+    margin: 5px; /* Provides spacing between icons */
     transition: transform 0.1s ease-in-out; /* Smooth hover effect */
-
 }
 
 .stack-icon:hover {
     transform: scale(1.5); /* Zoom effect on hover */
 }
 
-.icons{
-    display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically (if in a flex container) */
-}
 .connect-icons{
     margin: 30px 0px; 
     display: flex;
@@ -115,6 +117,14 @@
     text-decoration: none; /* Removes the underline */
     color: inherit; /* Inherits the text color from the parent */
   }
+
+  .project-subdiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Ensures items align from the top */
+    gap: 1rem;
+}
+
 
 
   @media (max-width: 768px) {

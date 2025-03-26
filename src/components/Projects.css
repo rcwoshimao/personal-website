@@ -1,7 +1,7 @@
-.projects{
-    margin: 20px; 
-    padding-right : 15%; 
-    padding-left : 15%; 
+.projects {
+    margin: 20px;
+    padding-right: 15%;
+    padding-left: 15%;
 }
 
 .project-subdiv {
@@ -9,4 +9,13 @@
     flex-wrap: wrap;
     align-items: flex-start; /* Ensures items align from the top */
     gap: 1rem;
+    justify-content: flex-start; /* Default: Left-align elements */
+}
+
+/* On smaller screens (phones), center elements */
+@media (max-width: 768px) {
+    .project-subdiv {
+        justify-content: center; /* Center items only on small screens */
+        text-align: center; /* Ensures any text elements inside align properly */
+    }
 }

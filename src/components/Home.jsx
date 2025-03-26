@@ -124,7 +124,7 @@ const Home = () => {
             <br/>
             <br/>
             <h1 className="centered-text"> Featured projects</h1>
-            <div className="featured-projects">
+            <div className="featured-projects project-subdiv">
             <ProjectElement image={cogs107a} name={"COGS 107A"}  shortDescription="concept map for cogs 107A,  Neuroanatomy and Physiology. A course focused on principles of brain organization, from neurons to circuits to functional networks " link="https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273" /> 
 
             <ProjectElement image={RSDB} name={"Recommendation for Business owners (RSDB)"} shortDescription="A hybrid recommender system for predicting a user's rating of a business." link={"https://github.com/KevinBian107/RSDB"} /> 
