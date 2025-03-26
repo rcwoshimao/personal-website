@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ProjectElement from "./ProjectElement/ProjectElement";
 import myNewsWire from "./../assets/mynewswirethumbnail.jpg"; 
 import RSDB from "./../assets/RSDB.png"; 
@@ -8,8 +9,12 @@ import epinions from  "./../assets/epinionsthumbnail.jpg";
 
 import './Projects.css';
 
+const fadeInDown = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const Projects = () => {
-    // Define the projects data directly inside the component
     const projectsData = [
         {
             category: "Course concept maps",
@@ -84,31 +89,29 @@ const Projects = () => {
         }
     ];
 
-    
-
     return( 
-        <div className='projects'>
+        <motion.div className='projects' initial="hidden" animate="visible" variants={fadeInDown}>
             <h1>Projects</h1>
 
             {projectsData.map((category, index) => (
-                <div key={index}>
+                <motion.div key={index} initial="hidden" animate="visible" variants={fadeInDown}>
                     <h2 className="centered-text">{category.category}</h2>
                     <div className="project-subdiv">
                         {category.projects.map((project, idx) => (
-                            <ProjectElement
-                                key={idx}
-                                image={project.image}
-                                name={project.name}
-                                shortDescription={project.shortDescription}
-                                link={project.link}
-                                keywords={project.keywords}
-                                
-                            />
+                            <motion.div key={idx} initial="hidden" animate="visible" variants={fadeInDown}>
+                                <ProjectElement
+                                    image={project.image}
+                                    name={project.name}
+                                    shortDescription={project.shortDescription}
+                                    link={project.link}
+                                    keywords={project.keywords}
+                                />
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 }
 
