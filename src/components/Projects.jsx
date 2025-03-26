@@ -26,7 +26,7 @@ const Projects = () => {
                     name: "CSE 101",
                     shortDescription: "",
                     link: "/misc/cse20",
-                    keywords: ["course map", "algorithms"]
+                    keywords: ["course map", "algorithms", ]
                 },
                 {
                     image: cogs107a,
@@ -92,7 +92,7 @@ const Projects = () => {
 
             {projectsData.map((category, index) => (
                 <div key={index}>
-                    <h2>{category.category}</h2>
+                    <h2 className="centered-text">{category.category}</h2>
                     <div className="project-subdiv">
                         {category.projects.map((project, idx) => (
                             <ProjectElement

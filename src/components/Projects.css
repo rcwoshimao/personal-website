@@ -12,6 +12,15 @@
     justify-content: flex-start; /* Default: Left-align elements */
 }
 
+
+.centered-text {
+    text-align: center; /* Ensures text inside is horizontally centered */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically (if in a flex container) */
+    flex-direction: column; /* Ensures vertical stacking */
+}
+
 /* On smaller screens (phones), center elements */
 @media (max-width: 768px) {
     .project-subdiv {
@@ -19,3 +28,4 @@
         text-align: center; /* Ensures any text elements inside align properly */
     }
 }
+
