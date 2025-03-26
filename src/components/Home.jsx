@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Home.css";
 import "./../App.css";
@@ -11,6 +10,7 @@ import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
 import ProjectElement from "./ProjectElement/ProjectElement";
 import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import RSDB from "./../assets/RSDB.png";
+import tensorflow from "./../assets/tensorflow.png";
 
 // Animation variants
 const fadeInDown = {
@@ -100,33 +100,53 @@ const Home = () => {
       
       <h3 className="centered-text">General</h3>
       <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.7 }}>
+        <TooltipIcon icon="js" label="js" delay={0.3} />  
         <TooltipIcon icon="c++" label="c++" delay={0.2} />
         <TooltipIcon icon="python" label="python" delay={0.3} />
         <TooltipIcon icon="java" label="java" delay={0.4} />
+        <TooltipIcon icon="swift" label="swift"  delay={0.2}  />
+        <TooltipIcon icon="vim" label="vim" delay={0.3} />  
+        <TooltipIcon icon="vscode" label="vscode" delay={0.3} />  
+
       </motion.div>
 
-      <h3 className="centered-text">Web and mobile devs</h3>
+      <h3 className="centered-text">Web & mobile</h3>
             <motion.div className='icons' variants={fadeInDown} transition={{ delay: 0.7 }}> 
                 <TooltipIcon icon="reactjs" label="reactjs & react native"  delay={0.2}  />
-                <TooltipIcon icon="swift" label="swift"  delay={0.2}  />
                 <TooltipIcon icon="tailwindcss" label="tailwindcss" delay={0.2}  />
                 <TooltipIcon icon="postman" label="postman"  delay={0.2} />
                 <TooltipIcon icon="typescript" label="typescript" delay={0.2}  />
-                <TooltipIcon icon="figma" label="figma"  delay={0.2} />
                 <TooltipIcon icon="firebase" label="firebase"  delay={0.2} />
                 <TooltipIcon icon="nodejs" label="nodejs"  delay={0.2} />
+                <TooltipIcon icon="vitejs" label="vitejs"  delay={0.2} />
+                <TooltipIcon icon="materialui" label="materialui"  delay={0.2} />
+                <TooltipIcon icon="docusaurus" label="docusaurus"  delay={0.2} />
+
     </motion.div>
 
 
-      <h3 className="centered-text">Machine Learning</h3>
+      <h3 className="centered-text">ML</h3>
       <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.8 }}>
+        <TooltipIcon icon="streamlit" label="streamlit"  delay={0.2} />
         <TooltipIcon icon="pytorch" label="pytorch" delay={0.3} />
         <div className="tooltip">
           <motion.img src={sclearn} alt="scikit-learn" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.4 }} />
           <span className="tooltiptext">scikit-learn</span>
         </div>
+        <div className="tooltip">
+          <motion.img src={tensorflow} alt="tensorflow" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.4 }} />
+          <span className="tooltiptext">tensorflow</span>
+        </div>
       </motion.div>
 
+      <h3 className="centered-text">Design</h3>
+            <motion.div className='icons' variants={fadeInDown} transition={{ delay: 0.7 }} > 
+                <TooltipIcon icon="figma" label="figma" delay={0.2}/>
+                <TooltipIcon icon="canva" label="canva" delay={0.2}/>
+                <TooltipIcon icon="procreate" label="procreate" delay={0.2}/>
+            </motion.div>
+
+      <br/>
       {/* Featured Projects */}
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
         Featured Projects
@@ -136,6 +156,10 @@ const Home = () => {
         <ProjectElement image={RSDB} name="Recommendation for Business Owners (RSDB)" shortDescription="A hybrid recommender system." link="https://github.com/KevinBian107/RSDB" />
       </motion.div>
 
+      <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
+
+
+      <br/>
       {/* Tutoring Experiences */}
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1.2 }}>
         🎓 Tutoring Experiences
