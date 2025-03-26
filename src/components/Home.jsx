@@ -121,6 +121,14 @@ const Home = () => {
                 </div>
             </div>
 
+            <h3 className="centered-text">Design</h3>
+            <div className='icons'> 
+                <TooltipIcon icon="figma" label="figma" />
+                <TooltipIcon icon="canva" label="canva" />
+                <TooltipIcon icon="procreate" label="procreate" />
+            </div>
+
+
             <br/>
             <br/>
             <h1 className="centered-text"> Featured projects</h1>

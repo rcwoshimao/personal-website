@@ -12,7 +12,6 @@ export function Nav() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 960) setOpenNav(false);
-      console.log("Window resized, openNav:", openNav);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -29,12 +28,10 @@ export function Nav() {
 
     if (openNav) {
       document.addEventListener("mousedown", handleClickOutside);
-      console.log("Listening for outside clicks");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      console.log("Stopped listening for outside clicks");
     };
   }, [openNav]);
 
@@ -42,15 +39,11 @@ export function Nav() {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const scrollDifference = Math.abs(prevScrollPos - currentScrollPos); // Get the absolute difference
-  
-      console.log("scroll event:", currentScrollPos, prevScrollPos, openNav);
-  
       // Only close navbar if the scroll difference is greater than a threshold (e.g., 10px) and scrolling down
       if (scrollDifference > 30 && prevScrollPos < currentScrollPos && openNav) {
         console.log("Scrolling down, closing navbar");
         setOpenNav(false); // Close navbar when scrolling down
       }
-  
       setPrevScrollPos(currentScrollPos);
     };
   

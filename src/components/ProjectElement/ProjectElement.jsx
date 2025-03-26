@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "./ProjectElement.css"; 
 import testImage from "./../../assets/test.jpg"; 
 
-const KeywordDisplay = ({ keyword1, keyword2, keyword3 }) => {
-    if (!keyword1 || !keyword2 || !keyword3) return null;
+const KeywordDisplay = ({keywords}) => {
+    if (keywords.length === 0) return null;
     return (
-      <p className="keyword font-bold">
-        {keyword1} | {keyword2} | {keyword3}
+      <p className="project-keywords font-bold" style={{color: 'grey'}}>
+        {keywords.join(" | ")}
       </p>
     );
   };
@@ -17,7 +17,7 @@ const ProjectElement = ({ image, name, shortDescription, link, keywords }) => {
         <div className='project-element'>
             <img src={image || testImage} alt="" />
             <h2 className="project-title">{name || "Project name"}</h2>
-            <KeywordDisplay keyword1="Keyword1" keyword2="Keyword2" keyword3="Keyword3" />
+            <KeywordDisplay keywords={keywords || []}/>
             <p className="project-description">{shortDescription || ""}</p>
             {link ? (
                 <a rel="noreferrer" target="_blank" href={link}>
