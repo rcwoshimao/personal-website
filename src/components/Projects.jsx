@@ -19,26 +19,26 @@ const Projects = () => {
                     name: "CSE 20",
                     shortDescription: "",
                     link: "/misc/cse20",
-                    keywords: ["course concept map", "proof"]
+                    keywords: ["course map", "discrete math", "proofs"]
                 },
                 {
                     image: "https://lh3.googleusercontent.com/iZwB2p3rX7D7h-4QWSmKXy-_4FBRVCB8A8vrGwQduZzqfU-1ZMewoumgw3HOTiOsrN3Ax_vnOuUGRFnWuIbGoOWpAnpCoxGqvxg",
                     name: "CSE 101",
                     shortDescription: "",
                     link: "/misc/cse20",
-                    keywords: ["course concept map", "algorithms"]
+                    keywords: ["course map", "algorithms"]
                 },
                 {
                     image: cogs107a,
                     name: "COGS 107A",
                     shortDescription: "",
                     link: "https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273",
-                    keywords: ["course concept map", "neuro science"]
+                    keywords: ["course map", "neurosci"]
                 }
             ]
         },
         {
-            category: "Machine learning",
+            category: "ML",
             projects: [
                 {
                     image: "https://assets3.cbsnewsstatic.com/hub/i/2017/10/17/15e5a319-1728-4485-8516-3b1682feb51c/171016-nasa-gravitational-waves-promo.gif?v=9e5c48f1b04ac2a564e8a4c51250ac89",
@@ -71,7 +71,7 @@ const Projects = () => {
             ]
         },
         {
-            category: "Web development",
+            category: "Web & Mobile",
             projects: [
                 {
                     image: myNewsWire,

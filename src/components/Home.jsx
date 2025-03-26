@@ -100,7 +100,7 @@ const Home = () => {
                 <TooltipIcon icon="neovim" label="neovim" />
             </div>
 
-            <h3 className="centered-text">Web and mobile development</h3>
+            <h3 className="centered-text">Web and mobile devs</h3>
             <div className='icons'> 
                 <TooltipIcon icon="reactjs" label="reactjs & react native" />
                 <TooltipIcon icon="swift" label="swift" />
