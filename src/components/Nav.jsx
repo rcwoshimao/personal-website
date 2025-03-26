@@ -5,33 +5,61 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export function Nav() {
   const [openNav, setOpenNav] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const navRef = useRef(null);
 
   // Close the navbar when resizing
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 960) setOpenNav(false);
+      console.log("Window resized, openNav:", openNav);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [openNav]);
 
   // Close navbar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
+        console.log("Clicked outside navbar");
         setOpenNav(false);
       }
     };
 
     if (openNav) {
       document.addEventListener("mousedown", handleClickOutside);
+      console.log("Listening for outside clicks");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      console.log("Stopped listening for outside clicks");
     };
   }, [openNav]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const scrollDifference = Math.abs(prevScrollPos - currentScrollPos); // Get the absolute difference
+  
+      console.log("scroll event:", currentScrollPos, prevScrollPos, openNav);
+  
+      // Only close navbar if the scroll difference is greater than a threshold (e.g., 10px) and scrolling down
+      if (scrollDifference > 30 && prevScrollPos < currentScrollPos && openNav) {
+        console.log("Scrolling down, closing navbar");
+        setOpenNav(false); // Close navbar when scrolling down
+      }
+  
+      setPrevScrollPos(currentScrollPos);
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, openNav]);
+  
 
   const navItems = [
     { id: 1, text: "Home", path: "/" },
@@ -51,13 +79,18 @@ export function Nav() {
     </ul>
   );
 
+  const handleNavToggle = () => {
+    console.log("Toggling nav", !openNav);
+    setOpenNav(!openNav);
+  };
+
   return (
     <Navbar ref={navRef} className="max-w-full px-4 py-2 lg:px-8 lg:py-4 sticky top-0 bg-brown-400 shadow-md rounded-none z-50">
       <div className="flex flex-wrap items-center justify-between text-white">
         <div className="hidden lg:flex">{navList}</div>
 
-        <IconButton variant="text" className="lg:hidden" onClick={() => setOpenNav(!openNav)}>
-          {openNav ? <XMarkIcon className="h-6 w-6" strokeWidth={2} /> : <Bars3Icon className="h-6 w-6" strokeWidth={2} />}
+        <IconButton variant="text" color="white" className="lg:hidden" onClick={handleNavToggle}>
+          {openNav ? <XMarkIcon color="white" className="h-6 w-6" strokeWidth={2} /> : <Bars3Icon className="h-6 w-6" strokeWidth={2} />}
         </IconButton>
 
         <Collapse open={openNav}>
