@@ -24,20 +24,17 @@ const Misc = () => {
                 <li><a href="https://www.codepath.org/courses/web-development" target="_blank" rel="noopener noreferrer">CodePath Web Dev Course</a> - Hands-on course with project-building experience.</li>
             </ul>
             <br/>
-            <h2>Machine Learning</h2>
-            <ul>
-                <li>ACM Quarterly Projects - Hands-on learning with mentorship in ML, Design, and Cybersecurity.</li>
-                <li>E4E Projects - Research-oriented machine learning projects.</li>
-            </ul>
-            <br/>
+            
 
             <h1> What do I do in my free time? </h1>
 
-            <h3> <a href="https://www.instagram.com/rc_woshimao/" style={{ textDecoration: 'underline'}}>I draw some.</a> </h3>
-            <p> (Will probably make a separate art portfolio site...one day!)</p>
-    
-            <h3> Monekytype </h3>
-            <h2>Mental Health & Books</h2>
+            <h3> <a href="https://www.instagram.com/rc_woshimao/" style={{ textDecoration: 'underline'}}>1. I draw.</a> </h3>
+            <p> <span class="spoiler">My dream is to become a manga artist</span>. (Will probably make a separate art portfolio site...one day!)</p>
+            <h3> <a href="https://monkeytype.com/profile/rc_woshimao" style={{ textDecoration: 'underline'}}>2. Monkeytype. </a> </h3>
+
+            <h3> <a href="https://monkeytype.com/profile/rc_woshimao" style={{ textDecoration: 'underline'}}>3. I read books and watch movies.</a> </h3>
+            <p> Some of my recommendations here: </p>
+            
             <ul>
                 <li><i>The Subtle Art of Not Giving a F*ck</i> by Mark Manson</li>
                 <li><i>One Hundred Years of Solitude</i> by Gabriel García Márquez</li>

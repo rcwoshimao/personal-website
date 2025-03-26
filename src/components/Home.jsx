@@ -140,7 +140,7 @@ const Home = () => {
             {TeachingExperiences.map((exp, index) => (
                 <div key={index} className="mb-6 border-b pb-4">
                 <h3 className="text-xl font-semibold">{exp.institution} – <span className="italic">{exp.role}</span></h3>
-                <p className="text-gray-600">🗓️ <strong>{exp.period}</strong> | 📚 <strong>{exp.courses}</strong></p>
+                <p className="text-gray-600 text-sm">🗓️ <strong>{exp.period}</strong> | 📚 <strong>{exp.courses}</strong></p>
                 <ul className="list-disc pl-5 mt-2">
                     {exp.details.map((detail, i) => (
                     <li key={i} className="text-gray-700">{detail}</li>

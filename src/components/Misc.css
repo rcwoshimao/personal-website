@@ -35,3 +35,29 @@ h2{
     justify-content: center; /* Centers items horizontally */
 
 }
+
+.misc a{
+    text-decoration: underline;  
+}
+
+.spoiler {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .spoiler:hover {
+    color: white; 
+    background-color: black;
+  }
+
+@media (max-width: 768px) {
+    .misc{
+        padding: 0; 
+        margin: 5%; 
+    }
+
+}
+
+

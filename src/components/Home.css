@@ -125,6 +125,10 @@
     gap: 1rem;
 }
 
+.home ul{
+    list-style-type: none;
+}
+
 
 
   @media (max-width: 768px) {
