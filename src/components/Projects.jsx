@@ -6,7 +6,6 @@ import RSDB from "./../assets/RSDB.png";
 import cse20 from "./../assets/cse20thumbnail.gif"; 
 import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import epinions from  "./../assets/epinionsthumbnail.jpg"; 
-
 import './Projects.css';
 
 const fadeInDown = {
@@ -31,7 +30,7 @@ const Projects = () => {
                     name: "CSE 101",
                     shortDescription: "",
                     link: "/misc/cse20",
-                    keywords: ["course map", "algorithms", ]
+                    keywords: ["course map", "algorithms"]
                 },
                 {
                     image: cogs107a,

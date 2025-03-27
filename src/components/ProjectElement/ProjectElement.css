@@ -11,7 +11,9 @@
     display: inline-block; 
     margin: 15px; 
     padding: 0px 0px 20px 0px; 
-    width: calc(100% / 3 - 70px); /* 3 items per row with margin spacing */
+    width: 30px;
+    /* widht: calc(100% / 3 - 70px);  */ 
+    /* 3 items per row with margin spacing */
     max-width: 300px; /* Prevent it from becoming too large */
     min-width: 250px; /* Prevent it from shrinking too much */
     color: white; 
