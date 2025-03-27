@@ -5,6 +5,8 @@ import Misc from './components/Misc';
 import Cse20 from './components/Maps/Cse20';
 import Nav from './components/Nav';
 import { Routes, Route } from 'react-router-dom'; 
+import { Analytics } from "@vercel/analytics/react"
+
 
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
           <Route path="/misc" element={<Misc />} />
            <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
         </Routes>
+        <Analytics />
         </div>
       </div>
   ); 
