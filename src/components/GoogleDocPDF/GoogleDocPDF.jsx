@@ -24,7 +24,7 @@ const GoogleDocPDF = ({ docLink, children }) => {
         <!DOCTYPE html>
         <html>
           <head>
-            <title>Resume</title>
+            <title>Rebecca Chen</title>
             <style>
               body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
               iframe { width: 100%; height: 100%; border: none; }

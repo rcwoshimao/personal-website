@@ -24,6 +24,7 @@
     "react-icons": "^5.4.0",
     "react-pdf": "^9.1.1",
     "react-router-dom": "^7.0.2",
+    "react-tooltip": "^5.28.0",
     "react-typewriter-effect": "^1.1.0",
     "react-zoom-pan-pinch": "^3.6.1",
     "tech-stack-icons": "^2.1.0",

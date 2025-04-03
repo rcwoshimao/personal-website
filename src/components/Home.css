@@ -130,6 +130,20 @@
 }
 
 
+.resume-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .resume-label {
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 4px;
+    text-align: center;
+  }
+  
+
 
   @media (max-width: 768px) {
     .about-me {

@@ -12,6 +12,7 @@ import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import RSDB from "./../assets/RSDB.png";
 import tensorflow from "./../assets/tensorflow.png";
 
+
 // Animation variants
 const fadeInDown = {
   hidden: { opacity: 0, y: -30 },
@@ -84,10 +85,11 @@ const Home = () => {
               <FaLinkedin className="connect-icon" />
             </motion.a>
             <GoogleDocPDF docLink={webDevResume}>
-              <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} title="Web and mobile resume" />
+              <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} title="Web and mobile resume" data-tip="Web & Mobile Resume" />
+
             </GoogleDocPDF>
             <GoogleDocPDF docLink={dsResume}>
-              <FaFileAlt className="connect-icon" style={{ color: "#b52849" }} title="Data science resume" />
+              <FaFileAlt className="connect-icon" style={{ color: "#b52849" }} title="Data science resume" data-tip="Web & Mobile Resume" />
             </GoogleDocPDF>
           </div>
         </motion.div>
@@ -100,41 +102,51 @@ const Home = () => {
       
       <h3 className="centered-text">General</h3>
       <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.7 }}>
-        <TooltipIcon icon="js" label="js" delay={0.3} />  
-        <TooltipIcon icon="c++" label="c++" delay={0.2} />
-        <TooltipIcon icon="python" label="python" delay={0.3} />
-        <TooltipIcon icon="java" label="java" delay={0.4} />
-        <TooltipIcon icon="swift" label="swift"  delay={0.2}  />
-        <TooltipIcon icon="vim" label="vim" delay={0.3} />  
-        <TooltipIcon icon="vscode" label="vscode" delay={0.3} />  
-
+        {[
+          { icon: "js", label: "JavaScript" },
+          { icon: "c++", label: "C++" },
+          { icon: "python", label: "Python" },
+          { icon: "java", label: "Java" },
+          { icon: "swift", label: "Swift" },
+          { icon: "vim", label: "Vim" },
+          { icon: "vscode", label: "VSCode" },
+        ].map(({ icon, label}) => (
+          <TooltipIcon key={icon} icon={icon} label={label} delay={Math.random() * 0.2 + 0.2} />
+        ))}
       </motion.div>
 
       <h3 className="centered-text">Web & mobile</h3>
-            <motion.div className='icons' variants={fadeInDown} transition={{ delay: 0.7 }}> 
-                <TooltipIcon icon="reactjs" label="reactjs & react native"  delay={0.2}  />
-                <TooltipIcon icon="tailwindcss" label="tailwindcss" delay={0.2}  />
-                <TooltipIcon icon="postman" label="postman"  delay={0.2} />
-                <TooltipIcon icon="typescript" label="typescript" delay={0.2}  />
-                <TooltipIcon icon="firebase" label="firebase"  delay={0.2} />
-                <TooltipIcon icon="nodejs" label="nodejs"  delay={0.2} />
-                <TooltipIcon icon="vitejs" label="vitejs"  delay={0.2} />
-                <TooltipIcon icon="materialui" label="materialui"  delay={0.2} />
-                <TooltipIcon icon="docusaurus" label="docusaurus"  delay={0.2} />
-
-    </motion.div>
-
+      <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.7 }}>
+        {[
+          { icon: "reactjs", label: "ReactJS & React Native" },
+          { icon: "tailwindcss", label: "TailwindCSS" },
+          { icon: "postman", label: "Postman" },
+          { icon: "typescript", label: "TypeScript" },
+          { icon: "firebase", label: "Firebase" },
+          { icon: "nodejs", label: "NodeJS" },
+          { icon: "vitejs", label: "ViteJS" },
+          { icon: "materialui", label: "Material UI" },
+          { icon: "docusaurus", label: "Docusaurus" },
+        ].map(({ icon, label }) => (
+          <TooltipIcon 
+            key={icon} 
+            icon={icon} 
+            label={label} 
+            delay={Math.random() * 0.2 + 0.2} // Random delay between 0.2 and 0.4
+          />
+        ))}
+      </motion.div>
 
       <h3 className="centered-text">ML</h3>
       <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.8 }}>
         <TooltipIcon icon="streamlit" label="streamlit"  delay={0.2} />
         <TooltipIcon icon="pytorch" label="pytorch" delay={0.3} />
         <div className="tooltip">
-          <motion.img src={sclearn} alt="scikit-learn" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.4 }} />
+          <motion.img src={sclearn} alt="scikit-learn" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.2 }} />
           <span className="tooltiptext">scikit-learn</span>
         </div>
         <div className="tooltip">
-          <motion.img src={tensorflow} alt="tensorflow" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.4 }} />
+          <motion.img src={tensorflow} alt="tensorflow" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.3 }} />
           <span className="tooltiptext">tensorflow</span>
         </div>
       </motion.div>
