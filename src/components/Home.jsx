@@ -10,7 +10,7 @@ import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
 import ProjectElement from "./ProjectElement/ProjectElement";
 import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import RSDB from "./../assets/RSDB.png";
-import tensorflow from "./../assets/tensorflow.png";
+import tensorflow from "./../assets/tensorflow.png"; 
 
 
 // Animation variants
@@ -20,14 +20,39 @@ const fadeInDown = {
 };
 
 // TooltipIcon Component with animation
-const TooltipIcon = ({ icon, label, delay }) => (
-  <motion.div className="tooltip" initial="hidden" animate="visible" variants={fadeInDown} transition={{ delay }}>
-    <StackIcon name={icon} className="stack-icon" />
-    <span className="tooltiptext">{label}</span>
-  </motion.div>
-);
+const TooltipIcon = ({ icon, label}) => {
+  let delay = Math.random() * 0.2 + 0.1
+  return (
+    <>
+    {typeof icon === "string" &&! icon.includes("/") ? (
+      <motion.div className="tooltip" initial="hidden" animate="visible" variants={fadeInDown} transition={{ delay}}>
+        <StackIcon name={icon} className="stack-icon" />
+        <span className="tooltiptext">{label}</span>
+      </motion.div>
+    ): typeof icon === "string" ? (
+      <div className="tooltip">
+          <motion.img src={icon} alt={label} className="stack-icon" variants={fadeInDown} transition={{ delay}} />
+          <span className="tooltiptext">{label}</span>
+        </div>
+    ):(
+      <span className="error-message">Invalid icon type</span>
+    )}
+    </>
+); 
+}
 
-const TeachingExperiences = [
+const Icons = ({stack_list}) => {
+  let delay = Math.random() * 0.2 + 0.6
+  return (
+    <motion.div className="icons" variants={fadeInDown} transition={{ delay }}>
+    {stack_list.map(({ icon, label }) => (
+      <TooltipIcon key={icon} icon={icon} label={label}/>
+    ))}
+    </motion.div>
+  )
+}
+
+const teaching_experiences = [
   {
     institution: "Halıcıoğlu Data Science Institute",
     role: "Instructional Assistant",
@@ -59,6 +84,38 @@ const TeachingExperiences = [
     ],
   },
 ];
+const general_stack = [
+  { icon: "js", label: "JavaScript" },
+  { icon: "c++", label: "C++" },
+  { icon: "python", label: "Python" },
+  { icon: "java", label: "Java" },
+  { icon: "swift", label: "Swift" },
+  { icon: "vim", label: "Vim" },
+  { icon: "vscode", label: "VSCode" },
+]
+const webdev_stack = [
+  { icon: "reactjs", label: "ReactJS & React Native" },
+  { icon: "tailwindcss", label: "TailwindCSS" },
+  { icon: "postman", label: "Postman" },
+  { icon: "typescript", label: "TypeScript" },
+  { icon: "firebase", label: "Firebase" },
+  { icon: "nodejs", label: "NodeJS" },
+  { icon: "vitejs", label: "ViteJS" },
+  { icon: "materialui", label: "Material UI" },
+  { icon: "docusaurus", label: "Docusaurus" },
+]
+const ml_stack = [
+  { icon: "streamlit", label: "streamlit" },
+  { icon: "pytorch", label: "pytorch" },
+  { icon: sclearn, label: "sclearn" },
+  { icon: tensorflow, label: "tensorflow"},
+]
+const design_stack = [
+  { icon: "figma", label: "figma" },
+  { icon: "canva", label: "canva" },
+]
+
+
 
 const Home = () => {
   let webDevResume = "https://docs.google.com/document/d/1b72j3ZAOqG8z63yta5wi4md5NnWhQsHg5oi2bGXguKk/edit?usp=sharing";
@@ -86,7 +143,6 @@ const Home = () => {
             </motion.a>
             <GoogleDocPDF docLink={webDevResume}>
               <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} title="Web and mobile resume" data-tip="Web & Mobile Resume" />
-
             </GoogleDocPDF>
             <GoogleDocPDF docLink={dsResume}>
               <FaFileAlt className="connect-icon" style={{ color: "#b52849" }} title="Data science resume" data-tip="Web & Mobile Resume" />
@@ -101,61 +157,16 @@ const Home = () => {
       </motion.h1>
       
       <h3 className="centered-text">General</h3>
-      <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.7 }}>
-        {[
-          { icon: "js", label: "JavaScript" },
-          { icon: "c++", label: "C++" },
-          { icon: "python", label: "Python" },
-          { icon: "java", label: "Java" },
-          { icon: "swift", label: "Swift" },
-          { icon: "vim", label: "Vim" },
-          { icon: "vscode", label: "VSCode" },
-        ].map(({ icon, label}) => (
-          <TooltipIcon key={icon} icon={icon} label={label} delay={Math.random() * 0.2 + 0.2} />
-        ))}
-      </motion.div>
+      <Icons stack_list={general_stack}/>
 
       <h3 className="centered-text">Web & mobile</h3>
-      <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.7 }}>
-        {[
-          { icon: "reactjs", label: "ReactJS & React Native" },
-          { icon: "tailwindcss", label: "TailwindCSS" },
-          { icon: "postman", label: "Postman" },
-          { icon: "typescript", label: "TypeScript" },
-          { icon: "firebase", label: "Firebase" },
-          { icon: "nodejs", label: "NodeJS" },
-          { icon: "vitejs", label: "ViteJS" },
-          { icon: "materialui", label: "Material UI" },
-          { icon: "docusaurus", label: "Docusaurus" },
-        ].map(({ icon, label }) => (
-          <TooltipIcon 
-            key={icon} 
-            icon={icon} 
-            label={label} 
-            delay={Math.random() * 0.2 + 0.2} // Random delay between 0.2 and 0.4
-          />
-        ))}
-      </motion.div>
+      <Icons stack_list={webdev_stack}/>
 
       <h3 className="centered-text">ML</h3>
-      <motion.div className="icons" variants={fadeInDown} transition={{ delay: 0.8 }}>
-        <TooltipIcon icon="streamlit" label="streamlit"  delay={0.2} />
-        <TooltipIcon icon="pytorch" label="pytorch" delay={0.3} />
-        <div className="tooltip">
-          <motion.img src={sclearn} alt="scikit-learn" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.2 }} />
-          <span className="tooltiptext">scikit-learn</span>
-        </div>
-        <div className="tooltip">
-          <motion.img src={tensorflow} alt="tensorflow" className="stack-icon" variants={fadeInDown} transition={{ delay: 0.3 }} />
-          <span className="tooltiptext">tensorflow</span>
-        </div>
-      </motion.div>
+      <Icons stack_list={ml_stack}/>
 
       <h3 className="centered-text">Design</h3>
-            <motion.div className='icons' variants={fadeInDown} transition={{ delay: 0.7 }} > 
-                <TooltipIcon icon="figma" label="figma" delay={0.2}/>
-                <TooltipIcon icon="canva" label="canva" delay={0.2}/>
-            </motion.div>
+      <Icons stack_list={design_stack}/>
 
       <br/>
       {/* Featured Projects */}
@@ -169,14 +180,13 @@ const Home = () => {
 
       <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
 
-
       <br/>
       {/* Tutoring Experiences */}
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1.2 }}>
         🎓 Tutoring Experiences
       </motion.h1>
       <motion.div className="centered-text" variants={fadeInDown} transition={{ delay: 1.3 }}>
-        {TeachingExperiences.map((exp, index) => (
+        {teaching_experiences.map((exp, index) => (
           <motion.div key={index} className="mb-6 border-b pb-4" variants={fadeInDown} transition={{ delay: 1.3 + index * 0.2 }}>
             <h3 className="text-xl font-semibold">{exp.institution} – <span className="italic">{exp.role}</span></h3>
             <p className="text-gray-600 text-sm">🗓️ <strong>{exp.period}</strong> | 📚 <strong>{exp.courses}</strong></p>
