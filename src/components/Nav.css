@@ -1,17 +1,4 @@
-
-
 .nav-icon{
     height: 3em; 
     width: auto; 
-}
-
-@media (max-width: 768px) {
-    .nav-items{
-
-    }
-    .nav-items:hover{
-    
-    }
-    
-    
 }
