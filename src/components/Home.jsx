@@ -143,7 +143,6 @@ const Home = () => {
             <motion.div className='icons' variants={fadeInDown} transition={{ delay: 0.7 }} > 
                 <TooltipIcon icon="figma" label="figma" delay={0.2}/>
                 <TooltipIcon icon="canva" label="canva" delay={0.2}/>
-                <TooltipIcon icon="procreate" label="procreate" delay={0.2}/>
             </motion.div>
 
       <br/>

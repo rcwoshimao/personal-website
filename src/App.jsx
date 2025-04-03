@@ -6,13 +6,14 @@ import Cse20 from './components/Maps/Cse20';
 import Nav from './components/Nav';
 import { Routes, Route } from 'react-router-dom'; 
 import { Analytics } from "@vercel/analytics/react"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-
-
+const queryClient = new QueryClient();
 const App = () => {
   return(
       <div className='something'>
         <div>
+        <QueryClientProvider client={queryClient}>
         <Nav/> 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,6 +22,7 @@ const App = () => {
            <Route path="/misc/cse20" element={<Cse20 />} /> {/* Correct syntax */}
         </Routes>
         <Analytics />
+        </QueryClientProvider>
         </div>
       </div>
   ); 

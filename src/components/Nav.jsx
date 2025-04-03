@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Collapse, Typography, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Icon from "../assets/icon-color.png"; 
 import "./Nav.css";
 
 export function Nav() {
@@ -79,8 +80,9 @@ export function Nav() {
   };
 
   return (
-    <Navbar ref={navRef} className="nav-bar max-w-full px-4 py-2 lg:px-8 lg:py-4 sticky top-0 bg-brown-400 shadow-md rounded-none z-50">
+    <Navbar ref={navRef} className="nav-bar max-w-full px-4 py-2 lg:px-8 lg:py-4 sticky top-0 bg-brown-900 shadow-md rounded-none z-50">
       <div className="flex flex-wrap items-center justify-between text-white">
+      <img className="nav-icon" src={Icon} alt="icon"/> 
         <div className="hidden lg:flex">{navList}</div>
 
         <IconButton variant="text" color="white" className="lg:hidden" onClick={handleNavToggle}>

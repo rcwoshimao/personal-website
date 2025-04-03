@@ -13,7 +13,9 @@
 body{
   color: #4d2e0c;
   /*font-family: 'Courier New', Courier, monospace; */ 
-  @apply bg-[#eeeee6] text-[#4d2e0c] font-mono;
+  @apply bg-[#FFFBF3] text-[#4d2e0c] font-mono;
+
+
 }
 
 h1{

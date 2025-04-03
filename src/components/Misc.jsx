@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import './Home.css'; 
 import './../App.css'; 
 import './Misc.css'; 
+import UserStats from "./UserStats";
+import Courseworks from "./Courseworks";
 
 const fadeInDown = {
     hidden: { opacity: 0, y: -30 },
@@ -17,6 +19,8 @@ const Misc = () => {
             animate="visible"
             variants={fadeInDown}
         >
+            <UserStats />
+            <Courseworks /> 
             <h1> Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
