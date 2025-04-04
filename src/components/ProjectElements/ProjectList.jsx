@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ProjectElement from "./ProjectElement";
 import { projectsData } from "./../../personal-data"; // Import the projects data
-import "./../Projects.css"; 
+import "./ProjectList.css"; 
 
 const fadeInDown = {
     hidden: { opacity: 0, y: -30 },
@@ -16,7 +16,7 @@ const ProjectsList = ({ selectedProjects = [] }) => {
   );
 
   return (
-    <div className="project-list project-subdivs projects">
+    <div className="project-list">
       {filteredProjects.map((project, index) => (
         <motion.div key={index} initial="hidden" animate="visible" variants={fadeInDown}>
           <ProjectElement

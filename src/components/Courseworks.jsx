@@ -1,5 +1,3 @@
-
-
 const Courseworks = ({course='default class name', description='default description'}) => {
 
 return(
