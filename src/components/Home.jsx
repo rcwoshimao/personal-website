@@ -2,16 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Home.css";
 import "./../App.css";
-import pfp from "./../assets/pfp.jpeg";
-import sclearn from "./../assets/scikit-learn.png";
-import StackIcon from "tech-stack-icons";
-import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
-import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
-import ProjectElement from "./ProjectElement/ProjectElement";
+
+import ProjectElement from "./ProjectElements/ProjectElement.jsx";
 import cogs107a from "./../assets/cogs107Athumbnail.gif";
 import RSDB from "./../assets/RSDB.png";
-import tensorflow from "./../assets/tensorflow.png"; 
 
+import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
+
+import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
+import StackIcon from "tech-stack-icons";
+
+import {pfp, teaching_experiences, general_stack, webdev_stack, ml_stack, design_stack} from "./../personal-data.js"; 
 
 // Animation variants
 const fadeInDown = {
@@ -52,69 +53,6 @@ const Icons = ({stack_list}) => {
   )
 }
 
-const teaching_experiences = [
-  {
-    institution: "Halıcıoğlu Data Science Institute",
-    role: "Instructional Assistant",
-    period: "2024 - Ongoing",
-    courses: "DSC 10, 40A",
-    details: [
-      "Provided 100+ hours of in-person instruction weekly",
-      "Supported 1,000+ students in Python programming, data analysis, and foundational concepts",
-    ],
-  },
-  {
-    institution: "CodePath",
-    role: "Tech Fellow",
-    period: "2023",
-    courses: "Intro to iOS Development",
-    details: [
-      "Mentored & supported 200+ students in iOS development using Swift",
-      "Provided technical assistance during sessions, assignments, & labs",
-    ],
-  },
-  {
-    institution: "4S Foundation",
-    role: "Mentor",
-    period: "2022 - Ongoing",
-    courses: "College essay preparation",
-    details: [
-      "Offered personalized guidance for students navigating college applications",
-      "Assisted with essays, financial aid, and equitable access to education",
-    ],
-  },
-];
-const general_stack = [
-  { icon: "js", label: "JavaScript" },
-  { icon: "c++", label: "C++" },
-  { icon: "python", label: "Python" },
-  { icon: "java", label: "Java" },
-  { icon: "swift", label: "Swift" },
-  { icon: "vim", label: "Vim" },
-  { icon: "vscode", label: "VSCode" },
-]
-const webdev_stack = [
-  { icon: "reactjs", label: "ReactJS & React Native" },
-  { icon: "tailwindcss", label: "TailwindCSS" },
-  { icon: "postman", label: "Postman" },
-  { icon: "typescript", label: "TypeScript" },
-  { icon: "firebase", label: "Firebase" },
-  { icon: "nodejs", label: "NodeJS" },
-  { icon: "vitejs", label: "ViteJS" },
-  { icon: "materialui", label: "Material UI" },
-  { icon: "docusaurus", label: "Docusaurus" },
-]
-const ml_stack = [
-  { icon: "streamlit", label: "streamlit" },
-  { icon: "pytorch", label: "pytorch" },
-  { icon: sclearn, label: "sclearn" },
-  { icon: tensorflow, label: "tensorflow"},
-]
-const design_stack = [
-  { icon: "figma", label: "figma" },
-  { icon: "canva", label: "canva" },
-]
-
 
 
 const Home = () => {
@@ -134,6 +72,26 @@ const Home = () => {
             I am a passionate developer proficient in Java, Python, Swift, and React with hands-on experience in web and mobile development and data analysis ☺️. 
             I also enjoy the process of teaching, and have experience tutoring for non-profit organizations in a wide range of technical fields.
           </p>
+
+          <div className='resumes' style={{ marginTop: "20px" }}> 
+            <div className='resume_1' display="block" > 
+            <GoogleDocPDF docLink={webDevResume}>
+              <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
+                <FaFileAlt className="connect-icon" style={{ color: "#910a45" }} />
+                <p className="paragraph" style={{ margin: 0, textDecoration: "underline"}}>Web Dev resume</p>
+              </div>
+            </GoogleDocPDF>
+            </div>
+            <div className='resume_2' display="block" > 
+            <GoogleDocPDF docLink={dsResume}>
+              <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
+                  <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} />
+                  <p className="paragraph" style={{ margin: 0, textDecoration: "underline" }}>Data Science resume</p>
+              </div>
+              </GoogleDocPDF>
+              </div>
+          </div>
+
           <div className="connect-icons">
             <motion.a href="https://github.com/rcwoshimao" target="_blank" rel="noopener noreferrer" variants={fadeInDown} transition={{ delay: 0.4 }}>
               <FaGithub className="connect-icon" />
@@ -141,13 +99,8 @@ const Home = () => {
             <motion.a href="https://www.linkedin.com/in/jiaying-chen01/" target="_blank" rel="noopener noreferrer" variants={fadeInDown} transition={{ delay: 0.5 }}>
               <FaLinkedin className="connect-icon" />
             </motion.a>
-            <GoogleDocPDF docLink={webDevResume}>
-              <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} title="Web and mobile resume" data-tip="Web & Mobile Resume" />
-            </GoogleDocPDF>
-            <GoogleDocPDF docLink={dsResume}>
-              <FaFileAlt className="connect-icon" style={{ color: "#b52849" }} title="Data science resume" data-tip="Web & Mobile Resume" />
-            </GoogleDocPDF>
-          </div>
+            
+        </div>
         </motion.div>
       </motion.div>
 
@@ -185,6 +138,7 @@ const Home = () => {
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1.2 }}>
         🎓 Tutoring Experiences
       </motion.h1>
+
       <motion.div className="centered-text" variants={fadeInDown} transition={{ delay: 1.3 }}>
         {teaching_experiences.map((exp, index) => (
           <motion.div key={index} className="mb-6 border-b pb-4" variants={fadeInDown} transition={{ delay: 1.3 + index * 0.2 }}>
@@ -198,6 +152,7 @@ const Home = () => {
           </motion.div>
         ))}
       </motion.div>
+
     </motion.div>
   );
 };
