@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 import { useEffect } from 'react';
+import "./UserStats.css"; 
 
 const API_KEY = import.meta.env.VITE_MONKEYTYPE_API_KEY;
 const uid = "rc_woshimao"; 
@@ -34,8 +35,8 @@ export default function UserStats() {
     queryKey: ["userStats"], 
     queryFn: fetchUserStats, 
     enabled: !!API_KEY,
+    staleTime: 24 * 60 * 60 * 1000, // Cache for 24 hours
     refetchOnWindowFocus: false,
-    refetchInterval: 0,
   });
 
   useEffect(() => {
@@ -55,14 +56,13 @@ export default function UserStats() {
 
   return (
     <div>
-      <h2>User Stats</h2>
-      
+      <h2>Personal Best Times</h2>
+      <h3>Updated daily</h3>
       <li>
-          <h3>Personal Best Time:</h3>
           {data?.data?.personalBests?.time && Object.entries(data.data.personalBests.time).map(([key, times], index) => (
             <div key={index}>
               <h4>Time for {key} seconds:</h4>
-              <ul>
+              <ul className='personal-bests'>
                 {times.map((time, idx) => (
                   <li key={idx}>
                     <p>WPM: {time?.wpm}</p>
@@ -70,8 +70,7 @@ export default function UserStats() {
                     <p>Consistency: {time?.consistency}%</p>
                     <p>Difficulty: {time?.difficulty}</p>
                     <p>Language: {time?.language}</p>
-                    <p>Lazy Mode: {time?.lazyMode ? "Enabled" : "Disabled"}</p>
-                    <p>Timestamp: {new Date(time?.timestamp).toLocaleString()}</p>
+                    <p>Time Stamp: {new Date(time?.timestamp).toLocaleString()}</p>
                   </li>
                 ))}
               </ul>

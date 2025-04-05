@@ -88,7 +88,7 @@ export const projectsData = [
       image: "https://lh3.googleusercontent.com/iZwB2p3rX7D7h-4QWSmKXy-_4FBRVCB8A8vrGwQduZzqfU-1ZMewoumgw3HOTiOsrN3Ax_vnOuUGRFnWuIbGoOWpAnpCoxGqvxg",
       name: "CSE 101",
       shortDescription: "",
-      link: "/misc/cse20",
+      link: "/misc/cse101",
       keywords: ["course map", "algorithms"],
       category: "Course concept maps"
   },
