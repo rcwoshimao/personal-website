@@ -19,8 +19,8 @@ const Misc = () => {
             animate="visible"
             variants={fadeInDown}
         >
-            <UserStats />
-            <Courseworks /> 
+            {/* <UserStats /> */}
+            {/* <Courseworks /> */}
             <h1> Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
