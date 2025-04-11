@@ -5,7 +5,6 @@ const Courseworks = () => {
 
 return(
 <div className='courseworks'> 
-    <h1> Reflection on Courses I took at UCSD </h1>
     <h3> I am a class 2026 Sixth college Student Cognitive Science with Machine Learning specialization at UCSD. For folks looking at this site in the future, the information provided here would be outdated; but I still would love to document and look back at the good times I had here in college. I will not be listing all courses here, but a selected few that I find interesting and worthy of talking about. </h3>
     <br/> 
     {courses.map((course, index) => (

@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import './Home.css'; 
 import './../App.css'; 
 import './Misc.css'; 
-import UserStats from "./UserStats";
+import MonkeyTypeStats from "./MonkeyTypeStats";
 import Courseworks from "./Courseworks";
+import ControlledAccordion from "./ControlledAccordion/ControlledAccordion";
 
 const fadeInDown = {
     hidden: { opacity: 0, y: -30 },
@@ -19,8 +20,14 @@ const Misc = () => {
             animate="visible"
             variants={fadeInDown}
         >
-            {/* <UserStats /> */}
-            <Courseworks /> 
+        <ControlledAccordion title="My MonkeyType Stats">
+            <MonkeyTypeStats />
+        </ControlledAccordion>
+
+        <ControlledAccordion title="Reflection on Courses I took at UCSD">
+            <Courseworks />
+        </ControlledAccordion>
+
             <h1> Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
