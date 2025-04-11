@@ -80,7 +80,7 @@ export function Nav() {
   };
 
   return (
-    <Navbar ref={navRef} className="nav-bar max-w-full px-4 py-2 lg:px-8 lg:py-4 sticky top-0 bg-brown-900 shadow-md rounded-none z-50">
+    <Navbar ref={navRef} className="nav-bar border-none max-w-full px-4 py-2 lg:px-8 lg:py-4 sticky top-0 bg-brown-900 shadow-md rounded-none z-50">
       <div className="flex flex-wrap items-center justify-between text-white">
       <a href="/">
         <img className="nav-icon" src={Icon} alt="icon"/>  

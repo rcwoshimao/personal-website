@@ -2,8 +2,8 @@ import './App.css';
 import Projects from './components/Projects';
 import Home from './components/Home';
 import Misc from './components/Misc';
-import Cse20 from './components/Maps/Cse20';
-import Cse101 from './components/Maps/Cse101';
+import Cse20Map from './components/Maps/Cse20Map.jsx';
+import Cse101Map from './components/Maps/Cse101Map.jsx';
 import Nav from './components/Nav';
 import { Routes, Route } from 'react-router-dom'; 
 import { Analytics } from "@vercel/analytics/react"
@@ -20,8 +20,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/misc" element={<Misc />} />
-           <Route path="/misc/cse20" element={<Cse20 />} /> 
-           <Route path="/misc/cse101" element={<Cse101 />} /> 
+           <Route path="/projects/cse20map" element={<Cse20Map />} /> 
+           <Route path="/projects/cse101map" element={<Cse101Map />} /> 
         </Routes>
         <Analytics />
         </QueryClientProvider>

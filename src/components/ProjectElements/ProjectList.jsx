@@ -9,11 +9,16 @@ const fadeInDown = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const ProjectsList = ({ selectedProjects = [] }) => {
+const ProjectsList = ({ selectedProjects = [], selectedKeywords=[]}) => {
   // Flatten projectsData (removing categories) and filter based on selectedProjects
   const filteredProjects = projectsData.filter(
-    (project) => selectedProjects.length === 0 || selectedProjects.includes(project.name)
+    (project) => {
+      const matcheshName = selectedProjects.length === 0 || selectedProjects.includes(project.name); 
+      const matchesKeywords = selectedKeywords.length === 0 || project.keywords?.some((keyword) => selectedKeywords.includes(keyword));
+    return matchesKeywords && matcheshName; 
+    }
   );
+
 
   return (
     <div className="project-list">
@@ -25,6 +30,7 @@ const ProjectsList = ({ selectedProjects = [] }) => {
             shortDescription={project.shortDescription}
             link={project.link}
             keywords={project.keywords}
+            time={project.time}
           />
         </motion.div>
       ))}

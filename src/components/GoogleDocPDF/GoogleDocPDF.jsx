@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const GoogleDocPDF = ({ docLink, children }) => {
   const handleClick = () => {
     // Extract the document ID from the Google Doc link

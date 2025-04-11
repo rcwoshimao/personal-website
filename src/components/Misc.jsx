@@ -20,7 +20,7 @@ const Misc = () => {
             variants={fadeInDown}
         >
             {/* <UserStats /> */}
-            {/* <Courseworks /> */}
+            <Courseworks /> 
             <h1> Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
@@ -42,11 +42,11 @@ const Misc = () => {
 
             <h1> What do I do in my free time? </h1>
 
-            <h3> <a href="https://www.instagram.com/rc_woshimao/" style={{ textDecoration: 'underline'}}>1. I draw.</a> </h3>
+            <h3> <a href="https://www.instagram.com/rc_woshimao/"  target="_blank" style={{ textDecoration: 'underline'}}>1. I draw.</a> </h3>
             <p> <span className="spoiler">My dream is to become a manga artist</span>. (Will probably make a separate art portfolio site...one day!)</p>
-            <h3> <a href="https://monkeytype.com/profile/rc_woshimao" style={{ textDecoration: 'underline'}}>2. Monkeytype. </a> </h3>
+            <h3> <a href="https://monkeytype.com/profile/rc_woshimao"  target="_blank" style={{ textDecoration: 'underline'}}>2. Monkeytype. </a> </h3>
 
-            <h3> <a href="https://monkeytype.com/profile/rc_woshimao" style={{ textDecoration: 'underline'}}>3. I read books and watch movies.</a> </h3>
+            <h3> <a href="https://www.douban.com/people/166621292/" target="_blank" style={{ textDecoration: 'underline'}}>3. I read books and watch movies.</a> </h3>
             <p> Some of my recommendations here: </p>
             
             <ul>

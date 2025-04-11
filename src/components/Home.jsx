@@ -2,10 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Home.css";
 import "./../App.css";
-
-import ProjectElement from "./ProjectElements/ProjectElement.jsx";
-import cogs107a from "./../assets/cogs107Athumbnail.gif";
-import RSDB from "./../assets/RSDB.png";
+import ProjectsList from "./ProjectElements/ProjectList.jsx";
 
 import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
 
@@ -99,8 +96,8 @@ const Home = () => {
             <motion.a href="https://www.linkedin.com/in/jiaying-chen01/" target="_blank" rel="noopener noreferrer" variants={fadeInDown} transition={{ delay: 0.5 }}>
               <FaLinkedin className="connect-icon" />
             </motion.a>
-            
-        </div>
+          </div>
+
         </motion.div>
       </motion.div>
 
@@ -122,13 +119,13 @@ const Home = () => {
       <Icons stack_list={design_stack}/>
 
       <br/>
+
       {/* Featured Projects */}
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
         Featured Projects
       </motion.h1>
       <motion.div className="featured-projects project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
-        <ProjectElement image={cogs107a} name="COGS 107A" shortDescription="Concept map for Neuroanatomy and Physiology." link="https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view" />
-        <ProjectElement image={RSDB} name="Recommendation for Business Owners (RSDB)" shortDescription="A hybrid recommender system." link="https://github.com/KevinBian107/RSDB" />
+        <ProjectsList className="projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
       </motion.div>
 
       <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
