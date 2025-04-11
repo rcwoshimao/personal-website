@@ -183,7 +183,7 @@ export const courses = [
     reason: "Hobby", 
     professor: "Quinn Konopacky", 
     oneLiner: "Polaris is 30 degrees above the Northern horizon.", 
-    description: " I love looking up at stars. When I raise my head and check out the stuff above, I get some breathing room from all the depressing things that happens down here on the earth. Freshman year college, I have no idea what to take, since most CSE classes were hard to get in with no priority, so I chose this one. It taught me some basic knowledge of stars and galaxies, and I enjoy it fairly. My favorite memory for this class was an optional extra credit Planetarium Show. Me and several other students joined the staff in Price center east ball room in a doom that simulates stars. It was calming and fun."
+    description: " I love looking up at stars. When I raise my head and check out the stuff above, I get some breathing room from all the depressing things that happens down here on the earth. Freshman year college, I have no idea what to take, since most CSE classes were hard to get in with no priority, so I chose this one. It taught me some basic knowledge of stars and galaxies, and I enjoy it fairly. My favorite memory for this class was an optional extra credit Planetarium Show. Me and several other students joined the staff in Price center east ball room in a doom that simulates stars, and we got to see the awfully beautiful night sky simulated for if there are no light polution in SD. The milky way was just above us. It was calming and fun."
   },
   {
     name: "Math 20B: Calculus/Science & Engineering", 
@@ -194,7 +194,7 @@ export const courses = [
     reason: "Major Req", 
     professor: "David James Quarfoot", 
     oneLiner:"Most intimidating mario player in class.", 
-    description: "My first quarter with my favorite math professor, what good times. This is one of the courses that, after going to lecture, I rarely had any questions, because all knowledge necessary to understand the material were all covered rigidly by his lecture slides and his top-tier manim visualization. I was very lucky to have him the first quarter I was at UCSD. (I audited Math 181A, twice, because of him- this is just how much I love his teaching style - he is *that* good! More about that in Math 181A section."
+    description: "My first quarter with my favorite math professor, what good times. This is one of the courses that, after going to lecture, I rarely had any questions, because all knowledge necessary to understand the material were all covered rigidly by his lecture slides and his top-tier manim visualization. I was very lucky to have him. (I audited Math 181A, twice, because of him- this is just how much I love his teaching style - he is *that* good! More about that in Math 181A section.)"
   },
   {
     name: "Math 20C: Calculus and Analytic Geometry for Science and Engineering | Math 20E: Vector Calculus", 
@@ -229,6 +229,7 @@ export const courses = [
     oneLiner:"Could have gotten that A+! Lesson learned from not keeping an eye on ddls.", 
     description: "Standard data structure course; Prof. Miranda made the course structure fairly straight forward and nice. But the moral of the story here is to not miss that deadline. In our course, we use a website called stepik, for weekly course readings and excercises worth 20% of our grade; I was decently fast at finishing them, and I was good at the course. However, at the end of the quarter, I fudged up and didn't submit the form that gives the link to my stepik account- and that 20% worth of grade? Gone. I achieved perfect grade on everything else, so this resulted in an 80%, which is still not the end of the world- and there's no use to look back. The only thing left now to do is to move forward and make sure I don't forget to fill things in first and formost! "
   }, 
+  /*
   {
     name: "CAT 3: Culture, Art, and Technology 3 ", 
     quarter: "SP 2023", 
@@ -240,6 +241,7 @@ export const courses = [
     oneLiner:"", 
     description: "Prospera"
   }, 
+
   {
     name: "CSE 150B", 
     quarter: "SP 25", 
@@ -262,6 +264,6 @@ export const courses = [
     professor: "",
     oneLiner:"", 
     description: ""
-  }, 
+  }, */ 
 
 ]

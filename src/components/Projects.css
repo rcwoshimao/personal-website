@@ -21,10 +21,11 @@
     justify-content: center;
     gap: 10px;
     margin: 20px 0;
+    padding: 0% 15%; 
   }
   
   .keyword-button {
-    padding: 8px 14px;
+    padding: 5px 12px;
     border: 1px solid #999;
     border-radius: 999px;
     background-color: #f5f5f5;
@@ -45,5 +46,13 @@
     .centered-text{
         margin: 0% 
     }
+    .keyword-filters{
+        padding: 20px; 
+    }
+    .keyword-button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
 }
 
