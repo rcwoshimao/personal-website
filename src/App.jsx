@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/misc" element={<Misc />} />
            <Route path="/projects/cse20map" element={<Cse20Map />} /> 
-           <Route path="/projects/cse101map" element={<Cse101Map />} /> 
+           <Route path="/projects/cse101map" element={<Cse101Map />}/> 
         </Routes>
         <Analytics />
         </QueryClientProvider>
