@@ -77,6 +77,8 @@
   }
   
   .leaderboard-persent-number{
+    font-weight: bold; 
+    color: rgb(186, 38, 97); 
     font-size: 30px;
   }
 

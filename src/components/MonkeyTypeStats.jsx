@@ -37,7 +37,7 @@ export default function MonkeyTypeStats() {
     }
   }, []);
 
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading, dataUpdatedAt} = useQuery({
     queryKey: ["userStats"], 
     queryFn: fetchUserStats, 
     enabled: !!API_KEY,
@@ -62,50 +62,12 @@ export default function MonkeyTypeStats() {
 
   return (
     <div>
-      <h2>Personal Best Times</h2>
-      
-    <div className="personal-bests-grid">
-    <div className="best-box">
-      {data?.data?.personalBests?.time &&
-        Object.entries(data.data.personalBests.time).map(([key, times], index) => {
-          const englishTimes = times.filter(time => time?.language === "english");
-          if (englishTimes.length === 0) return null;
-
-          const best = englishTimes[0]; // just show the top one
-
-          return (
-            <div className="best-entry" key={`time-${index}`}>
-              <div className="best-title">{key}s</div>
-              <div className="best-middle">WPM {best.wpm}</div>
-              <div className="best-bottom">Acc {best.acc}% </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="best-box">
-      {data?.data?.personalBests?.words &&
-        Object.entries(data.data.personalBests.words).map(([key, words], index) => {
-          const englishWords = words.filter(words => words?.language === "english");
-          if (englishWords.length === 0) return null;
-
-          const best = englishWords[0];
-
-          return (
-            <div className="best-entry" key={`words-${index}`}>
-              <div className="best-title">{key}w</div>
-              <div className="best-middle"> WPM {best.wpm}</div>
-              <div className="best-bottom">Acc {best.acc}%</div>
-            </div>
-          );
-        })}
-      </div>
-</div>
-    <h2>All Time English Leaderboards</h2>
+    <h3>All Time English Leaderboard</h3>
     <div className="leaderboard-grid">
       {data?.data?.allTimeLbs?.time &&
         Object.entries(data.data.allTimeLbs.time).map(([mode, entries], i) => (
           <div className="leaderboard-box" key={i}>
-            <div className="leaderboard-title">{mode} seconds</div>
+            <div className="leaderboard-title">{mode} secs</div>
             {Object.entries(entries).map(([category, info], j) => (
               <div className="leaderboard-entry" key={j}>
                 <div className="leaderboard-percent">
@@ -120,11 +82,51 @@ export default function MonkeyTypeStats() {
         ))}
     </div>
 
-    {data?.fetchedAt && (
-      <p style={{ fontStyle: 'italic', marginTop: '10px' }}>
-        Data last fetched: {new Date(data.fetchedAt).toLocaleDateString()}
-      </p>
-    )}
+    <h2>Personal Best Times</h2>
+      
+    <div className="personal-bests-grid">
+      <div className="best-box">
+        {data?.data?.personalBests?.time &&
+          Object.entries(data.data.personalBests.time).map(([key, times], index) => {
+            const englishTimes = times.filter(time => time?.language === "english");
+            if (englishTimes.length === 0) return null;
+  
+            const best = englishTimes[0]; // just show the top one
+  
+            return (
+              <div className="best-entry" key={`time-${index}`}>
+                <div className="best-title">{key}s</div>
+                <div className="best-middle">WPM {best.wpm}</div>
+                <div className="best-bottom">Acc {best.acc}% </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="best-box">
+        {data?.data?.personalBests?.words &&
+          Object.entries(data.data.personalBests.words).map(([key, words], index) => {
+            const englishWords = words.filter(words => words?.language === "english");
+            if (englishWords.length === 0) return null;
+  
+            const best = englishWords[0];
+  
+            return (
+              <div className="best-entry" key={`words-${index}`}>
+                <div className="best-title">{key}w</div>
+                <div className="best-middle"> WPM {best.wpm}</div>
+                <div className="best-bottom">Acc {best.acc}%</div>
+              </div>
+            );
+          })}
+        </div>
+  </div>
+
+  {dataUpdatedAt && (
+  <p style={{ fontStyle: 'italic', marginTop: '10px' }}>
+    Data last fetched: {new Date(dataUpdatedAt).toLocaleDateString()}
+  </p>
+)}
+
     </div>
   );
 }

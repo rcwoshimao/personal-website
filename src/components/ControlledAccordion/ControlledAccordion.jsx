@@ -2,12 +2,12 @@ import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/re
 import { useState } from "react";
 
 const ControlledAccordion = ({ title, children }) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const handleOpen = () => setOpen((prev) => !prev);
 
     return (
-        <Accordion open={open} icon={<span>{open ? "▲" : "▼"}</span>}>
+        <Accordion open={open} icon={<span>{open ? "-" : "+"}</span>}>
             <AccordionHeader onClick={handleOpen} className="font-monospace">
                 {title}
             </AccordionHeader>
