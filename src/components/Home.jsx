@@ -124,8 +124,8 @@ const Home = () => {
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
         Featured Projects
       </motion.h1>
-      <motion.div className="featured-projects project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
-        <ProjectsList className="projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
+      <motion.div className="project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
+        <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
       </motion.div>
 
       <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>

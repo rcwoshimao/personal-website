@@ -80,27 +80,27 @@ export const projectsData = [
   {
     image: cse150b_thumbnail,
     name: "CSE 150B",
-    shortDescription: "",
+    shortDescription: "Introduction to Artificial Intelligence: Search and Reasoning",
     link: "https://rc-woshimao.notion.site/CSE-150B-notes-1d21b338692f80f984d7fd5925060d18",
-    keywords: ["course note", "ML"],
+    keywords: ["Notes", "ML", "Coursework"],
     category: "Course Note", 
     time: "SP 2025"
   },
   {
       image: cse20_thumbnail,
       name: "CSE 20",
-      shortDescription: "",
+      shortDescription: "Discrete Mathematics",
       link: "/projects/cse20map",
-      keywords: ["course map", "discrete math", "proofs"],
+      keywords: ["Coursework", "Concept Map"],
       category: "Course concept maps", 
       time: "SP 2023"
   },
   {
       image: "https://lh3.googleusercontent.com/iZwB2p3rX7D7h-4QWSmKXy-_4FBRVCB8A8vrGwQduZzqfU-1ZMewoumgw3HOTiOsrN3Ax_vnOuUGRFnWuIbGoOWpAnpCoxGqvxg",
       name: "CSE 101",
-      shortDescription: "",
+      shortDescription: "Design and Analysis of Algorithms",
       link: "/projects/cse101map",
-      keywords: ["course map", "algorithms"],
+      keywords: ["Concept Map"],
       category: "Course concept maps", 
       time: "FA 2024"
   },
@@ -108,9 +108,9 @@ export const projectsData = [
   {
       image: cogs107a_thumbnail,
       name: "COGS 107A/B",
-      shortDescription: "",
+      shortDescription: "Neuroanatomy and Physiology/ Systems Neuroscience ",
       link: "https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273",
-      keywords: ["course map", "neurosci"],
+      keywords: ["Concept Map", "NeuroSci"],
       category: "Course concept maps", 
       time: "WI 2025"
   },
@@ -119,7 +119,7 @@ export const projectsData = [
       name: "SMASH-hack GW detector",
       shortDescription: "A machine learning hackathon that focuses on using various models to detect gravitational waves from abnormal activities in the universe.",
       link: "https://github.com/EliteApex/SMASH-hackathon?tab=readme-ov-file",
-      keywords: ["ML", "TS", "Transformer"],
+      keywords: ["ML", "Hackathon"],
       category: "ML", 
       time: "WI 2025"
   },
@@ -128,7 +128,7 @@ export const projectsData = [
       name: "Recommendation for Business owners (RSDB)",
       shortDescription: "A hybrid recommender system with collaborative filters and content-based filtering. The model uses features of locations, the interaction of location and user, and the temporal evolution of the interaction to predict a user's rating of a business.",
       link: "https://github.com/KevinBian107/RSDB", 
-      keywords: ["ML", "TS", "Latent factor", "Markov", "Recommender System", "EDA"],
+      keywords: ["ML"],
       category: "ML", 
       time: "FA 2024"
   },
@@ -137,7 +137,7 @@ export const projectsData = [
       name: "Campus Coffee Space Utilization",
       shortDescription: "Cogs 13 final project. Study on Patterns in On-campus Coffee Shop: How Students Utilize the Space of Starbucks at UCSD Price Center.",
       link: "https://github.com/rcwoshimao/Campus-Coffee-Space-Utilization", 
-      keywords: ["EDA", "Data analysis"],
+      keywords: ["Data Analysis"],
       category: "ML", 
       time: "WI 2025"
   },
@@ -146,7 +146,7 @@ export const projectsData = [
       name: "Sentiment-GDP analysis",
       shortDescription: "Cogs 108 final project. Analysis on how consumer sentiment evolved in response to economic shifts.",
       link: "https://github.com/rcwoshimao/sentiment-gdp-analysis", 
-      keywords: ["EDA", "HT", "Data analysis"],
+      keywords: ["Data Analysis"],
       category: "ML", 
       time: "WI 2025"
   },
@@ -155,7 +155,7 @@ export const projectsData = [
     name: "Traction",
     shortDescription: "Hackathon project to measure the online reception to a new song by analyzing the sentiment using agentic AI conversations trained to simulate and reflect public online discourse.",
     link: "https://github.com/rcwoshimao/several-ducks-datahacks25",
-    keywords: ["Hackathon", "Front end", "React", ],
+    keywords: ["Hackathon", "Front End"],
     category: "Course concept maps", 
     time: "SP 2025"
 },
@@ -164,15 +164,13 @@ export const projectsData = [
       name: "MyNewsWire",
       shortDescription: "My first ever hackathon project. I was invited to join by my dear friend Jacob.",
       link: "https://devpost.com/software/mynewswire-45dlzk", 
-      keywords: ["Hackathon", "Front end", "React"],
+      keywords: ["Hackathon", "Front End"],
       category: "Web & Mobile", 
       time: "WI 2023"
   }
 ];
 
-
 export const courses = [
-
 
   {
     name: "PHYS 5: Stars and Black Holes", 
@@ -234,12 +232,12 @@ export const courses = [
     name: "CAT 3: Culture, Art, and Technology 3 ", 
     quarter: "SP 2023", 
     status: "", 
-    gradingOption: "", 
-    grade: "",
-    reason: "", 
+    gradingOption: "Letter Grade", 
+    grade: "A",
+    reason: "College Writing Course", 
     professor: "Romain Delaville, ZiYang Li",
-    oneLiner:"", 
-    description: "Prospera"
+    oneLiner:"My favorite CAT course!", 
+    description: "In CSE Prospera"
   }, 
 
   {
@@ -264,6 +262,6 @@ export const courses = [
     professor: "",
     oneLiner:"", 
     description: ""
-  }, */ 
+  }, */
 
 ]

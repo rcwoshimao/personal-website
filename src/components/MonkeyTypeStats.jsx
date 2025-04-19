@@ -90,7 +90,7 @@ export default function MonkeyTypeStats() {
           Object.entries(data.data.personalBests.time).map(([key, times], index) => {
             const englishTimes = times.filter(time => time?.language === "english");
             if (englishTimes.length === 0) return null;
-  
+            
             const best = englishTimes[0]; // just show the top one
   
             return (
