@@ -1,0 +1,17 @@
+:root {
+    --darkest: #FF8AAE;  
+    --dark: #ffd5cf; 
+    --mid: #b6f4ff;    
+    --light: #eee3ff;  
+    --lightest: #FFF89A;
+    --white: #FFFFFF;   
+
+    --projelement: var(--white); 
+    --misc: var(--mid);
+    --nav: #9ADCFF;
+    --home: #FFF89A
+    --projects: var(--dark);
+    --main: var(--lightest);
+
+
+}

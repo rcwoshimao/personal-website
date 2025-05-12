@@ -1,11 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import './Home.css'; 
 import './../App.css'; 
 import './Misc.css'; 
 import MonkeyTypeStats from "./MonkeyTypeStats";
-import Courseworks from "./Courseworks";
-import ControlledAccordion from "./ControlledAccordion/ControlledAccordion";
 
 const fadeInDown = {
     hidden: { opacity: 0, y: -30 },
@@ -20,15 +19,14 @@ const Misc = () => {
             animate="visible"
             variants={fadeInDown}
         >
-        <ControlledAccordion title="My MonkeyType Stats">
+            <h1>My MonkeyType Stats</h1>
             <MonkeyTypeStats />
-        </ControlledAccordion>
 
-        <ControlledAccordion title="Reflection on Courses I took at UCSD">
-            <Courseworks />
-        </ControlledAccordion>
+            <h1>Reflection on Courses I took at UCSD</h1>
+            <p>Check out my detailed course reflections and experiences at UCSD.</p>
+            <Link to="/misc/courseworks" className="misc-link">View Course Reflections →</Link>
 
-            <h1> Tech Recs and Resources</h1>
+            <h1>Tech Recs and Resources</h1>
             <p>
                 Those are the resources I have used to learn things throughout the years! 
             </p>

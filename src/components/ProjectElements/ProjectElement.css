@@ -12,15 +12,13 @@
     margin: 15px; 
     padding: 0px 0px 20px 0px; 
     width: 30px;
-    /* widht: calc(100% / 3 - 70px);  */ 
-    /* 3 items per row with margin spacing */
     max-width: 300px; /* Prevent it from becoming too large */
     min-width: 250px; /* Prevent it from shrinking too much */
     color: white; 
     box-shadow: 10px 10px 0 rgb(0, 0, 0); /* Initial shadow */
     transition: box-shadow 0.2s ease-out, transform 0.2s ease-out; /* Smooth transition for shadow and translate */
     text-align: center; /* Optional if you want centered text */
-    background-color: white; /* Background color */
+    background-color: var(--projelement); 
     border-radius: 8px; /* Optional border-radius */
     color: #4d2e0c;
 

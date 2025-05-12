@@ -1,8 +1,9 @@
 .misc{
-    margin: 40px 100px; 
+    padding: 40px 100px; 
     color: #4d2e0c;
     padding-right : 15%; 
     padding-left : 15%; 
+    background-color: var(--misc); 
 }
 
 h2{
@@ -53,6 +54,20 @@ h2{
         margin: 5%; 
     }
 
+}
+
+.misc-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.misc-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
 
 

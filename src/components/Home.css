@@ -1,12 +1,57 @@
 .home{
-    margin: 100px; 
+    padding: 100px; 
+    background-image: url('../assets/yellow-mosaic.png');
+    background-repeat: repeat;
+    background-size: 8cap;  /* Makes the pattern smaller */
+    min-height: 100vh;
 }
 
 .about-me{
     display: flex;
-    justify-content: space-between; /* Ensures space between the two children */
-    align-items: center; /* Centers items vertically */
-    margin-bottom: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 140px; 
+    padding-bottom: 40px;
+    position: relative;
+    margin: 20px;
+}
+
+/* White background box */
+.about-me::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    z-index: 1;
+}
+
+/* Shadow rectangle behind the about-me div */
+.about-me::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    border-radius: 5px;
+    transform: translate(15px, 15px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-me-children{
+    position: relative;
+    z-index: 2;
+}
+
+.techstacks-container{
+    padding-top: 10px; 
 }
 
 .about-me-children:nth-child(1){

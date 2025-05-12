@@ -2,3 +2,9 @@
     height: 3em; 
     width: auto; 
 }
+
+
+.nav-bar{
+    background-color: var(--nav);
+    box-shadow: 0 4px 6px -1px rgba(139, 96, 11, 0.5)
+}

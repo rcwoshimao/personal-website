@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom'; 
 import { ThemeProvider } from "@material-tailwind/react";
+import './styles/variables.css'; 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

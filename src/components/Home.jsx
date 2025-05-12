@@ -102,35 +102,38 @@ const Home = () => {
       </motion.div>
 
       {/* Techstacks Section */}
-      <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 0.6 }}>
-        Techstacks
-      </motion.h1>
-      
-      <h3 className="centered-text">General</h3>
-      <Icons stack_list={general_stack}/>
+      <div className="techstacks-container">
+        <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 0.6 }}>
+          Techstacks
+        </motion.h1>
+        
+        <h3 className="centered-text">General</h3>
+        <Icons stack_list={general_stack}/>
 
-      <h3 className="centered-text">Web & mobile</h3>
-      <Icons stack_list={webdev_stack}/>
+        <h3 className="centered-text">Web & mobile</h3>
+        <Icons stack_list={webdev_stack}/>
 
-      <h3 className="centered-text">ML</h3>
-      <Icons stack_list={ml_stack}/>
+        <h3 className="centered-text">ML</h3>
+        <Icons stack_list={ml_stack}/>
 
-      <h3 className="centered-text">Design</h3>
-      <Icons stack_list={design_stack}/>
+        <h3 className="centered-text">Design</h3>
+        <Icons stack_list={design_stack}/>
 
-      <br/>
-
+        <br/>
+      </div>
       {/* Featured Projects */}
-      <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
-        Featured Projects
-      </motion.h1>
-      <motion.div className="project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
-        <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
-      </motion.div>
+      <div className="featured-projects-container">
+        <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
+          Featured Projects
+        </motion.h1>
+        <motion.div className="project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
+          <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
+        </motion.div>
 
-      <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
+        <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
 
-      <br/>
+        <br/>
+      </div>
       {/* Tutoring Experiences */}
       <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1.2 }}>
         🎓 Tutoring Experiences
