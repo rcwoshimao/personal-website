@@ -1,14 +1,10 @@
-
 .project-list {
     margin-bottom: 20px; 
-    padding-right: 15%;
-    padding-left: 15%;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start; 
     gap: 1rem;
     justify-content: center;
-    
 }
 
 

@@ -3,12 +3,12 @@ import pfp from "./assets/pfp.jpeg";
 import sclearn from "./assets/scikit-learn.png";
 import tensorflow from "./assets/tensorflow.png"; 
 
-import myNewsWire_thumbnail from "./assets/mynewswirethumbnail.jpg"; 
-import RSDB_thumbnail from "./assets/RSDB.png"; 
-import cse20_thumbnail from "./assets/cse20thumbnail.gif"; 
-import cogs107a_thumbnail from "./assets/cogs107Athumbnail.gif";
-import cse150b_thumbnail from "./assets/cse150bthumbnail.jpg"; 
-import howTheyVibe_thumbnail from "./assets/howTheyVibe_thumbnail.gif"; 
+import myNewsWire_thumbnail from "./assets/projectThumbnails/mynewswirethumbnail.jpg"; 
+import RSDB_thumbnail from "./assets/projectThumbnails/RSDB.png"; 
+import cse20_thumbnail from "./assets/projectThumbnails/cse20thumbnail.gif"; 
+import cogs107a_thumbnail from "./assets/projectThumbnails/cogs107Athumbnail.gif";
+import cse150b_thumbnail from "./assets/projectThumbnails/cse150bthumbnail.jpg"; 
+import howTheyVibe_thumbnail from "./assets/projectThumbnails/howTheyVibe_thumbnail.gif"; 
 
 
 export {pfp}; 

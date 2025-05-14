@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProjectElement.css"; 
-import testImage from "./../../assets/test.jpg"; 
+
 
 const KeywordDisplay = ({keywords}) => {
     if (keywords.length === 0) return null;

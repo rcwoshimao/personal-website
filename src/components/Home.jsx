@@ -10,6 +10,10 @@ import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import StackIcon from "tech-stack-icons";
 
 import {pfp, teaching_experiences, general_stack, webdev_stack, ml_stack, design_stack} from "./../personal-data.js"; 
+import techStackBanner from '../assets/tech_stacks.png';
+import projectsBannerLarge from '../assets/featured_projects_large.png';
+import projectsBannerSmall from '../assets/featured_projects_small.png';
+import teachingBanner from '../assets/teaching_experiences.png';
 
 // Animation variants
 const fadeInDown = {
@@ -102,30 +106,50 @@ const Home = () => {
       </motion.div>
 
       {/* Techstacks Section */}
-      <div className="techstacks-container">
-        <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 0.6 }}>
-          Techstacks
-        </motion.h1>
-        
-        <h3 className="centered-text">General</h3>
-        <Icons stack_list={general_stack}/>
-
-        <h3 className="centered-text">Web & mobile</h3>
-        <Icons stack_list={webdev_stack}/>
-
-        <h3 className="centered-text">ML</h3>
-        <Icons stack_list={ml_stack}/>
-
-        <h3 className="centered-text">Design</h3>
-        <Icons stack_list={design_stack}/>
-
-        <br/>
+      <div className="techstack-banner-container">
+        <img src={techStackBanner} alt="Tech Stack Banner" className="techstack-banner-img" />
       </div>
+      <div className="techstack-grid">
+        <motion.div 
+          className="techstack-section" 
+          variants={fadeInDown} 
+          transition={{ delay: 0.7 }}
+        >
+          <h3 className="centered-text">General</h3>
+          <Icons stack_list={general_stack}/>
+        </motion.div>
+        <motion.div 
+          className="techstack-section" 
+          variants={fadeInDown} 
+          transition={{ delay: 0.8 }}
+        >
+          <h3 className="centered-text">Web & mobile</h3>
+          <Icons stack_list={webdev_stack}/>
+        </motion.div>
+        <motion.div 
+          className="techstack-section" 
+          variants={fadeInDown} 
+          transition={{ delay: 0.9 }}
+        >
+          <h3 className="centered-text">ML</h3>
+          <Icons stack_list={ml_stack}/>
+        </motion.div>
+        <motion.div 
+          className="techstack-section" 
+          variants={fadeInDown} 
+          transition={{ delay: 1.0 }}
+        >
+          <h3 className="centered-text">Design</h3>
+          <Icons stack_list={design_stack}/>
+        </motion.div>
+      </div>
+
       {/* Featured Projects */}
       <div className="featured-projects-container">
-        <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1 }}>
-          Featured Projects
-        </motion.h1>
+        <motion.div className="projects-banner-container" variants={fadeInDown} transition={{ delay: 1 }}>
+          <img src={projectsBannerLarge} alt="Featured Projects Banner" className="projects-banner-img projects-banner-large" />
+          <img src={projectsBannerSmall} alt="Featured Projects Banner" className="projects-banner-img projects-banner-small" />
+        </motion.div>
         <motion.div className="project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
           <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
         </motion.div>
@@ -135,23 +159,29 @@ const Home = () => {
         <br/>
       </div>
       {/* Tutoring Experiences */}
-      <motion.h1 className="centered-text" variants={fadeInDown} transition={{ delay: 1.2 }}>
-        🎓 Tutoring Experiences
-      </motion.h1>
-
-      <motion.div className="centered-text" variants={fadeInDown} transition={{ delay: 1.3 }}>
+      <div className="teaching-banner-container">
+        <img src={teachingBanner} alt="Teaching Experiences Banner" className="teaching-banner-img" />
+      </div>
+      <div className="teaching-grid">
         {teaching_experiences.map((exp, index) => (
-          <motion.div key={index} className="mb-6 border-b pb-4" variants={fadeInDown} transition={{ delay: 1.3 + index * 0.2 }}>
-            <h3 className="text-xl font-semibold">{exp.institution} – <span className="italic">{exp.role}</span></h3>
-            <p className="text-gray-600 text-sm">🗓️ <strong>{exp.period}</strong> | 📚 <strong>{exp.courses}</strong></p>
-            <ul className="list-disc pl-5 mt-2">
+          <motion.div 
+            key={index} 
+            className="teaching-section" 
+            variants={fadeInDown} 
+            transition={{ delay: 1.2 + index * 0.2 }}
+          >
+            <h3 className="teaching-header">{exp.institution}</h3>
+            <p className="teaching-role">{exp.role}</p>
+            <p className="teaching-period">🗓️ {exp.period}</p>
+            <p className="teaching-courses">📚 {exp.courses}</p>
+            <ul className="teaching-details">
               {exp.details.map((detail, i) => (
-                <li key={i} className="text-gray-700">{detail}</li>
+                <li key={i}>{detail}</li>
               ))}
             </ul>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
     </motion.div>
   );

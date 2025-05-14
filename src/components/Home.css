@@ -2,7 +2,7 @@
     padding: 100px; 
     background-image: url('../assets/yellow-mosaic.png');
     background-repeat: repeat;
-    background-size: 8cap;  /* Makes the pattern smaller */
+    background-size: 50cap;  /* Makes the pattern smaller */
     min-height: 100vh;
 }
 
@@ -10,10 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 140px; 
+    margin-top: 100px; 
+    padding-top: 40px; 
     padding-bottom: 40px;
     position: relative;
-    margin: 20px;
+    margin: 10px;
+    padding: 10px; 
 }
 
 /* White background box */
@@ -50,8 +52,45 @@
     z-index: 2;
 }
 
-.techstacks-container{
-    padding-top: 10px; 
+.techstacks-container {
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* White background box */
+.techstacks-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    z-index: 1;
+}
+
+/* Shadow rectangle behind the container */
+.techstacks-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    border-radius: 5px;
+    transform: translate(15px, 15px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content stays above the background */
+.techstacks-container > * {
+    position: relative;
+    z-index: 2;
 }
 
 .about-me-children:nth-child(1){
@@ -123,6 +162,7 @@
 
 
 .home .paragraph{
+    padding: 5px; 
     font-size: 15px; 
 }
 
@@ -166,8 +206,11 @@
   .project-subdiv {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start; /* Ensures items align from the top */
+    align-items: flex-start;
+    justify-content: center;
     gap: 1rem;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .home ul{
@@ -192,6 +235,7 @@
 
   @media (max-width: 768px) {
     .about-me {
+        padding-top: 100px; 
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center-align content */
         text-align: center;
@@ -208,12 +252,237 @@
     }
 
     .home {
-        margin: 20px; /* Reduce margin for smaller screens */
+        padding: 20px; /* Reduce margin for smaller screens */
     }
 
     .paragraph {
         font-size: 16px; /* Reduce text size for readability */
     }
 
+}
+
+.techstack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 90px 0px 40px 0px;
+
+    padding: 20px;
+}
+
+.techstack-section {
+    position: relative;
+    padding: 20px;
+}
+
+/* White background box */
+.techstack-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    z-index: 1;
+}
+
+/* Shadow rectangle behind the container */
+.techstack-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    border-radius: 5px;
+    transform: translate(15px, 15px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content stays above the background */
+.techstack-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.techstack-banner-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+
+.techstack-banner-img {
+    position: absolute;
+    top: -10px;      /* Adjust as needed for overlap */
+    left: -60px;         /* Move to the top left */
+    width: 500px;    /* Adjust size as needed */
+    z-index: 10;
+    pointer-events: none;
+}
+
+.projects-banner-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 -40px 0;  /* Increased negative bottom margin from -20px to -40px */
+}
+
+.projects-banner-img {
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.projects-banner-large {
+    width: 800px;
+    display: block;
+}
+
+.projects-banner-small {
+    width: 600px;
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .techstack-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .techstack-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-banner-large {
+        display: none;
+    }
+    
+    .projects-banner-small {
+        display: block;
+    }
+}
+
+.teaching-banner-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 -40px 0;
+}
+
+.teaching-banner-img {
+    width: 800px;
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 90px 100px 40px 100px;
+    padding: 20px;
+}
+
+.teaching-section {
+    position: relative;
+    padding: 20px;
+}
+
+/* White background box */
+.teaching-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    z-index: 1;
+}
+
+/* Shadow rectangle behind the container */
+.teaching-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    border-radius: 5px;
+    transform: translate(15px, 15px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content stays above the background */
+.teaching-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.teaching-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.teaching-role {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.teaching-period, .teaching-courses {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.teaching-details {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.teaching-details li {
+    margin-bottom: 8px;
+    color: #444;
+    line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+    .teaching-grid {
+        grid-template-columns: 1fr;
+        margin: 90px 50px 40px 50px;
+    }
+    
+    .teaching-banner-img {
+        width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .teaching-grid {
+        margin: 90px 20px 40px 20px;
+    }
+    
+    .teaching-banner-img {
+        width: 400px;
+    }
 }
 
