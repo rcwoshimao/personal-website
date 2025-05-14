@@ -6,16 +6,13 @@
     min-height: 100vh;
 }
 
-.about-me{
+.about-me {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px; 
-    padding-top: 40px; 
-    padding-bottom: 40px;
     position: relative;
-    margin: 10px;
-    padding: 10px; 
+    margin: 20px 10px 20px 10px;
+    padding: 40px 10px 40px 10px;  /* Changed to 40px top and bottom padding */
 }
 
 /* White background box */
@@ -104,7 +101,7 @@
 .about-me-children:nth-child(2){
     flex: 2;
     margin: 10px;
-    
+    padding-right: 60px;  /* Right padding for wider screens */
 }
 
 .about-me-children img{
@@ -235,15 +232,19 @@
 
   @media (max-width: 768px) {
     .about-me {
-        padding-top: 100px; 
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center-align content */
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
     .about-me-children {
-        width: 100%; /* Ensure full width usage */
+        width: 100%;
         text-align: center;
+        padding-right: 0;  /* Remove right padding on mobile */
+    }
+
+    .about-me-children:nth-child(2) {
+        padding-right: 0;  /* Remove right padding on mobile */
     }
 
     .about-me-children img {
@@ -258,7 +259,6 @@
     .paragraph {
         font-size: 16px; /* Reduce text size for readability */
     }
-
 }
 
 .techstack-grid {
@@ -367,6 +367,7 @@
     
     .projects-banner-small {
         display: block;
+        margin-bottom: 40px; 
     }
 }
 
@@ -376,7 +377,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 -40px 0;
+    margin: 20px 0 -100px 0;
 }
 
 .teaching-banner-img {
@@ -388,101 +389,86 @@
 
 .teaching-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 90px 100px 40px 100px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;  /* Reduced gap further */
+    margin: 90px auto 40px auto;  /* Changed to auto margins for better centering */
     padding: 20px;
+    max-width: 1200px;  /* Added max-width to constrain the container */
+    width: 100%;  /* Ensure full width within constraints */
 }
 
 .teaching-section {
     position: relative;
     padding: 20px;
+    background-color: #e9d5ff;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;  /* Slightly adjusted width */
+    margin: 0 auto;
 }
 
-/* White background box */
-.teaching-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    border-radius: 5px;
-    border: 0.5px solid black;
-    z-index: 1;
-}
-
-/* Shadow rectangle behind the container */
+/* Folded corner effect */
 .teaching-section::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    background: black;
-    border-radius: 5px;
-    transform: translate(15px, 15px);
-    z-index: 0;
-    pointer-events: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent #d8b4fe transparent transparent;  /* Slightly darker purple for the fold */
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+    z-index: 3;
 }
 
-/* Ensure content stays above the background */
-.teaching-section > * {
-    position: relative;
-    z-index: 2;
+/* Remove the previous shadow rectangle */
+.teaching-section::after {
+    display: none;
 }
 
 .teaching-header {
-    font-size: 1.5rem;
+    font-size: 1.4rem;  /* Increased font size */
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #4c1d95;
 }
 
 .teaching-role {
+    font-size: 1.1rem;  /* Increased font size */
     font-style: italic;
-    color: #666;
-    margin-bottom: 15px;
+    color: #6b21a8;
+    margin-bottom: 12px;
 }
 
 .teaching-period, .teaching-courses {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: 0.95rem;  /* Increased font size */
+    color: #7e22ce;
     margin-bottom: 10px;
 }
 
 .teaching-details {
     list-style-type: disc;
     padding-left: 20px;
-    margin-top: 15px;
+    margin-top: 12px;
+    color: #6b21a8;
+    font-size: 0.95rem;  /* Increased font size */
 }
 
-.teaching-details li {
-    margin-bottom: 8px;
-    color: #444;
-    line-height: 1.4;
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .teaching-grid {
-        grid-template-columns: 1fr;
-        margin: 90px 50px 40px 50px;
-    }
-    
-    .teaching-banner-img {
-        width: 600px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;  /* Adjusted for 2 columns */
     }
 }
 
 @media (max-width: 768px) {
     .teaching-grid {
-        margin: 90px 20px 40px 20px;
-    }
-    
-    .teaching-banner-img {
-        width: 400px;
+        grid-template-columns: 1fr;
+        max-width: 400px;  /* Adjusted for 1 column */
     }
 }
 
