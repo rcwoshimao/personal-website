@@ -14,8 +14,9 @@ body{
   color: #4d2e0c;
   /*font-family: 'Courier New', Courier, monospace; */ 
   @apply bg-[var(--main)] text-[#4d2e0c] font-mono;
-
-
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 h1{
@@ -30,4 +31,22 @@ h2{
 p{
   font-size: 10px;
 
+}
+
+.home-background {
+  background-image: url('./assets/gen_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+/* Ensure content appears above the background */
+.home-background > * {
+  position: relative;
+  z-index: 1;
 }

@@ -6,7 +6,7 @@ import ProjectsList from "./ProjectElements/ProjectList.jsx";
 
 import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
 
-import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFileAlt, FaBook } from "react-icons/fa";
 import StackIcon from "tech-stack-icons";
 
 import {pfp, teaching_experiences, general_stack, webdev_stack, ml_stack, design_stack} from "./../personal-data.js"; 
@@ -73,6 +73,13 @@ const Home = () => {
             I am a passionate developer proficient in Java, Python, Swift, and React with hands-on experience in web and mobile development and data analysis ☺️. 
             I also enjoy the process of teaching, and have experience tutoring for non-profit organizations in a wide range of technical fields.
           </p>
+
+          <div className="blog-link">
+            <a href="https://two-grains-of-salt.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <FaBook className="connect-icon" />
+              <p className="paragraph">Check out my blog!</p>
+            </a>
+          </div>
 
           <div className='resumes' style={{ marginTop: "20px" }}> 
             <div className='resume_1' display="block" > 
@@ -154,7 +161,12 @@ const Home = () => {
           <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
         </motion.div>
 
-        <motion.h2 className="centered-text"> <a href="/projects" style={{ textDecoration: 'underline'}}>All Projects &gt;&gt;</a> </motion.h2>
+        <motion.h2 className="centered-text"> 
+          <a href="/projects" style={{ 
+            textDecoration: 'underline',
+            backgroundColor: '#FFFF00',
+          }}>All Projects &gt;&gt;</a> 
+        </motion.h2>
 
         <br/>
       </div>
@@ -173,12 +185,16 @@ const Home = () => {
             <h3 className="teaching-header">{exp.institution}</h3>
             <p className="teaching-role">{exp.role}</p>
             <p className="teaching-period">🗓️ {exp.period}</p>
-            <p className="teaching-courses">📚 {exp.courses}</p>
-            <ul className="teaching-details">
-              {exp.details.map((detail, i) => (
-                <li key={i}>{detail}</li>
-              ))}
-            </ul>
+            {exp.courses.map((course, courseIndex) => (
+              <div key={courseIndex} className="course-section">
+                <p className="teaching-courses">📚 {course.name}</p>
+                <ul className="teaching-details">
+                  {course.details.map((detail, detailIndex) => (
+                    <li key={detailIndex}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </motion.div>
         ))}
       </div>

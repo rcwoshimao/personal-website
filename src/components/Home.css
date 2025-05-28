@@ -1,8 +1,5 @@
 .home{
     padding: 100px; 
-    background-image: url('../assets/yellow-mosaic.png');
-    background-repeat: repeat;
-    background-size: 50cap;  /* Makes the pattern smaller */
     min-height: 100vh;
 }
 
@@ -265,7 +262,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin: 90px 0px 40px 0px;
+    margin: 30px 0px 40px 0px;
 
     padding: 20px;
 }
@@ -313,16 +310,19 @@
 .techstack-banner-container {
     position: relative;
     width: 100%;
-    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 90px 0 -80px 0;
 }
 
 .techstack-banner-img {
-    position: absolute;
-    top: -10px;      /* Adjust as needed for overlap */
-    left: -60px;         /* Move to the top left */
-    width: 500px;    /* Adjust size as needed */
+    position: relative;
+    width: 600px;
     z-index: 10;
     pointer-events: none;
+    transform: rotate(5deg);
+    
 }
 
 .projects-banner-container {
@@ -390,63 +390,59 @@
 .teaching-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;  /* Reduced gap further */
-    margin: 90px auto 40px auto;  /* Changed to auto margins for better centering */
+    gap: 20px;
+    margin: 90px auto 40px auto;
     padding: 20px;
-    max-width: 1200px;  /* Added max-width to constrain the container */
-    width: 100%;  /* Ensure full width within constraints */
+    max-width: 1200px;
+    width: 100%;
 }
 
 .teaching-section {
+    min-width: 300px;
     position: relative;
-    padding: 20px;
-    background-color: #e9d5ff;
-    border-radius: 2px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    max-width: 320px;  /* Slightly adjusted width */
-    margin: 0 auto;
+    width: 100%;
+    background: #fff;
+    padding: 4%;
+    list-style-type: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: normal;
+    transition: all 200ms ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+    aspect-ratio: auto;
+    min-height: 300px;
 }
 
-/* Folded corner effect */
-.teaching-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 30px 30px 0;
-    border-color: transparent #d8b4fe transparent transparent;  /* Slightly darker purple for the fold */
-    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
-    z-index: 3;
+.course-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-/* Remove the previous shadow rectangle */
-.teaching-section::after {
-    display: none;
+.course-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .teaching-header {
-    font-size: 1.4rem;  /* Increased font size */
+    font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #4c1d95;
+    color: #333;
 }
 
 .teaching-role {
-    font-size: 1.1rem;  /* Increased font size */
+    font-size: 1.1rem;
     font-style: italic;
-    color: #6b21a8;
+    color: #666;
     margin-bottom: 12px;
 }
 
 .teaching-period, .teaching-courses {
-    font-size: 0.95rem;  /* Increased font size */
-    color: #7e22ce;
+    font-size: 0.95rem;
+    color: #666;
     margin-bottom: 10px;
 }
 
@@ -454,21 +450,47 @@
     list-style-type: disc;
     padding-left: 20px;
     margin-top: 12px;
-    color: #6b21a8;
-    font-size: 0.95rem;  /* Increased font size */
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.teaching-details li {
+    margin-bottom: 8px;
 }
 
 @media (max-width: 1400px) {
     .teaching-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;  /* Adjusted for 2 columns */
+        max-width: 800px;
     }
 }
 
 @media (max-width: 768px) {
     .teaching-grid {
         grid-template-columns: 1fr;
-        max-width: 400px;  /* Adjusted for 1 column */
+        max-width: 400px;
     }
+}
+
+.blog-link {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.blog-link a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4d2e0c;
+    text-decoration: none;
+}
+
+.blog-link .connect-icon {
+    color: #4d2e0c;
+}
+
+.blog-link .paragraph {
+    margin: 0;
+    text-decoration: underline;
 }
 

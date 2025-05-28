@@ -18,7 +18,7 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
         <Nav/> 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<div className="home-background"><Home /></div>} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/misc" element={<Misc />} />
           <Route path="/misc/courseworks" element={<CourseworksPage />} />

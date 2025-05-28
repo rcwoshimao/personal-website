@@ -7,8 +7,8 @@
     --white: #FFFFFF;   
 
     --projelement: var(--white); 
-    --misc: var(--mid);
-    --nav: #9ADCFF;
+    --misc: #eddffa;    
+    --nav: #2f2f2e;
     --home: #FFF89A
     --projects: var(--dark);
     --main: var(--lightest);

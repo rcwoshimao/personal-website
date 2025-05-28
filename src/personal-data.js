@@ -1,4 +1,3 @@
-
 import pfp from "./assets/pfp.jpeg";
 import sclearn from "./assets/scikit-learn.png";
 import tensorflow from "./assets/tensorflow.png"; 
@@ -18,31 +17,62 @@ export const teaching_experiences = [
     institution: "Halıcıoğlu Data Science Institute",
     role: "Instructional Assistant",
     period: "2024 - Ongoing",
-    courses: "DSC 10, 40A",
-    details: [
-      "Provided 100+ hours of in-person instruction weekly",
-      "Supported 1,000+ students in Python programming, data analysis, and foundational concepts",
-    ],
+    courses: [
+      {
+        
+          name: "DSC 10",
+          details: [
+            "Supported 200+ students in learning core data science techniques including querying, grouping, and statistical analysis",
+            "Proctored and beta tested exams to ensure quality assessment materials",
+            "Hosted weekly office hours and review sessions covering key topics like data visualization, sampling, and hypothesis testing",
+            "Contributed to course-specific BabyPandas Documentation (https://dsc-courses.github.io/bpd-reference/) with Docusaurus."
+          ]
+        
+      },
+      {
+        name: "DSC 40A",
+        details: [
+          "Supported 200+ students in understanding core theoretical concepts through interactive groupwork and weekly office hours",
+          "Conducted review sessions for complex mathematical concepts like Gradient Descent, Linear Algebra, and Bayes' Theorem",
+          "Assisted in developing and reviewing course materials for topics including Multiple Linear Regression, Feature Engineering, and Naïve Bayes"
+        ]
+      }
+    ]
   },
   {
     institution: "CodePath",
     role: "Tech Fellow",
-    period: "2023",
-    courses: "Intro to iOS Development",
-    details: [
-      "Mentored & supported 200+ students in iOS development using Swift",
-      "Provided technical assistance during sessions, assignments, & labs",
-    ],
+    period: "2023 - Ongoing",
+    courses: [
+        {
+          name: "IOS 101: Intro to iOS Development",
+          details: [
+            "Led comprehensive iOS development workshops for 200+ students, focusing on Swift programming and mobile app architecture",
+            "Conducted systematic code reviews and debugging sessions to improve code quality and best practices",
+          ]
+        },
+        {
+          name: "TIPS 102 S4: Technical interview Prep",
+          details: [
+            "Ongoing!",
+          ]
+        },
+      
+    ]
   },
   {
     institution: "4S Foundation",
     role: "Mentor",
     period: "2022 - Ongoing",
-    courses: "College essay preparation",
-    details: [
-      "Offered personalized guidance for students navigating college applications",
-      "Assisted with essays, financial aid, and equitable access to education",
-    ],
+    courses: [
+      {
+        name: "College essay preparation",
+        details: [
+          "Provided strategic guidance to students throughout the college application process, from financial aid applications to scholarship opportunities",
+          "Conducted personalized mentoring sessions to refine compelling personal statements that effectively communicated students' academic and personal narratives"
+        ]
+      }
+    ]
   },
 ];
 export const general_stack = [
@@ -227,7 +257,7 @@ export const courses = [
     oneLiner:"Could have gotten that A+! Lesson learned from not keeping an eye on ddls.", 
     description: "Standard data structure course; Prof. Miranda made the course structure fairly straight forward and nice. But the moral of the story here is to not miss that deadline. In our course, we use a website called stepik, for weekly course readings and excercises worth 20% of our grade; I was decently fast at finishing them, and I was good at the course. However, at the end of the quarter, I fudged up and didn't submit the form that gives the link to my stepik account- and that 20% worth of grade? Gone. I achieved perfect grade on everything else, so this resulted in an 80%, which is still not the end of the world- and there's no use to look back. The only thing left now to do is to move forward and make sure I don't forget to fill things in first and formost! "
   }, 
-  /*
+  
   {
     name: "CAT 3: Culture, Art, and Technology 3 ", 
     quarter: "SP 2023", 
@@ -237,9 +267,9 @@ export const courses = [
     reason: "College Writing Course", 
     professor: "Romain Delaville, ZiYang Li",
     oneLiner:"My favorite CAT course!", 
-    description: "In CSE Prospera"
+    description: "CAT 3 was an interdisciplinary writing course that explored AI, labor, ethics, and social issues through group work and research. I still have such vivid memories of my amazing team, some of the team members I am still in contact with today (as of 2025). — we designed a concept app called Prospera, that focused on personalized financial planning and eliminating intergenerational poverty. Our section was super enjoyable, thanks to our wonderful TA, Ziyang Li, who always had great outfit choices and made thoughtful assignments that really helped with team bonding and motivation. It was such a fun project, and we all put in a lot of effort — and in the end, it really paid off. Definitely my favorite course in the entire CAT series. Good times!"
   }, 
-
+/*
   {
     name: "CSE 150B", 
     quarter: "SP 25", 
@@ -249,7 +279,7 @@ export const courses = [
     reason: "Minor Req", 
     professor: "Gao Si Chun",
     oneLiner:"Sharpen your organic intelligence.", 
-    description: ""
+    description: "One of my favorite courses I took at UCSD. Good times spent with the professor in office hours, and I still remember whispering under my breath uncontrollably, "this is so cool!" Whenver a cool concept was introduced in class."
   }, 
 
   {
