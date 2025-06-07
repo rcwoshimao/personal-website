@@ -8,6 +8,7 @@ import cse20_thumbnail from "./assets/projectThumbnails/cse20thumbnail.gif";
 import cogs107a_thumbnail from "./assets/projectThumbnails/cogs107Athumbnail.gif";
 import cse150b_thumbnail from "./assets/projectThumbnails/cse150bthumbnail.jpg"; 
 import howTheyVibe_thumbnail from "./assets/projectThumbnails/howTheyVibe_thumbnail.gif"; 
+import outageAnalysis_thumbnail from "./assets/projectThumbnails/outageAnalysis_thumbnail.gif"; 
 
 
 export {pfp}; 
@@ -108,12 +109,19 @@ export const design_stack = [
 
 export const projectsData = [
   {
+    image: outageAnalysis_thumbnail,
+    name: "Electrical Infrastructure Resilience Analysis",
+    shortDescription: "An analysis on how electric generation infrastructure and guel diversity influence grid resilience across U.S. states.",
+    link: "https://rcwoshimao.github.io/infrastructure-resilience-analysis/", 
+    keywords: ["ML", "Data Analysis"],
+    time: "SP 2025"
+  },
+  {
     image: cse150b_thumbnail,
     name: "CSE 150B",
     shortDescription: "Introduction to Artificial Intelligence: Search and Reasoning",
     link: "https://rc-woshimao.notion.site/CSE-150B-notes-1d21b338692f80f984d7fd5925060d18",
     keywords: ["Notes", "ML", "Coursework"],
-    category: "Course Note", 
     time: "SP 2025"
   },
   {
@@ -121,8 +129,7 @@ export const projectsData = [
       name: "CSE 20",
       shortDescription: "Discrete Mathematics",
       link: "/projects/cse20map",
-      keywords: ["Coursework", "Concept Map"],
-      category: "Course concept maps", 
+      keywords: ["Coursework", "Concept Map", "Notes"],
       time: "SP 2023"
   },
   {
@@ -130,8 +137,7 @@ export const projectsData = [
       name: "CSE 101",
       shortDescription: "Design and Analysis of Algorithms",
       link: "/projects/cse101map",
-      keywords: ["Concept Map"],
-      category: "Course concept maps", 
+      keywords: ["Coursework", "Concept Map", "Notes"],
       time: "FA 2024"
   },
 
@@ -140,8 +146,7 @@ export const projectsData = [
       name: "COGS 107A/B",
       shortDescription: "Neuroanatomy and Physiology/ Systems Neuroscience ",
       link: "https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273",
-      keywords: ["Concept Map", "NeuroSci"],
-      category: "Course concept maps", 
+      keywords: ["Coursework", "Concept Map", "NeuroSci", "Notes"],
       time: "WI 2025"
   },
   {
@@ -149,8 +154,7 @@ export const projectsData = [
       name: "SMASH-hack GW detector",
       shortDescription: "A machine learning hackathon that focuses on using various models to detect gravitational waves from abnormal activities in the universe.",
       link: "https://github.com/EliteApex/SMASH-hackathon?tab=readme-ov-file",
-      keywords: ["ML", "Hackathon"],
-      category: "ML", 
+      keywords: ["Hackathon", "ML"],
       time: "WI 2025"
   },
   {
@@ -158,8 +162,7 @@ export const projectsData = [
       name: "Recommendation for Business owners (RSDB)",
       shortDescription: "A hybrid recommender system with collaborative filters and content-based filtering. The model uses features of locations, the interaction of location and user, and the temporal evolution of the interaction to predict a user's rating of a business.",
       link: "https://github.com/KevinBian107/RSDB", 
-      keywords: ["ML"],
-      category: "ML", 
+      keywords: ["ML", "Data Analysis"],
       time: "FA 2024"
   },
   {
@@ -167,8 +170,7 @@ export const projectsData = [
       name: "Campus Coffee Space Utilization",
       shortDescription: "Cogs 13 final project. Study on Patterns in On-campus Coffee Shop: How Students Utilize the Space of Starbucks at UCSD Price Center.",
       link: "https://github.com/rcwoshimao/Campus-Coffee-Space-Utilization", 
-      keywords: ["Data Analysis"],
-      category: "ML", 
+      keywords: ["ML", "Data Analysis"],
       time: "WI 2025"
   },
   {
@@ -176,8 +178,7 @@ export const projectsData = [
       name: "Sentiment-GDP analysis",
       shortDescription: "Cogs 108 final project. Analysis on how consumer sentiment evolved in response to economic shifts.",
       link: "https://github.com/rcwoshimao/sentiment-gdp-analysis", 
-      keywords: ["Data Analysis"],
-      category: "ML", 
+      keywords: ["ML", "Data Analysis"],
       time: "WI 2025"
   },
   {
@@ -186,7 +187,6 @@ export const projectsData = [
     shortDescription: "Hackathon project to measure the online reception to a new song by analyzing the sentiment using agentic AI conversations trained to simulate and reflect public online discourse.",
     link: "https://github.com/rcwoshimao/several-ducks-datahacks25",
     keywords: ["Hackathon", "Front End"],
-    category: "Course concept maps", 
     time: "SP 2025"
 },
   {
@@ -195,9 +195,9 @@ export const projectsData = [
       shortDescription: "My first ever hackathon project. I was invited to join by my dear friend Jacob.",
       link: "https://devpost.com/software/mynewswire-45dlzk", 
       keywords: ["Hackathon", "Front End"],
-      category: "Web & Mobile", 
       time: "WI 2023"
-  }
+  }, 
+
 ];
 
 export const courses = [
