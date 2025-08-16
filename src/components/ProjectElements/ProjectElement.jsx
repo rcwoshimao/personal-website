@@ -14,7 +14,7 @@ const KeywordDisplay = ({keywords}) => {
 const ProjectElement = ({ image, name, shortDescription, link, keywords, time }) => {
     return (
         <div className='project-element'>
-            <img src={image || testImage} alt="" />
+            <img src={image} alt="" />
             <h2 className="project-title">{name || "Project name"}</h2>
             <h3>{time || "Project time"}</h3>
             <KeywordDisplay keywords={keywords || []}/>

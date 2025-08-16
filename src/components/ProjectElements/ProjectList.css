@@ -11,7 +11,6 @@
 /* On smaller screens (phones), center elements */
 @media (max-width: 768px) {
     .project-list {
-        justify-content: center; /* Center items only on small screens */
         text-align: center; /* Ensures any text elements inside align properly */
     }
 }

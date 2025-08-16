@@ -157,7 +157,7 @@ const Home = () => {
           <img src={projectsBannerSmall} alt="Featured Projects Banner" className="projects-banner-img projects-banner-small" />
         </motion.div>
         <motion.div className="project-subdiv" variants={fadeInDown} transition={{ delay: 1.1 }}>
-          <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "COGS 107A/B", "Recommendation for Business owners (RSDB)"]} /> 
+          <ProjectsList className="projects featured-projects" selectedProjects={["CSE 150B", "Recommendation for Business owners (RSDB)", "Electrical Infrastructure Resilience Analysis"]} /> 
         </motion.div>
 
         <motion.h2 className="centered-text"> 

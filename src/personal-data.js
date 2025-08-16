@@ -261,7 +261,7 @@ export const courses = [
   {
     name: "CAT 3: Culture, Art, and Technology 3 ", 
     quarter: "SP 2023", 
-    status: "", 
+    status: "Enrolled", 
     gradingOption: "Letter Grade", 
     grade: "A",
     reason: "College Writing Course", 
@@ -279,7 +279,7 @@ export const courses = [
     reason: "Minor Req", 
     professor: "Gao Si Chun",
     oneLiner:"Sharpen your organic intelligence.", 
-    description: "One of my favorite courses I took at UCSD. Good times spent with the professor in office hours, and I still remember whispering under my breath uncontrollably, "this is so cool!" Whenver a cool concept was introduced in class."
+    description: "One of my favorite courses I took at UCSD. Good times spent with the professor in office hours, and I still remember whispering under my breath uncontrollably, "this is so cool!" Whenver a cool concept was introduced in class. I think I barely scratched the surface of the course content, and there's just so much more to explore."
   }, 
 
   {
