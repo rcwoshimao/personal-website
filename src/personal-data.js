@@ -9,6 +9,7 @@ import cogs107a_thumbnail from "./assets/projectThumbnails/cogs107Athumbnail.gif
 import cse150b_thumbnail from "./assets/projectThumbnails/cse150bthumbnail.jpg"; 
 import howTheyVibe_thumbnail from "./assets/projectThumbnails/howTheyVibe_thumbnail.gif"; 
 import outageAnalysis_thumbnail from "./assets/projectThumbnails/outageAnalysis_thumbnail.gif"; 
+import mit_1402_thumbnail from "./assets/projectThumbnails/mit_1402_thumbnail.png"; 
 
 
 export {pfp}; 
@@ -108,6 +109,14 @@ export const design_stack = [
 ]
 
 export const projectsData = [
+  {
+    image: mit_1402_thumbnail,
+    name: "MIT 1402 Macroeconomics",
+    shortDescription: "Class notes for MIT open courseware 1402 principles of macroeconomics",
+    link: "https://rc-woshimao.notion.site/25b1b338692f80b89bfbef15f152c16e?v=25b1b338692f80dda09d000c0dec97e4", 
+    keywords: ["Notes", "Coursework"],
+    time: "SM 2025"
+  },
   {
     image: outageAnalysis_thumbnail,
     name: "Electrical Infrastructure Resilience Analysis",
