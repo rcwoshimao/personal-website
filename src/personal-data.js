@@ -10,7 +10,7 @@ import cse150b_thumbnail from "./assets/projectThumbnails/cse150bthumbnail.jpg";
 import howTheyVibe_thumbnail from "./assets/projectThumbnails/howTheyVibe_thumbnail.gif"; 
 import outageAnalysis_thumbnail from "./assets/projectThumbnails/outageAnalysis_thumbnail.gif"; 
 import mit_1402_thumbnail from "./assets/projectThumbnails/mit_1402_thumbnail.png"; 
-
+import agntcity_thumbnail from "./assets/projectThumbnails/agntcity_thumbnail.gif"; 
 
 export {pfp}; 
 
@@ -109,6 +109,14 @@ export const design_stack = [
 ]
 
 export const projectsData = [
+  {
+    image: agntcity_thumbnail,
+    name: "AGNTCITY",
+    shortDescription: "Class notes for MIT open courseware 1402 principles of macroeconomics",
+    link: "https://devpost.com/software/agntcity", 
+    keywords: ["Hackathon", "Front End", "ML"],
+    time: "WI 2025"
+  },
   {
     image: mit_1402_thumbnail,
     name: "MIT 1402 Macroeconomics",
