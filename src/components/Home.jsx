@@ -56,8 +56,7 @@ const Icons = ({stack_list}) => {
 
 
 const Home = () => {
-  let webDevResume = "https://docs.google.com/document/d/1b72j3ZAOqG8z63yta5wi4md5NnWhQsHg5oi2bGXguKk/edit?usp=sharing";
-  let dsResume = "https://docs.google.com/document/d/1dba08_q62qje0yTVH1Mgbz95VTNibg53e2VRiD1b50A/edit?usp=sharing";
+  let resume = "https://docs.google.com/document/d/1jKqHOagtGUorYPROfQFYBBn2FEVM-SUarvrnO8bFrIw/edit?usp=sharing";
 
   return (
     <motion.div className="home" initial="hidden" animate="visible" variants={fadeInDown}>
@@ -82,21 +81,13 @@ const Home = () => {
 
           <div className='resumes' style={{ marginTop: "20px" }}> 
             <div className='resume_1' display="block" > 
-            <GoogleDocPDF docLink={webDevResume}>
+            <GoogleDocPDF docLink={resume}>
               <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
                 <FaFileAlt className="connect-icon" style={{ color: "#910a45" }} />
-                <p className="paragraph" style={{ margin: 0, textDecoration: "underline"}}>Web Dev resume</p>
+                <p className="paragraph" style={{ margin: 0, textDecoration: "underline"}}>Resume</p>
               </div>
             </GoogleDocPDF>
             </div>
-            <div className='resume_2' display="block" > 
-            <GoogleDocPDF docLink={dsResume}>
-              <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
-                  <FaFileAlt className="connect-icon" style={{ color: "#4d5e21" }} />
-                  <p className="paragraph" style={{ margin: 0, textDecoration: "underline" }}>Data Science resume</p>
-              </div>
-              </GoogleDocPDF>
-              </div>
           </div>
 
           <div className="connect-icons">
