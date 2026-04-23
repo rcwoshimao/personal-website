@@ -11,6 +11,8 @@ import howTheyVibe_thumbnail from "./assets/projectThumbnails/howTheyVibe_thumbn
 import outageAnalysis_thumbnail from "./assets/projectThumbnails/outageAnalysis_thumbnail.gif"; 
 import mit_1402_thumbnail from "./assets/projectThumbnails/mit_1402_thumbnail.png"; 
 import agntcity_thumbnail from "./assets/projectThumbnails/agntcity_thumbnail.gif"; 
+import solarify_thumbnail from "./assets/projectThumbnails/solarify_thumbnail.gif"; 
+import candles_thumbnail from "./assets/projectThumbnails/candles_thumbnail.gif"; 
 
 export {pfp}; 
 
@@ -110,12 +112,28 @@ export const design_stack = [
 
 export const projectsData = [
   {
+    image: solarify_thumbnail, 
+    name:"Solarify", 
+    shortDescription:"Winnter Best Use of Databricks Challenge @ Datahack2026",
+    link:"https://devpost.com/software/name-yqj3mw", 
+    keywords:["Hackathon", "Front End", "ML"], 
+    time: "SP 2025"
+  },
+  {
     image: agntcity_thumbnail,
     name: "AGNTCITY",
-    shortDescription: "Class notes for MIT open courseware 1402 principles of macroeconomics",
+    shortDescription: "Winner of Multi-Agent Systems Challenge @ SanDHack2026",
     link: "https://devpost.com/software/agntcity", 
     keywords: ["Hackathon", "Front End", "ML"],
     time: "WI 2025"
+  },
+  {
+    image: candles_thumbnail,
+    name: "Candles",
+    shortDescription: "Candles is an interactive map application where you can place emotional markers on a global map, each representing a feeling or experience to create a visual tapestry of emotions across the world.",
+    link: "https://candles-auk.pages.dev/", 
+    keywords: ["Front End", "Data Analysis", "Long Term Project"],
+    time: "SP 2024 - Ongoing"
   },
   {
     image: mit_1402_thumbnail,
