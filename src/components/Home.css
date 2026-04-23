@@ -3,6 +3,17 @@
     min-height: 100vh;
 }
 
+/* Center the homepage WindowFrame (Latest update) block */
+
+.home .window-frame{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home .window-frame p{
+    text-align: center;
+}
+
 .about-me {
     display: flex;
     justify-content: space-between;

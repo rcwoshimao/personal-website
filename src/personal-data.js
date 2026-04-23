@@ -16,6 +16,11 @@ import candles_thumbnail from "./assets/projectThumbnails/candles_thumbnail.gif"
 
 export {pfp}; 
 
+export const latestUpdate = {
+  date: "Apr 23, 2026",
+  text: "Added a “Latest update” section on the homepage.",
+};
+
 export const teaching_experiences = [
   {
     institution: "Halıcıoğlu Data Science Institute",

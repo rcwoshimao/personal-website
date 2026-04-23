@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./Home.css";
 import "./../App.css";
 import ProjectsList from "./ProjectElements/ProjectList.jsx";
-
+import WindowFrame from "./WindowFrame/WindowFrame.jsx";
 import GoogleDocPDF from "./GoogleDocPDF/GoogleDocPDF";
 
 import { FaGithub, FaLinkedin, FaFileAlt, FaBook } from "react-icons/fa";
@@ -60,6 +60,13 @@ const Home = () => {
 
   return (
     <motion.div className="home" initial="hidden" animate="visible" variants={fadeInDown}>
+    <WindowFrame className="window-frame">
+      <p style={{ fontSize: 18}}>
+        Latest update: 2026 - Apr - 24
+        - New projects added: Candles, Solarify
+      </p>
+    </WindowFrame>
+
       {/* About Me Section */}
       <motion.div className="about-me" variants={fadeInDown}>
         <motion.div className="about-me-children" variants={fadeInDown}>
