@@ -71,6 +71,16 @@ export function Nav() {
           </Link>
         </Typography>
       ))}
+      <Typography as="li" variant="small" className="nav-items h-12 p-1 font-mono font-medium text-white hover:text-lg">
+        <a
+          href="https://two-grains-of-salt.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center p-2 text-white rounded-md hover:bg-black"
+        >
+          Blog
+        </a>
+      </Typography>
     </ul>
   );
 

@@ -62,8 +62,8 @@ const Home = () => {
     <motion.div className="home" initial="hidden" animate="visible" variants={fadeInDown}>
     <WindowFrame className="window-frame">
       <p style={{ fontSize: 18}}>
-        Latest update: 2026 - Apr - 24
-        - New projects added: Candles, Solarify
+        Latest update: | 2026 June 17 
+        Added new project: Digital Yearbook | New blogpost 
       </p>
     </WindowFrame>
 

@@ -13,13 +13,9 @@ import mit_1402_thumbnail from "./assets/projectThumbnails/mit_1402_thumbnail.pn
 import agntcity_thumbnail from "./assets/projectThumbnails/agntcity_thumbnail.gif"; 
 import solarify_thumbnail from "./assets/projectThumbnails/solarify_thumbnail.gif"; 
 import candles_thumbnail from "./assets/projectThumbnails/candles_thumbnail.gif"; 
+import digitalYearbook_thumbnail from "./assets/projectThumbnails/digital_yearbook_thumbnail.gif"; 
 
 export {pfp}; 
-
-export const latestUpdate = {
-  date: "Apr 23, 2026",
-  text: "Added a “Latest update” section on the homepage.",
-};
 
 export const teaching_experiences = [
   {
@@ -117,27 +113,35 @@ export const design_stack = [
 
 export const projectsData = [
   {
+    image: digitalYearbook_thumbnail,
+    name: "Digital Yearbook",
+    shortDescription: "A digital yearbook where friends sign your pages with a freehand canvas, stickers, and photos, then browse them in an interactive flipbook or export as a PDF.",
+    link: "https://digital-yearbook.rebeccachencjy.workers.dev/login",
+    keywords: ["Full Stack"],
+    time: "SP 2026"
+  },
+  {
     image: solarify_thumbnail, 
     name:"Solarify", 
     shortDescription:"Winnter Best Use of Databricks Challenge @ Datahack2026",
     link:"https://devpost.com/software/name-yqj3mw", 
-    keywords:["Hackathon", "Front End", "ML"], 
-    time: "SP 2025"
+    keywords:["Hackathon", "Full Stack", "ML"], 
+    time: "SP 2026"
   },
   {
     image: agntcity_thumbnail,
     name: "AGNTCITY",
     shortDescription: "Winner of Multi-Agent Systems Challenge @ SanDHack2026",
     link: "https://devpost.com/software/agntcity", 
-    keywords: ["Hackathon", "Front End", "ML"],
-    time: "WI 2025"
+    keywords: ["Hackathon", "Full Stack", "ML"],
+    time: "WI 2026"
   },
   {
     image: candles_thumbnail,
     name: "Candles",
-    shortDescription: "Candles is an interactive map application where you can place emotional markers on a global map, each representing a feeling or experience to create a visual tapestry of emotions across the world.",
+    shortDescription: "An interactive map application where you can place emotional markers on a global map, each representing a feeling or experience to create a visual tapestry of emotions across the world.",
     link: "https://candles-auk.pages.dev/", 
-    keywords: ["Front End", "Data Analysis", "Long Term Project"],
+    keywords: ["Full Stack", "Data Analysis", "Long Term Project"],
     time: "SP 2024 - Ongoing"
   },
   {
@@ -186,7 +190,7 @@ export const projectsData = [
       name: "COGS 107A/B",
       shortDescription: "Neuroanatomy and Physiology/ Systems Neuroscience ",
       link: "https://www.canva.com/design/DAGbfErBzVw/fuuDI_q8lPQpraYUFEDCfw/view?utm_content=DAGbfErBzVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h08dfbf0273",
-      keywords: ["Coursework", "Concept Map", "NeuroSci", "Notes"],
+      keywords: ["Coursework", "Concept Map", "Notes"],
       time: "WI 2025"
   },
   {
@@ -226,7 +230,7 @@ export const projectsData = [
     name: "Traction",
     shortDescription: "Hackathon project to measure the online reception to a new song by analyzing the sentiment using agentic AI conversations trained to simulate and reflect public online discourse.",
     link: "https://github.com/rcwoshimao/several-ducks-datahacks25",
-    keywords: ["Hackathon", "Front End"],
+    keywords: ["Hackathon", "Full Stack"],
     time: "SP 2025"
 },
   {
@@ -234,7 +238,7 @@ export const projectsData = [
       name: "MyNewsWire",
       shortDescription: "My first ever hackathon project. I was invited to join by my dear friend Jacob.",
       link: "https://devpost.com/software/mynewswire-45dlzk", 
-      keywords: ["Hackathon", "Front End"],
+      keywords: ["Hackathon", "Full Stack"],
       time: "WI 2023"
   }, 
 
