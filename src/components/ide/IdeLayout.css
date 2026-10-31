@@ -8,11 +8,11 @@
   --text: #e6edf3;
   --text-bright: #ffffff;
   --muted: rgba(230, 237, 243, 0.45);
-  --terminal-text: #70ffdb;
+  --terminal-text: #aeffeb;
   --accent: #30c1a4;
   --hover: rgba(255, 255, 255, 0.05);
   --selected: rgba(48, 193, 164, 0.12);
-  --prompt: #bf49ff;
+  --prompt: #e4b0ff;
   --path: #cb84a7;
   --selection: #cb84a7;
 
@@ -237,6 +237,13 @@
   padding: 0 16px 16px;
   overflow-y: auto;
   color: var(--terminal-text);
+}
+
+.ide-line {
+  min-height: 1.6em;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .ide-prompt { color: var(--prompt); }

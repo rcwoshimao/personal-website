@@ -1,0 +1,102 @@
+.pbox {
+  --edge: var(--muted);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.pbox:hover,
+.pbox:focus-visible {
+  --edge: var(--accent);
+  outline: none;
+}
+
+/* Top and bottom borders */
+.pbox-edge {
+  display: flex;
+  color: var(--edge);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.pbox-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1ch;
+  color: var(--text-bright);
+}
+
+.pbox-time {
+  flex-shrink: 0;
+  padding: 0 1ch;
+  color: var(--path);
+}
+
+.pbox-fill {
+  flex: 1;
+  min-width: 2ch;
+  overflow: hidden;
+}
+
+/* Body with | sides */
+.pbox-body {
+  position: relative;
+  flex: 1;
+  padding: 0.6em 2ch;
+}
+
+.pbox-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1ch;
+  overflow: hidden;
+  white-space: pre;
+  line-height: 1.2;
+  color: var(--edge);
+  transition: color 0.2s ease;
+}
+
+.pbox-side-left { left: 0; }
+.pbox-side-right { right: 0; }
+
+.pbox-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.pbox-desc {
+  margin: 10px 0 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pbox-tags {
+  margin: 0;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pbox-edge,
+  .pbox-side { transition: none; }
+}

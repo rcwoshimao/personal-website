@@ -1,0 +1,12 @@
+/* ls output: project boxes flow into columns */
+.ls-output {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px 24px;
+  margin: 12px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.ls-output > li { display: flex; min-width: 0; }
+.ls-output > li > .pbox { flex: 1; }

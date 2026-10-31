@@ -49,3 +49,6 @@ Dither shader https://ui.aceternity.com/components/dither-shader
 
 # Design choices to change / think about later
 - When opening the specific projects, do we keep the project tabs bc that can opne a ton of crap up there
+- Credit all the references: 
+    - Ascii website 
+    - https://www.reddit.com/r/unixporn/comments/1xeuuwb/hyprland_nothing_os_rice/

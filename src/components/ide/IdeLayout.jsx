@@ -3,6 +3,9 @@ import {
   VscHome, VscFolder, VscEllipsis, VscBook, VscClose, VscSourceControl,
   VscRepo, VscChevronRight, VscFileCode, VscMenu,
 } from 'react-icons/vsc';
+import Prompt from './Prompt';
+import HomeTerminal from './HomeTerminal';
+import ProjectsTerminal from './ProjectsTerminal';
 import './IdeLayout.css';
 
 // Root folder; every node with a `page` flag can be opened as a tab.
@@ -10,14 +13,7 @@ import './IdeLayout.css';
 const TREE = {
   id: 'root', label: 'jiayingchen.dev', icon: VscRepo, children: [
     { id: 'home', label: 'home.exe', icon: VscHome, page: true },
-    {
-      id: 'projects', label: 'projects/', icon: VscFolder, page: true, children: [
-        { id: 'projects/project-alpha', label: 'project-alpha.exe', page: true },
-        { id: 'projects/project-beta', label: 'project-beta.exe', page: true },
-        { id: 'projects/project-gamma', label: 'project-gamma.exe', page: true },
-        { id: 'projects/project-delta', label: 'project-delta.exe', page: true },
-      ],
-    },
+    { id: 'projects', label: 'projects/', icon: VscFolder, page: true },
     { id: 'misc', label: 'misc.sh', icon: VscEllipsis, page: true },
     { id: 'blog', label: 'blog.md', icon: VscBook, page: true },
   ],
@@ -86,7 +82,7 @@ const TreeNode = ({ node, active, expanded, onOpen, onToggle, className = '' }) 
 const IdeLayout = () => {
   const [tabs, setTabs] = useState(['home']);
   const [active, setActive] = useState('home');
-  const [expanded, setExpanded] = useState(new Set(['root', 'projects']));
+  const [expanded, setExpanded] = useState(new Set(['root']));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const open = (id) => {
@@ -157,10 +153,13 @@ const IdeLayout = () => {
           <div className="ide-terminal">
             <div className="ide-terminal-header">TERMINAL</div>
             <div className="ide-terminal-body">
-              <span className="ide-prompt">(based) jiayingchen.dev</span>
-              <span className="ide-path">:~{active ? `/${active}` : ''}</span>
-              <span>$ </span>
-              <span className="ide-cursor" />
+              {active === 'home' ? (
+                <HomeTerminal />
+              ) : active === 'projects' ? (
+                <ProjectsTerminal />
+              ) : (
+                <Prompt path={active} />
+              )}
             </div>
           </div>
         </section>

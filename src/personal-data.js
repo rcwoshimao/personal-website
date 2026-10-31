@@ -123,7 +123,7 @@ export const projectsData = [
   {
     image: solarify_thumbnail, 
     name:"Solarify", 
-    shortDescription:"Winnter Best Use of Databricks Challenge @ Datahack2026",
+    shortDescription:"Winner of Best Use of Databricks Challenge @ Datahack2026",
     link:"https://devpost.com/software/name-yqj3mw", 
     keywords:["Hackathon", "Full Stack", "ML"], 
     time: "SP 2026"
@@ -155,7 +155,7 @@ export const projectsData = [
   {
     image: outageAnalysis_thumbnail,
     name: "Electrical Infrastructure Resilience Analysis",
-    shortDescription: "An analysis on how electric generation infrastructure and guel diversity influence grid resilience across U.S. states.",
+    shortDescription: "An analysis on how electric generation infrastructure and fuel diversity influence grid resilience across U.S. states.",
     link: "https://rcwoshimao.github.io/infrastructure-resilience-analysis/", 
     keywords: ["ML", "Data Analysis"],
     time: "SP 2025"
