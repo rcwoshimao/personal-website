@@ -6,6 +6,7 @@ import {
   VscLayout, VscLayoutSidebarLeft, VscLayoutPanel, VscLayoutSidebarRight,
 } from 'react-icons/vsc';
 import ShellInput from './ShellInput';
+import KeyboardPanel from './KeyboardPanel';
 import HomeTerminal from './HomeTerminal';
 import ProjectsTerminal from './ProjectsTerminal';
 import { tagSlug } from './tags';
@@ -205,6 +206,7 @@ const IdeLayout = () => {
               )}
             </div>
           </div>
+          <KeyboardPanel />
         </section>
       </div>
 
