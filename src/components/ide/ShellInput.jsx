@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Prompt from './Prompt';
 import { runCommand } from './commands';
+import { scrollTerminalToBottom } from './terminalScroll';
 
 const MAX_INPUT = 100;
 
@@ -20,7 +21,7 @@ const ShellInput = ({ path }) => {
 
   // Keep the live prompt in view as output piles up
   useEffect(() => {
-    if (history.length) inputRef.current?.scrollIntoView({ block: 'nearest' });
+    if (history.length) scrollTerminalToBottom(inputRef.current);
   }, [history]);
 
   const handleKeyDown = (e) => {

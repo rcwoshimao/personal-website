@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { scrollTerminalToBottom } from './terminalScroll';
 import Prompt from './Prompt';
 import ShellInput from './ShellInput';
 import DotClock from './DotClock';
-import BrailleArt from './BrailleArt';
+import AsciiArt from './AsciiArt';
 import catAlien from './art/catAlien';
+import { LINES as rcLogo, COLORS as rcColors } from './art/rcLogo2';
 import './HomeTerminal.css';
 
 const COMMAND = './home.exe';
@@ -18,6 +20,9 @@ const BOOT_LINES = [
 
 const PROGRESS_DOTS = 5;
 
+// One run per line, so the cat prints line by line like the logo
+const CAT_LINES = catAlien.split('\n').filter((l) => l.length).map((l) => [l]);
+
 // The boot animation plays once per page load, not every time the tab is reopened.
 let hasBooted = false;
 
@@ -29,6 +34,8 @@ const HomeTerminal = () => {
   const [typed, setTyped] = useState(skip ? COMMAND.length : 0);
   const [lines, setLines] = useState(skip ? BOOT_LINES.length : 0);
   const [progress, setProgress] = useState(skip ? PROGRESS_DOTS : 0);
+  const [logo, setLogo] = useState({ lines: 0, done: skip });
+  const [cat, setCat] = useState({ lines: 0, done: skip });
 
   useEffect(() => {
     if (skip) return;
@@ -58,6 +65,12 @@ const HomeTerminal = () => {
   const typing = typed < COMMAND.length;
   const done = lines === BOOT_LINES.length;
 
+  // Follow the boot output down like a real terminal, ending at the live prompt
+  const endRef = useRef(null);
+  useEffect(() => {
+    scrollTerminalToBottom(endRef.current);
+  }, [typed, lines, progress, done, logo, cat]);
+
   return (
     <>
       <Prompt path="home" cursor={typing || (!done && lines === 0)}>
@@ -76,14 +89,34 @@ const HomeTerminal = () => {
 
       {done && (
         <>
-          <DotClock />
-          <figure className="home-art">
-            <BrailleArt art={catAlien} label="cat alien" />
-            <figcaption>art by STATlover12</figcaption>
-          </figure>
-          <ShellInput path="home" />
+          <AsciiArt
+            lines={rcLogo}
+            colors={rcColors}
+            label="RC logo"
+            braille
+            squash={0.83}
+            animate={!skip}
+            onProgress={(n, complete) => setLogo({ lines: n, done: complete })}
+          />
+          {logo.done && (
+            <>
+              <DotClock />
+              <figure className="home-art">
+                <AsciiArt
+                  lines={CAT_LINES}
+                  label="cat alien"
+                  braille
+                  animate={!skip}
+                  onProgress={(n, complete) => setCat({ lines: n, done: complete })}
+                />
+                {cat.done && <figcaption>art by STATlover12</figcaption>}
+              </figure>
+              {cat.done && <ShellInput path="home" />}
+            </>
+          )}
         </>
       )}
+      <div ref={endRef} />
     </>
   );
 };

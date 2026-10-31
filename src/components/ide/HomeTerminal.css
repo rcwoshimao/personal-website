@@ -31,7 +31,11 @@
   max-width: 320px;
   margin: 0 0 28px;
   padding-left: 16px;
-  animation: dot-clock-in 0.4s ease 0.15s both;
+}
+
+.home-art .ascii-art-braille {
+  max-width: none;
+  margin: 0;
 }
 
 .braille-art {
@@ -43,6 +47,7 @@
 
 .home-art figcaption {
   margin-top: 8px;
+  animation: dot-clock-in 0.4s ease both;
   font-size: 11px;
   color: var(--muted);
 }
@@ -53,5 +58,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .dot-clock,
-  .home-art { animation: none; }
+  .home-art figcaption { animation: none; }
 }
