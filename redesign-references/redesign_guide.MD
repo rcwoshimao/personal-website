@@ -66,5 +66,6 @@ Dither shader https://ui.aceternity.com/components/dither-shader
     - https://www.asciiart.eu/ascii-dividers/gallery
     - https://boxes.thomasjensen.com/box-designs.html
     - vs code?
-    - https://www.reddit.com/r/unixporn/s/UGBuZkaKkh
+    - https://www.reddit.com/r/unixporn/s/UGBuZkaKkh 
+    - https://ascii-motion.app/
 

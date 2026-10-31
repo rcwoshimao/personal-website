@@ -26,3 +26,6 @@ const catAlien = `
 `;
 
 export default catAlien;
+
+// One run per line, for printing line by line
+export const CAT_LINES = catAlien.split('\n').filter((l) => l.length).map((l) => [l]);

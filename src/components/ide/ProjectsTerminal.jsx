@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { usePlayOnce, prefersReducedMotion } from './usePlayOnce';
 import Prompt from './Prompt';
 import ShellInput from './ShellInput';
 import ProjectCard from './ProjectCard';
@@ -10,21 +11,17 @@ const TAGS = collectTags(projectsData);
 
 const commandFor = (tag) => (tag ? `ls --tag=${tagSlug(tag)}` : 'ls');
 
-// Like home, the first `ls` only types itself out once per page load.
-let hasRun = false;
-
 const ProjectsTerminal = () => {
-  const [reducedMotion] = useState(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
+  // The first `ls` only types itself out once per page load
+  const skip = usePlayOnce('projects');
+  const [reducedMotion] = useState(prefersReducedMotion);
   const [tag, setTag] = useState(null);
   const command = commandFor(tag);
-  const [typed, setTyped] = useState(() => (hasRun || reducedMotion ? command.length : 0));
+  const [typed, setTyped] = useState(skip ? command.length : 0);
   const done = typed >= command.length;
 
   // Type the current command one character at a time
   useEffect(() => {
-    hasRun = true;
     if (done) return;
     const delay = typed === 0 ? 200 : tag ? 35 : 80;
     const id = setTimeout(() => setTyped(typed + 1), delay);
@@ -61,7 +58,7 @@ const ProjectsTerminal = () => {
         ))}
       </div>
 
-      <Prompt path="projects" cursor={!done}>
+      <Prompt path="projects" cursor={!done} status={done ? 'ok' : undefined}>
         {command.slice(0, typed)}
       </Prompt>
 

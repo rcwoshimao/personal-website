@@ -1,0 +1,58 @@
+/* The redesign's theme: every color and font lives here.
+   Palette based on redesign-references/Customed.terminal. */
+
+/* "Monospace" by George Williams (OFL), self-hosted; see src/assets/fonts/README.md */
+@font-face {
+  font-family: 'GW Monospace';
+  src: url('../../assets/fonts/Monospace-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GW Monospace';
+  src: url('../../assets/fonts/Monospace-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+.ide {
+  /* Surfaces */
+  --bg: #091626;
+  --sidebar: #06111e;
+  --tabs: var(--sidebar);
+  --tab-active: var(--bg);
+  --border: #142a40;
+  --backdrop: rgba(3, 8, 15, 0.6); /* behind the mobile drawer */
+
+  /* Text */
+  --text: #e6edf3;
+  --text-bright: #ffffff;
+  --muted: rgba(230, 237, 243, 0.45);
+  --terminal-text: #aeffeb;
+
+  /* Accent and states */
+  --accent: #30c1a4;
+  --hover: rgba(255, 255, 255, 0.05);
+  --selected: rgba(48, 193, 164, 0.12);
+  --selection: var(--path);
+
+  /* Shell */
+  --prompt: #e4b0ff;
+  --path: #cb84a7;
+  --ok: #3794ff;    /* command succeeded mark */
+  --error: #e7c0c0; /* command failed mark */
+
+  /* Decoration */
+  --tree-line: #1f3b55;                   /* sidebar branch lines */
+  --dot-grid: rgba(230, 237, 243, 0.08);  /* keyboard background dots */
+
+  /* Fonts */
+  --font-mono: 'GW Monospace', 'JetBrains Mono', Menlo, Consolas, monospace;
+  --font-display: 'Bitcount Single', monospace;
+  --font-size: 15px;  /* terminal text; other text sizes are set close to this */
+  --font-weight: 700; /* the mono font is thin at regular weight, so the UI uses its bold */
+}
+
+/* The old global stylesheet (src/index.css) sets a font on every element with `*`, which beats
+   inheritance. Re-apply ours to everything inside the IDE; component rules like .pbox-title still win. */
+.ide :where(*) { font-family: var(--font-mono); }

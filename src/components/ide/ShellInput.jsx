@@ -1,6 +1,7 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useContext, useEffect, useRef, useState } from 'react';
 import Prompt from './Prompt';
 import { runCommand } from './commands';
+import { ShellContext } from './shellContext';
 import { scrollTerminalToBottom } from './terminalScroll';
 
 const MAX_INPUT = 100;
@@ -9,6 +10,7 @@ const MAX_INPUT = 100;
 // prompt line; the real <input> is invisible and only captures keystrokes.
 // Touch devices get a static prompt (they will use tappable suggestions instead).
 const ShellInput = ({ path }) => {
+  const shell = useContext(ShellContext);
   const [isTouch] = useState(() => window.matchMedia('(pointer: coarse)').matches);
   const [value, setValue] = useState('');
   const [history, setHistory] = useState([]);
@@ -27,16 +29,18 @@ const ShellInput = ({ path }) => {
   const handleKeyDown = (e) => {
     if (e.key !== 'Enter') return;
     const command = value.trim();
-    setHistory([...history, { input: value, output: command ? runCommand(command) : null }]);
+    setHistory([...history, { input: value, result: command ? runCommand(command, shell) : null }]);
     setValue('');
   };
 
   return (
     <>
-      {history.map(({ input, output }, i) => (
+      {history.map(({ input, result }, i) => (
         <Fragment key={i}>
-          <Prompt path={path} cursor={false}>{input}</Prompt>
-          {output?.map((line, j) => (
+          <Prompt path={path} cursor={false} status={result && (result.error ? 'error' : 'ok')}>
+            {input}
+          </Prompt>
+          {result?.lines.map((line, j) => (
             <div key={j} className="ide-line">{line}</div>
           ))}
         </Fragment>

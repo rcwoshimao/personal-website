@@ -1,0 +1,79 @@
+.pbox {
+  --edge: var(--muted);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.pbox:hover,
+.pbox:focus-within {
+  --edge: var(--accent);
+}
+
+/* Top and bottom borders */
+.pbox-edge {
+  display: flex;
+  color: var(--edge);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.pbox-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1ch;
+  color: var(--text-bright);
+  text-decoration: none;
+  margin: 0;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+/* Dotted display font; `.ide` keeps it above the theme's font reset, whatever order the CSS loads in */
+.ide .pbox-title { font-family: var(--font-display); }
+
+/* Keep the border characters vertically centered against the larger title */
+.pbox-edge:first-child { align-items: center; }
+
+.pbox-footer {
+  flex-shrink: 0;
+  padding: 0 1ch;
+  color: var(--path);
+}
+
+.pbox-fill {
+  flex: 1;
+  min-width: 2ch;
+  overflow: hidden;
+}
+
+/* Body with | sides */
+.pbox-body {
+  position: relative;
+  flex: 1;
+  padding: 0.6em 2ch;
+}
+
+.pbox-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1ch;
+  overflow: hidden;
+  white-space: pre;
+  line-height: 1.2;
+  color: var(--edge);
+  transition: color 0.2s ease;
+}
+
+.pbox-side-left { left: 0; }
+.pbox-side-right { right: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pbox-edge,
+  .pbox-side { transition: none; }
+}

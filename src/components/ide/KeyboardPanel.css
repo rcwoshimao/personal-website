@@ -1,0 +1,53 @@
+.kb {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 16px 10px;
+  border-top: 1px solid var(--border);
+  /* faint dot grid, like the clock */
+  background:
+    radial-gradient(circle, var(--dot-grid) 1px, transparent 1px) 0 0 / 12px 12px,
+    var(--bg);
+  user-select: none;
+}
+
+.kb-row {
+  display: flex;
+  gap: 3px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.kb-key {
+  flex: 1 1 0;
+  display: grid;
+  place-items: center;
+  height: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  transition: color 0.25s ease, background-color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.kb-key.is-boxed { border-color: var(--border); }
+
+.kb-key.is-pressed {
+  color: var(--accent);
+  background: var(--selected);
+  border-color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+  transition: none;
+}
+
+/* Desktop only: no physical keyboard on phones, and no room on short screens */
+@media (max-width: 900px), (max-height: 640px), (pointer: coarse) {
+  .kb { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kb-key { transition: none; }
+}

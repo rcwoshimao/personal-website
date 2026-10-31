@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './DotClock.css';
 
 // 5x7 dot-matrix glyphs ("1" = lit dot)
 const GLYPHS = {

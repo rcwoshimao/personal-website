@@ -8,14 +8,7 @@
 
 .ls-comment { color: var(--muted); }
 
-.ls-flag {
-  padding: 0;
-  background: none;
-  border: none;
-  color: var(--muted);
-  font: inherit;
-  cursor: pointer;
-}
+.ls-flag { color: var(--muted); }
 
 .ls-flag:hover,
 .ls-flag:focus-visible {

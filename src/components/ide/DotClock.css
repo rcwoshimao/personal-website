@@ -1,0 +1,28 @@
+.dot-clock {
+  max-width: 200px;
+  margin-top: 4px;
+  animation: fade-up 0.4s ease both;
+}
+
+.dot-clock svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dot-bg { fill: var(--muted); opacity: 0.35; }
+
+.dot-on { fill: var(--text-bright); }
+
+.dot-clock-date {
+  margin-top: 12px;
+  padding-left: 16px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-clock { animation: none; }
+}

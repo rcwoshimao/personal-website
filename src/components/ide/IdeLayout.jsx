@@ -1,12 +1,16 @@
 import { useState } from 'react';
+// Theme first, so component styles can override its defaults
+import './theme.css';
+import SidebarResizer, { SIDEBAR_DEFAULT } from './SidebarResizer';
 import {
-  VscHome, VscFolder, VscEllipsis, VscBook, VscClose, VscSourceControl,
+  VscHome, VscFolder, VscBook, VscClose, VscSourceControl,
   VscRepo, VscChevronRight, VscFileCode, VscMenu,
   VscArrowLeft, VscArrowRight, VscChevronDown, VscError, VscWarning, VscGlobe,
   VscLayout, VscLayoutSidebarLeft, VscLayoutPanel, VscLayoutSidebarRight,
 } from 'react-icons/vsc';
 import ShellInput from './ShellInput';
 import KeyboardPanel from './KeyboardPanel';
+import { ShellContext } from './shellContext';
 import HomeTerminal from './HomeTerminal';
 import ProjectsTerminal from './ProjectsTerminal';
 import { tagSlug } from './tags';
@@ -25,7 +29,7 @@ const TREE = {
         id: `projects/${tagSlug(name)}`, label: `${tagSlug(name)}.exe`, href: link,
       })),
     },
-    { id: 'misc', label: 'misc.sh', icon: VscEllipsis, page: true },
+    { id: 'misc', label: 'misc/', icon: VscFolder, page: true, children: [] },
     { id: 'blog', label: 'blog.md', icon: VscBook, page: true },
   ],
 };
@@ -102,6 +106,7 @@ const IdeLayout = () => {
   const [active, setActive] = useState('home');
   const [expanded, setExpanded] = useState(new Set(['root']));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(SIDEBAR_DEFAULT);
 
   const open = (id) => {
     if (!tabs.includes(id)) setTabs([...tabs, id]);
@@ -131,7 +136,7 @@ const IdeLayout = () => {
   };
 
   return (
-    <div className="ide">
+    <div className="ide" style={{ '--sidebar-width': `${sidebarWidth}px` }}>
       {/* Decorative VS Code title bar; nothing here is interactive */}
       <header className="ide-titlebar" aria-hidden="true">
         <div className="ide-titlebar-center">
@@ -165,6 +170,7 @@ const IdeLayout = () => {
             />
           </ul>
         </nav>
+        <SidebarResizer width={sidebarWidth} onResize={setSidebarWidth} />
         {drawerOpen && <div className="ide-backdrop" onClick={() => setDrawerOpen(false)} />}
 
         <section className="ide-editor">
@@ -197,13 +203,15 @@ const IdeLayout = () => {
           <div className="ide-terminal">
             <div className="ide-terminal-header">TERMINAL</div>
             <div className="ide-terminal-body" onClick={focusShell}>
-              {active === 'home' ? (
-                <HomeTerminal />
-              ) : active === 'projects' ? (
-                <ProjectsTerminal />
-              ) : (
-                <ShellInput key={active} path={active} />
-              )}
+              <ShellContext.Provider value={{ open }}>
+                {active === 'home' ? (
+                  <HomeTerminal />
+                ) : active === 'projects' ? (
+                  <ProjectsTerminal />
+                ) : (
+                  <ShellInput key={active} path={active} />
+                )}
+              </ShellContext.Provider>
             </div>
           </div>
           <KeyboardPanel />

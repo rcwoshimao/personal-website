@@ -1,4 +1,6 @@
 import { useMemo } from 'react';
+import { usePrinter } from './usePrinter';
+import './BrailleArt.css';
 
 // Each braille character is a 2x4 grid of dots; bit -> [column, row]
 const BRAILLE_DOTS = [
@@ -32,24 +34,26 @@ const parse = (art) => {
     })
   );
   const cols = Math.max(...lines.map((l) => l.length)) * 2;
-  return { dots, cols, rows: lines.length * 4 };
+  return { dots, cols, lines: lines.length };
 };
 
-// Renders braille text art as SVG dots so it looks the same in every font and scales to fit.
-// `colors` maps color indexes to CSS colors; `shownRows` reveals only the first N text lines.
-// `squash` scales the vertical dot spacing (fonts usually space braille dots wider than tall).
-const BrailleArt = ({ art, colors, shownRows = Infinity, squash = 1, label, className = '' }) => {
-  const { dots, cols, rows } = useMemo(() => parse(art), [art]);
+// Braille text art drawn as SVG dots (fonts render braille at uneven widths), printed one line
+// at a time like terminal output. `colors` maps color indexes to CSS colors; `squash` scales the
+// vertical dot spacing (fonts usually space braille dots wider than tall).
+// `onProgress(shown, done)` fires after each line so the parent can scroll or chain the next part.
+const BrailleArt = ({ art, colors, label, squash = 1, interval = 25, animate = true, onProgress, className = '' }) => {
+  const { dots, cols, lines } = useMemo(() => parse(art), [art]);
+  const shown = usePrinter(lines, { interval, animate, onProgress });
   const cellY = CELL * squash;
 
   return (
     <svg
       className={`braille-art ${className}`}
-      viewBox={`0 0 ${cols * CELL} ${rows * cellY}`}
+      viewBox={`0 0 ${cols * CELL} ${lines * 4 * cellY}`}
       role="img"
       aria-label={label}
     >
-      {dots.filter((d) => d.row < shownRows).map(({ x, y, color }) => (
+      {dots.filter((d) => d.row < shown).map(({ x, y, color }) => (
         <circle
           key={`${x}-${y}`}
           cx={x * CELL + CELL / 2}
