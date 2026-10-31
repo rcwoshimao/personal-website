@@ -1,18 +1,26 @@
 .pbox {
   --edge: var(--muted);
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   color: var(--text);
-  text-decoration: none;
   line-height: 1.6;
 }
 
 .pbox:hover,
-.pbox:focus-visible {
+.pbox:focus-within {
   --edge: var(--accent);
-  outline: none;
 }
+
+/* Stretch the title link over the whole card */
+.pbox-title::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.pbox-title:focus-visible { outline: none; }
 
 /* Top and bottom borders */
 .pbox-edge {
@@ -28,7 +36,13 @@
   text-overflow: ellipsis;
   padding: 0 1ch;
   color: var(--text-bright);
+  text-decoration: none;
+  font-family: 'Bitcount Single', var(--font-mono, monospace);
+  font-size: 22px;
 }
+
+/* Keep the border characters vertically centered against the larger title */
+.pbox-edge:first-child { align-items: center; }
 
 .pbox-time {
   flex-shrink: 0;
@@ -73,6 +87,7 @@
 }
 
 .pbox-desc {
+  font-size: 12.5px;
   margin: 10px 0 6px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -81,19 +96,32 @@
 }
 
 .pbox-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1ch;
   margin: 0;
-  font-size: 12px;
-  color: var(--accent);
+  font-size: 15px;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+/* Above the stretched title link */
+.pbox-tag {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pbox-tag:hover,
+.pbox-tag:focus-visible,
+.pbox-tag.is-active {
+  color: var(--text-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

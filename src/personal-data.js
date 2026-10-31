@@ -141,7 +141,7 @@ export const projectsData = [
     name: "Candles",
     shortDescription: "An interactive map application where you can place emotional markers on a global map, each representing a feeling or experience to create a visual tapestry of emotions across the world.",
     link: "https://candles-auk.pages.dev/", 
-    keywords: ["Full Stack", "Data Analysis", "Long Term Project"],
+    keywords: ["Full Stack", "Data Analysis"],
     time: "SP 2024 - Ongoing"
   },
   {

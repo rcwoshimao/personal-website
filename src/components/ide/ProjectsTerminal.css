@@ -1,3 +1,30 @@
+/* Tag filter row, styled as a shell comment */
+.ls-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin-bottom: 8px;
+}
+
+.ls-comment { color: var(--muted); }
+
+.ls-flag {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.ls-flag:hover,
+.ls-flag:focus-visible {
+  color: var(--text-bright);
+  outline: none;
+}
+
+.ls-flag.is-active { color: var(--accent); }
+
 /* ls output: project boxes flow into columns */
 .ls-output {
   display: grid;

@@ -1,50 +1,80 @@
 import { useEffect, useState } from 'react';
 import Prompt from './Prompt';
+import ShellInput from './ShellInput';
 import ProjectCard from './ProjectCard';
 import { projectsData } from '../../personal-data';
+import { tagSlug, collectTags } from './tags';
 import './ProjectsTerminal.css';
 
-const COMMAND = 'ls';
+const TAGS = collectTags(projectsData);
 
-// Like home, the typing animation only plays the first time per page load.
+const commandFor = (tag) => (tag ? `ls --tag=${tagSlug(tag)}` : 'ls');
+
+// Like home, the first `ls` only types itself out once per page load.
 let hasRun = false;
 
 const ProjectsTerminal = () => {
-  const [skip] = useState(
-    () => hasRun || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const [reducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
-  const [typed, setTyped] = useState(skip ? COMMAND.length : 0);
-  const done = typed === COMMAND.length;
+  const [tag, setTag] = useState(null);
+  const command = commandFor(tag);
+  const [typed, setTyped] = useState(() => (hasRun || reducedMotion ? command.length : 0));
+  const done = typed >= command.length;
 
+  // Type the current command one character at a time
   useEffect(() => {
-    if (skip) return;
     hasRun = true;
+    if (done) return;
+    const delay = typed === 0 ? 200 : tag ? 35 : 80;
+    const id = setTimeout(() => setTyped(typed + 1), delay);
+    return () => clearTimeout(id);
+  }, [typed, done, tag]);
 
-    const timers = [];
-    let t = 200;
-    for (let i = 1; i <= COMMAND.length; i++) {
-      t += 80;
-      timers.push(setTimeout(() => setTyped(i), t));
-    }
-    return () => timers.forEach(clearTimeout);
-  }, [skip]);
+  // Picking a tag rewrites the command and "runs" it again; picking it twice clears it
+  const filterBy = (next) => {
+    const nextTag = next === tag ? null : next;
+    setTag(nextTag);
+    setTyped(reducedMotion ? commandFor(nextTag).length : 0);
+  };
+
+  const projects = tag ? projectsData.filter((p) => p.keywords?.includes(tag)) : projectsData;
 
   return (
     <>
+      <div className="ide-line ls-filter">
+        <span className="ls-comment"># filter:</span>
+        <button
+          className={`ls-flag ${tag === null ? 'is-active' : ''}`}
+          onClick={() => filterBy(null)}
+        >
+          [all]
+        </button>
+        {TAGS.map((t) => (
+          <button
+            key={t}
+            className={`ls-flag ${tag === t ? 'is-active' : ''}`}
+            onClick={() => filterBy(t)}
+          >
+            [{tagSlug(t)}]
+          </button>
+        ))}
+      </div>
+
       <Prompt path="projects" cursor={!done}>
-        {COMMAND.slice(0, typed)}
+        {command.slice(0, typed)}
       </Prompt>
 
       {done && (
         <>
           <ul className="ls-output">
-            {projectsData.map((project) => (
+            {projects.map((project) => (
               <li key={project.name}>
-                <ProjectCard project={project} />
+                <ProjectCard project={project} activeTag={tag} onTag={filterBy} />
               </li>
             ))}
           </ul>
-          <Prompt path="projects" />
+          <ShellInput path="projects" />
         </>
       )}
     </>

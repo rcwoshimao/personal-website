@@ -2,18 +2,28 @@ import { useState } from 'react';
 import {
   VscHome, VscFolder, VscEllipsis, VscBook, VscClose, VscSourceControl,
   VscRepo, VscChevronRight, VscFileCode, VscMenu,
+  VscArrowLeft, VscArrowRight, VscChevronDown, VscError, VscWarning, VscGlobe,
+  VscLayout, VscLayoutSidebarLeft, VscLayoutPanel, VscLayoutSidebarRight,
 } from 'react-icons/vsc';
-import Prompt from './Prompt';
+import ShellInput from './ShellInput';
 import HomeTerminal from './HomeTerminal';
 import ProjectsTerminal from './ProjectsTerminal';
+import { tagSlug } from './tags';
+import { projectsData } from '../../personal-data';
 import './IdeLayout.css';
 
-// Root folder; every node with a `page` flag can be opened as a tab.
-// Node ids double as paths (e.g. projects/project-alpha).
+// Root folder; every node with a `page` flag can be opened as a tab,
+// and nodes with an `href` are plain links that open in a new browser tab.
+// Node ids double as paths (e.g. projects/solarify).
 const TREE = {
   id: 'root', label: 'jiayingchen.dev', icon: VscRepo, children: [
     { id: 'home', label: 'home.exe', icon: VscHome, page: true },
-    { id: 'projects', label: 'projects/', icon: VscFolder, page: true },
+    {
+      id: 'projects', label: 'projects/', icon: VscFolder, page: true,
+      children: projectsData.map(({ name, link }) => ({
+        id: `projects/${tagSlug(name)}`, label: name, href: link,
+      })),
+    },
     { id: 'misc', label: 'misc.sh', icon: VscEllipsis, page: true },
     { id: 'blog', label: 'blog.md', icon: VscBook, page: true },
   ],
@@ -52,10 +62,17 @@ const TreeNode = ({ node, active, expanded, onOpen, onToggle, className = '' }) 
             <VscChevronRight />
           </button>
         )}
-        <button className="tree-label" onClick={handleClick} title={node.label}>
-          <Icon className="tree-icon" />
-          <span>{node.label}</span>
-        </button>
+        {node.href ? (
+          <a className="tree-label" href={node.href} target="_blank" rel="noopener noreferrer" title={node.label}>
+            <Icon className="tree-icon" />
+            <span>{node.label}</span>
+          </a>
+        ) : (
+          <button className="tree-label" onClick={handleClick} title={node.label}>
+            <Icon className="tree-icon" />
+            <span>{node.label}</span>
+          </button>
+        )}
       </div>
 
       {isFolder && (
@@ -106,8 +123,34 @@ const IdeLayout = () => {
     if (active === id) setActive(next[Math.max(0, i - 1)]);
   };
 
+  // Clicking anywhere in the terminal focuses the prompt, unless the user is selecting text
+  const focusShell = (e) => {
+    if (window.getSelection()?.toString()) return;
+    e.currentTarget.querySelector('.shell-field')?.focus({ preventScroll: true });
+  };
+
   return (
     <div className="ide">
+      {/* Decorative VS Code title bar; nothing here is interactive */}
+      <header className="ide-titlebar" aria-hidden="true">
+        <div className="ide-titlebar-center">
+          <VscArrowLeft className="ide-titlebar-icon ide-titlebar-nav" />
+          <VscArrowRight className="ide-titlebar-icon ide-titlebar-nav is-dim" />
+          <div className="ide-titlebar-search">
+            <span>jiayingchen.dev</span>
+            <span className="ide-titlebar-search-end">
+              <VscChevronDown />
+            </span>
+          </div>
+        </div>
+        <div className="ide-titlebar-right">
+          <VscLayout className="ide-titlebar-icon" />
+          <VscLayoutSidebarLeft className="ide-titlebar-icon" />
+          <VscLayoutPanel className="ide-titlebar-icon" />
+          <VscLayoutSidebarRight className="ide-titlebar-icon" />
+        </div>
+      </header>
+
       <div className="ide-main">
         <nav className={`ide-sidebar ${drawerOpen ? 'is-open' : ''}`}>
           <div className="ide-sidebar-title">EXPLORER</div>
@@ -152,22 +195,32 @@ const IdeLayout = () => {
 
           <div className="ide-terminal">
             <div className="ide-terminal-header">TERMINAL</div>
-            <div className="ide-terminal-body">
+            <div className="ide-terminal-body" onClick={focusShell}>
               {active === 'home' ? (
                 <HomeTerminal />
               ) : active === 'projects' ? (
                 <ProjectsTerminal />
               ) : (
-                <Prompt path={active} />
+                <ShellInput key={active} path={active} />
               )}
             </div>
           </div>
         </section>
       </div>
 
-      <footer className="ide-statusbar">
-        <VscSourceControl />
-        <span>main</span>
+      <footer className="ide-statusbar" aria-hidden="true">
+        <span className="ide-status-item">
+          <VscSourceControl />
+          main
+        </span>
+        <span className="ide-status-item">
+          <VscError /> 0
+          <VscWarning /> 0
+        </span>
+        <span className="ide-status-item ide-status-right">
+          <VscGlobe />
+          <span className="ide-status-label">Connected to The World</span>
+        </span>
       </footer>
     </div>
   );

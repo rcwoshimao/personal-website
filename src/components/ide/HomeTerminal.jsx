@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Prompt from './Prompt';
+import ShellInput from './ShellInput';
 import DotClock from './DotClock';
 import BrailleArt from './BrailleArt';
 import catAlien from './art/catAlien';
@@ -80,7 +81,7 @@ const HomeTerminal = () => {
             <BrailleArt art={catAlien} label="cat alien" />
             <figcaption>art by STATlover12</figcaption>
           </figure>
-          <Prompt path="home" />
+          <ShellInput path="home" />
         </>
       )}
     </>
