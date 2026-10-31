@@ -1,25 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Prompt from './Prompt';
-import commandTable from './commandTable.json';
+import { runCommand } from './commands';
 
 const MAX_INPUT = 100;
-
-const { commands, fallback } = commandTable;
-
-// `help` is generated from the table so it always matches the real command list
-const helpLines = () => {
-  const width = Math.max(...Object.keys(commands).map((name) => name.length));
-  return Object.entries(commands).map(
-    ([name, { description = '' }]) => `${name.padEnd(width + 2)}${description}`
-  );
-};
-
-// Exact match only (case and extra spaces ignored); returns the lines to print
-const run = (input) => {
-  const name = input.toLowerCase().replace(/\s+/g, ' ');
-  if (name === 'help') return helpLines();
-  return commands[name]?.output ?? fallback;
-};
 
 // The live prompt at the bottom of a terminal. Typed text is shown inside the
 // prompt line; the real <input> is invisible and only captures keystrokes.
@@ -43,7 +26,7 @@ const ShellInput = ({ path }) => {
   const handleKeyDown = (e) => {
     if (e.key !== 'Enter') return;
     const command = value.trim();
-    setHistory([...history, { input: value, output: command ? run(command) : null }]);
+    setHistory([...history, { input: value, output: command ? runCommand(command) : null }]);
     setValue('');
   };
 

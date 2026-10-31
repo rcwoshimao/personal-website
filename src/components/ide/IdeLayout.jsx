@@ -21,7 +21,7 @@ const TREE = {
     {
       id: 'projects', label: 'projects/', icon: VscFolder, page: true,
       children: projectsData.map(({ name, link }) => ({
-        id: `projects/${tagSlug(name)}`, label: name, href: link,
+        id: `projects/${tagSlug(name)}`, label: `${tagSlug(name)}.exe`, href: link,
       })),
     },
     { id: 'misc', label: 'misc.sh', icon: VscEllipsis, page: true },
