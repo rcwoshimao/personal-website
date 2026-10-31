@@ -22,7 +22,7 @@ export const COMMANDS = {
 
   MIAO: {
     description: 'miao',
-    run: () => ['miao'],
+    run: () => ['HELLO NIAONAIAOAAOAOAO'],
   },
 
   WHOAMI: {
