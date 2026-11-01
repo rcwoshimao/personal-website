@@ -55,7 +55,8 @@ const parse = (art) => {
 // `onProgress(shown, done)` fires after each line so the parent can scroll or chain the next part.
 const BrailleArt = ({ art, colors, label, squash = 1, interval = 8, animate = true, onProgress, className = '' }) => {
   const { dots, blocks, blockColors, cols, lines } = useMemo(() => parse(art), [art]);
-  const shown = usePrinter(lines, { interval, animate, onProgress });
+  // Several rows per step: browsers can't run timers fast enough to print one row at a time quickly
+  const shown = usePrinter(lines, { interval, step: 5, animate, onProgress });
   const cellY = CELL * squash;
   const r = Math.min(CELL, cellY) * 0.4;
   const colorStyle = (color) => (color != null ? { fill: colors[color] } : undefined);

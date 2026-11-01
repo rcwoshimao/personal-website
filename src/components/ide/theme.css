@@ -56,6 +56,12 @@
   /* Decoration */
   --tree-line: #1f3b55;                   /* sidebar branch lines */
 
+  /* Terminal wallpaper (the cat photo), and the dark halo that keeps text readable on it */
+  --wallpaper-tint: color-mix(in srgb, var(--bg) 78%, transparent); /* higher % = darker photo */
+  --wallpaper-band: color-mix(in srgb, var(--bg) 75%, transparent); /* darker band down the left */
+  --wallpaper-blur: 3px;
+  --text-halo: 0 0 3px var(--bg), 0 0 8px var(--bg);                /* around every character */
+
   /* Contribution graph, from no activity (0) to most (4) */
   --heat-0: rgba(255, 255, 255, 0.06);
   --heat-1: color-mix(in srgb, var(--accent) 30%, var(--bg));

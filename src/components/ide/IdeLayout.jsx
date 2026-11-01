@@ -202,6 +202,7 @@ const IdeLayout = () => {
           </div>
 
           <div className="ide-terminal">
+            <div className="ide-terminal-bg" aria-hidden="true" />
             <div className="ide-terminal-header">TERMINAL</div>
             <div className="ide-terminal-body" onClick={focusShell}>
               <ShellContext.Provider value={{ open }}>

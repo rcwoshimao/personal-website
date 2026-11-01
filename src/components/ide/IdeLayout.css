@@ -313,11 +313,32 @@
 
 /* Terminal fills the editor */
 .ide-terminal {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden; /* clips the wallpaper's blurred edges */
 }
+
+/* Wallpaper: the cat photo, darkened and softened, staying put while the output scrolls over it.
+   Layers, top first: a dark band down the left for text outside the boxes, the darkening tint, the photo */
+.ide-terminal-bg {
+  position: absolute;
+  inset: -12px;
+  background:
+    linear-gradient(to right, var(--bg) 0%, var(--wallpaper-band) 35%, transparent 70%),
+    linear-gradient(var(--wallpaper-tint), var(--wallpaper-tint)),
+    url('../../assets/background.png') center / cover;
+  filter: blur(var(--wallpaper-blur));
+  pointer-events: none;
+}
+
+.ide-terminal-header,
+.ide-terminal-body { position: relative; }
+
+/* Text sits straight on the wallpaper, so each character carries a soft dark halo */
+.ide-terminal-body { text-shadow: var(--text-halo); }
 
 .ide-terminal-header {
   padding: 8px 16px;
