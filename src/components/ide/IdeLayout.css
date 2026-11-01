@@ -10,6 +10,8 @@
   font-family: var(--font-mono);
   font-weight: var(--font-weight);
   font-size: var(--font-size);
+  font-size-adjust: var(--font-size-adjust);
+  -webkit-text-stroke: var(--font-stroke) currentColor;
 }
 
 /* Buttons look like plain text unless styled otherwise (:where keeps this easy to override) */
@@ -332,8 +334,9 @@
 }
 
 .ide-line {
-  min-height: 1.6em;
-  line-height: 1.6;
+  min-height: calc(var(--line-height) * 1em);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
   white-space: pre-wrap;
   word-break: break-word;
 }

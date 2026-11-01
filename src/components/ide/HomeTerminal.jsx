@@ -8,8 +8,9 @@ import BrailleArt from './BrailleArt';
 import SymbolBox, { BOX_ACCENTS } from './SymbolBox';
 import PrintLines from './PrintLines';
 import { INFO, INTRO, SOCIALS } from './profile';
-import { CAT_LINES } from './art/catAlien';
 import { LINES as rcLogo, COLORS as rcColors } from './art/rcLogo';
+import { LINES as daughter, COLORS as daughterColors } from './art/daughter';
+import { LINES as yiyi, COLORS as yiyiColors } from './art/yiyi';
 import './HomeTerminal.css';
 
 const COMMAND = './home.exe';
@@ -37,8 +38,8 @@ const SOCIAL_LINES = SOCIALS.map(({ label, href }) => (
   <a className="term-link" href={href} target="_blank" rel="noopener noreferrer">→ {label}</a>
 ));
 
-// Dashboard parts print in order: logo, info, intro, clock + cat, links, then the prompt
-const LAST_STAGE = 5;
+// Dashboard parts print in order: logo, info, intro, clock + cat, yiyi, links, then the prompt
+const LAST_STAGE = 6;
 
 const HomeTerminal = () => {
   const skip = usePlayOnce('home');
@@ -126,21 +127,30 @@ const HomeTerminal = () => {
               <div className="tile-side">
                 <DotClock />
                 <figure className="tile-cat">
-                  <BrailleArt art={CAT_LINES} label="cat alien" animate={!skip} onProgress={advance(3)} />
-                  {stage >= 4 && <figcaption>art by STATlover12</figcaption>}
+                  <BrailleArt art={daughter} colors={daughterColors} label="my cat" squash={0.83} animate={!skip} onProgress={advance(3)} />
+                  {stage >= 4 && <figcaption>my daughter</figcaption>}
                 </figure>
               </div>
             )}
           </SymbolBox>
 
           {stage >= 4 && (
+            <SymbolBox className="tile tile-wide tile-yiyi" accent={BOX_ACCENTS[1]} title={<h2 className="pbox-title">yiyi</h2>}>
+              <figure className="tile-cat">
+                <BrailleArt art={yiyi} colors={yiyiColors} label="Yiyi, my old cat" squash={0.83} animate={!skip} onProgress={advance(4)} />
+                {stage >= 5 && <figcaption>17 years. Not a fan of me.<br />Loved anyway.</figcaption>}
+              </figure>
+            </SymbolBox>
+          )}
+
+          {stage >= 5 && (
             <SymbolBox className="tile tile-wide" accent={BOX_ACCENTS[2]} title={<h2 className="pbox-title">links</h2>}>
-              <PrintLines lines={SOCIAL_LINES} interval={120} animate={!skip} onProgress={advance(4)} />
+              <PrintLines lines={SOCIAL_LINES} interval={120} animate={!skip} onProgress={advance(5)} />
             </SymbolBox>
           )}
         </div>
       )}
-      {stage >= 5 && <ShellInput path="home" />}
+      {stage >= 6 && <ShellInput path="home" />}
       <div ref={endRef} />
     </>
   );

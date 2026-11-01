@@ -5,7 +5,7 @@
   flex-direction: column;
   min-width: 0;
   color: var(--text);
-  line-height: 1.6;
+  line-height: var(--line-height);
 }
 
 .pbox:hover,
@@ -31,6 +31,9 @@
   margin: 0;
   font-size: 22px;
   font-weight: normal;
+  /* The mono font's readability tweaks would distort the dotted font */
+  font-size-adjust: none;
+  -webkit-text-stroke: 0;
 }
 
 /* Dotted display font; `.ide` keeps it above the theme's font reset, whatever order the CSS loads in */
@@ -56,6 +59,7 @@
   position: relative;
   flex: 1;
   padding: 0.6em 2ch;
+  letter-spacing: var(--letter-spacing);
 }
 
 .pbox-side {
@@ -66,6 +70,7 @@
   overflow: hidden;
   white-space: pre;
   line-height: 1.2;
+  letter-spacing: 0;
   color: var(--edge);
   transition: color 0.2s ease;
 }

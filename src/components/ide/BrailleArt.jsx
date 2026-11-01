@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useId, useMemo } from 'react';
 import { usePrinter } from './usePrinter';
 import './BrailleArt.css';
 
@@ -21,20 +21,32 @@ const toCells = (art) =>
         )
       );
 
+const FULL = 0xff; // ⣿, all 8 dots
+
+// Splits art into single dots, plus "blocks": runs of full ⣿ cells in one color on one line.
+// Photo-like art is mostly full cells, so blocks keep it to a few thousand SVG elements, not tens of thousands.
 const parse = (art) => {
   const lines = toCells(art);
   const dots = [];
+  const blocks = [];
   lines.forEach((line, row) =>
     line.forEach(([ch, color], col) => {
       const bits = ch.codePointAt(0) - 0x2800;
       if (bits <= 0 || bits > 0xff) return;
+      if (bits === FULL) {
+        const last = blocks[blocks.length - 1];
+        if (last && last.row === row && last.col + last.len === col && last.color === color) last.len++;
+        else blocks.push({ row, col, len: 1, color });
+        return;
+      }
       BRAILLE_DOTS.forEach(([bit, dx, dy]) => {
         if (bits & bit) dots.push({ x: col * 2 + dx, y: row * 4 + dy, row, color });
       });
     })
   );
+  const blockColors = [...new Set(blocks.map((b) => b.color))];
   const cols = Math.max(...lines.map((l) => l.length)) * 2;
-  return { dots, cols, lines: lines.length };
+  return { dots, blocks, blockColors, cols, lines: lines.length };
 };
 
 // Braille text art drawn as SVG dots (fonts render braille at uneven widths), printed one line
@@ -42,9 +54,12 @@ const parse = (art) => {
 // vertical dot spacing (fonts usually space braille dots wider than tall).
 // `onProgress(shown, done)` fires after each line so the parent can scroll or chain the next part.
 const BrailleArt = ({ art, colors, label, squash = 1, interval = 25, animate = true, onProgress, className = '' }) => {
-  const { dots, cols, lines } = useMemo(() => parse(art), [art]);
+  const { dots, blocks, blockColors, cols, lines } = useMemo(() => parse(art), [art]);
   const shown = usePrinter(lines, { interval, animate, onProgress });
   const cellY = CELL * squash;
+  const r = Math.min(CELL, cellY) * 0.4;
+  const colorStyle = (color) => (color != null ? { fill: colors[color] } : undefined);
+  const patternId = `braille-${useId().replace(/:/g, '')}-`;
 
   return (
     <svg
@@ -53,13 +68,41 @@ const BrailleArt = ({ art, colors, label, squash = 1, interval = 25, animate = t
       role="img"
       aria-label={label}
     >
+      {blocks.length > 0 && (
+        <defs>
+          {/* One full ⣿ cell of dots per color, tiled across blocks */}
+          {blockColors.map((color) => (
+            <pattern
+              key={color}
+              id={patternId + color}
+              patternUnits="userSpaceOnUse"
+              width={2 * CELL}
+              height={4 * cellY}
+            >
+              {BRAILLE_DOTS.map(([bit, dx, dy]) => (
+                <circle key={bit} cx={dx * CELL + CELL / 2} cy={dy * cellY + cellY / 2} r={r} style={colorStyle(color)} />
+              ))}
+            </pattern>
+          ))}
+        </defs>
+      )}
+      {blocks.filter((b) => b.row < shown).map(({ row, col, len, color }) => (
+        <rect
+          key={`${row}-${col}`}
+          x={col * 2 * CELL}
+          y={row * 4 * cellY}
+          width={len * 2 * CELL}
+          height={4 * cellY}
+          fill={`url(#${patternId}${color})`}
+        />
+      ))}
       {dots.filter((d) => d.row < shown).map(({ x, y, color }) => (
         <circle
           key={`${x}-${y}`}
           cx={x * CELL + CELL / 2}
           cy={y * cellY + cellY / 2}
-          r={Math.min(CELL, cellY) * 0.4}
-          style={color != null ? { fill: colors[color] } : undefined}
+          r={r}
+          style={colorStyle(color)}
         />
       ))}
     </svg>

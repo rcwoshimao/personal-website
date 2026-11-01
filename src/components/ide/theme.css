@@ -15,10 +15,21 @@
   font-weight: 700;
   font-display: swap;
 }
+
+/* The bold file lacks arrows, key symbols and a few shapes the site uses; borrow them from the
+   regular file so they don't fall back to another font. Declared last so it's checked first. */
+@font-face {
+  font-family: 'GW Monospace';
+  src: url('../../assets/fonts/Monospace-Regular.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+2190-2193, U+21E5, U+21E7, U+21EA, U+2303, U+2318, U+2325, U+232B, U+2423,
+    U+256D-256E, U+25E2, U+25E4, U+263A;
+}
 .ide {
   /* Surfaces */
-  --bg: #091626;
-  --sidebar: #06111e;
+  --bg: #172c39;
+  --sidebar: #0c262d;
   --tabs: var(--sidebar);
   --tab-active: var(--bg);
   --border: #142a40;
@@ -77,6 +88,11 @@
   --font-display: 'Bitcount Single', monospace;
   --font-size: 15px;  /* terminal text; other text sizes are set close to this */
   --font-weight: 700; /* the mono font is thin at regular weight, so the UI uses its bold */
+  /* The mono font has small lowercase letters and thin strokes; these keep it readable */
+  --font-size-adjust: ex-height 0.53; /* scale lowercase to roughly JetBrains Mono's height */
+  --font-stroke: 0.15px;              /* thicken strokes slightly */
+  --letter-spacing: 0.02em;           /* prose only; box borders and art need exact widths */
+  --line-height: 1.7;
 }
 
 /* The old global stylesheet (src/index.css) sets a font on every element with `*`, which beats
