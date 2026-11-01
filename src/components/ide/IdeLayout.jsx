@@ -9,7 +9,7 @@ import {
   VscLayout, VscLayoutSidebarLeft, VscLayoutPanel, VscLayoutSidebarRight,
 } from 'react-icons/vsc';
 import ShellInput from './ShellInput';
-import KeyboardPanel from './KeyboardPanel';
+import StatusKeycast from './StatusKeycast';
 import { ShellContext } from './shellContext';
 import HomeTerminal from './HomeTerminal';
 import ProjectsTerminal from './ProjectsTerminal';
@@ -214,7 +214,6 @@ const IdeLayout = () => {
               </ShellContext.Provider>
             </div>
           </div>
-          <KeyboardPanel />
         </section>
       </div>
 
@@ -227,6 +226,7 @@ const IdeLayout = () => {
           <VscError /> 0
           <VscWarning /> 0
         </span>
+        <StatusKeycast />
         <span className="ide-status-item ide-status-right">
           <VscGlobe />
           <span className="ide-status-label">Connected to The World</span>

@@ -1,15 +1,16 @@
 import { tagSlug } from './tags';
-import SymbolBox from './SymbolBox';
+import SymbolBox, { BOX_ACCENTS } from './SymbolBox';
 import './ProjectCard.css';
 
 // A project in a symbol box: gif, description and tags, with its date in the footer.
 // The title link stretches over the whole box; tag buttons sit above it so they stay clickable.
-const ProjectCard = ({ project, activeTag, onTag }) => {
+const ProjectCard = ({ project, index = 0, activeTag, onTag }) => {
   const { image, name, shortDescription, link, keywords = [], time } = project;
 
   return (
     <SymbolBox
       footer={time}
+      accent={BOX_ACCENTS[index % BOX_ACCENTS.length]}
       title={
         <a className="pbox-title" href={link} target="_blank" rel="noopener noreferrer">
           {name}

@@ -1,6 +1,7 @@
 // "RC" logo (braille), converted from redesign-references/rc-logo2.tsx.
 // Each line is a list of runs: a plain string is blank space, [text, colorIndex] is colored text.
-export const COLORS = ["#000000", "#00FFFF", "#33FFFF", "#66CCCC", "#66CCFF", "#66FFCC", "#9999CC", "#99CC99", "#CCCCFF", "#FF00FF", "#FF66CC", "#FF9999", "#FFCC66", "#FFCC99", "#FFCCFF", "#FFFF66"];
+// Colors are the --logo-0 … --logo-15 tokens in theme.css
+export const COLORS = Array.from({ length: 16 }, (_, i) => `var(--logo-${i})`);
 
 export const LINES = [
   ["        ", ["⣀", 0]],

@@ -5,7 +5,7 @@ import Prompt from './Prompt';
 import ShellInput from './ShellInput';
 import DotClock from './DotClock';
 import BrailleArt from './BrailleArt';
-import SymbolBox from './SymbolBox';
+import SymbolBox, { BOX_ACCENTS } from './SymbolBox';
 import PrintLines from './PrintLines';
 import { INFO, INTRO, SOCIALS } from './profile';
 import { CAT_LINES } from './art/catAlien';
@@ -37,7 +37,7 @@ const SOCIAL_LINES = SOCIALS.map(({ label, href }) => (
   <a className="term-link" href={href} target="_blank" rel="noopener noreferrer">→ {label}</a>
 ));
 
-// Dashboard parts print in order: logo, info, intro, then clock + links, cat, and the prompt
+// Dashboard parts print in order: logo, info, intro, clock + cat, links, then the prompt
 const LAST_STAGE = 5;
 
 const HomeTerminal = () => {
@@ -105,7 +105,7 @@ const HomeTerminal = () => {
 
       {done && (
         <div className="tiles">
-          <SymbolBox className="tile tile-about" title={<h2 className="pbox-title">whoami</h2>}>
+          <SymbolBox className="tile tile-wide tile-about" accent={BOX_ACCENTS[0]} title={<h2 className="pbox-title">whoami</h2>}>
             <BrailleArt
               art={rcLogo}
               colors={rcColors}
@@ -121,21 +121,21 @@ const HomeTerminal = () => {
                 <PrintLines className="tile-intro" lines={INTRO} animate={!skip} onProgress={advance(2)} />
               )}
             </div>
+            {/* Right column: clock above the cat */}
+            {stage >= 3 && (
+              <div className="tile-side">
+                <DotClock />
+                <figure className="tile-cat">
+                  <BrailleArt art={CAT_LINES} label="cat alien" animate={!skip} onProgress={advance(3)} />
+                  {stage >= 4 && <figcaption>art by STATlover12</figcaption>}
+                </figure>
+              </div>
+            )}
           </SymbolBox>
 
-          {stage >= 3 && (
-            <SymbolBox className="tile" title={<h2 className="pbox-title">clock</h2>} footer="live">
-              <DotClock />
-            </SymbolBox>
-          )}
-          {stage >= 3 && (
-            <SymbolBox className="tile" title={<h2 className="pbox-title">links</h2>}>
-              <PrintLines lines={SOCIAL_LINES} interval={120} animate={!skip} onProgress={advance(3)} />
-            </SymbolBox>
-          )}
           {stage >= 4 && (
-            <SymbolBox className="tile tile-cat" title={<h2 className="pbox-title">pet</h2>} footer="art by STATlover12">
-              <BrailleArt art={CAT_LINES} label="cat alien" animate={!skip} onProgress={advance(4)} />
+            <SymbolBox className="tile tile-wide" accent={BOX_ACCENTS[2]} title={<h2 className="pbox-title">links</h2>}>
+              <PrintLines lines={SOCIAL_LINES} interval={120} animate={!skip} onProgress={advance(4)} />
             </SymbolBox>
           )}
         </div>

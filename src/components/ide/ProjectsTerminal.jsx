@@ -65,9 +65,9 @@ const ProjectsTerminal = () => {
       {done && (
         <>
           <ul className="ls-output">
-            {projects.map((project) => (
+            {projects.map((project, i) => (
               <li key={project.name}>
-                <ProjectCard project={project} activeTag={tag} onTag={filterBy} />
+                <ProjectCard project={project} index={i} activeTag={tag} onTag={filterBy} />
               </li>
             ))}
           </ul>

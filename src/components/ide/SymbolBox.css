@@ -10,7 +10,7 @@
 
 .pbox:hover,
 .pbox:focus-within {
-  --edge: var(--accent);
+  --edge: var(--box-accent, var(--accent));
 }
 
 /* Top and bottom borders */

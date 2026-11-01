@@ -44,7 +44,33 @@
 
   /* Decoration */
   --tree-line: #1f3b55;                   /* sidebar branch lines */
-  --dot-grid: rgba(230, 237, 243, 0.08);  /* keyboard background dots */
+
+  /* Logo palette (from the RC logo); art/rcLogo.js refers to these by index */
+  --logo-0: #000000;
+  --logo-1: #00FFFF;  /* cyan */
+  --logo-2: #33FFFF;
+  --logo-3: #66CCCC;
+  --logo-4: #66CCFF;
+  --logo-5: #66FFCC;
+  --logo-6: #9999CC;
+  --logo-7: #99CC99;
+  --logo-8: #CCCCFF;
+  --logo-9: #FF00FF;
+  --logo-10: #FF66CC;
+  --logo-11: #FF9999;
+  --logo-12: #FFCC66;
+  --logo-13: #FFCC99; /* peach */
+  --logo-14: #FFCCFF;
+  --logo-15: #FFFF66;
+
+  /* Named logo colors */
+  --matcha: var(--logo-7);
+  --magenta: var(--logo-9);
+  --hot-pink: var(--logo-10);
+  --coral: var(--logo-11);
+  --orange: var(--logo-12);
+  --pink: var(--logo-14);
+  --lemon: var(--logo-15);
 
   /* Fonts */
   --font-mono: 'GW Monospace', 'JetBrains Mono', Menlo, Consolas, monospace;

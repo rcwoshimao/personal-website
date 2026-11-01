@@ -4,13 +4,17 @@ import './SymbolBox.css';
 const DASHES = '-+*%$%*+'.repeat(40);
 const PIPES = '|\n'.repeat(200);
 
+// The logo's main colors, for giving neighbouring boxes different hover colors
+export const BOX_ACCENTS = [1, 14, 11, 10, 15, 13].map((i) => `var(--logo-${i})`);
+
 // An ssh-keygen "randomart" style box:
 // +---[ title ]------+
 // |  content         |
 // +-------[ footer ]-+
 // `title` is rendered as given (give it the pbox-title class); `footer` is optional.
-const SymbolBox = ({ title, footer, className = '', children }) => (
-  <article className={`pbox ${className}`}>
+// `accent` is the border color on hover (any CSS color); defaults to the theme accent.
+const SymbolBox = ({ title, footer, accent, className = '', children }) => (
+  <article className={`pbox ${className}`} style={accent ? { '--box-accent': accent } : undefined}>
     <div className="pbox-edge">
       <span aria-hidden="true">+--[</span>
       {title}
