@@ -8,9 +8,18 @@ import BrailleArt from './BrailleArt';
 import SymbolBox, { BOX_ACCENTS } from './SymbolBox';
 import PrintLines from './PrintLines';
 import { INFO, INTRO, SOCIALS } from './profile';
+import ContributionGraph from './ContributionGraph';
+import { fetchContributions, GITHUB_URL } from './github';
 import { LINES as rcLogo, COLORS as rcColors } from './art/rcLogo';
 import { LINES as daughter, COLORS as daughterColors } from './art/daughter';
 import { LINES as yiyi, COLORS as yiyiColors } from './art/yiyi';
+import AsciiAnimation from './AsciiAnimation';
+import * as star from './art/magic/rotating-star';
+import * as earth from './art/magic/earth-rotating';
+import * as galaxy from './art/magic/spiral-galaxy';
+import * as campfire from './art/magic/campfire';
+import * as hilbert from './art/magic/hilbert-curve';
+import * as mandelbrot from './art/magic/mandelbrot-zoom';
 import './HomeTerminal.css';
 
 const COMMAND = './home.exe';
@@ -38,8 +47,15 @@ const SOCIAL_LINES = SOCIALS.map(({ label, href }) => (
   <a className="term-link" href={href} target="_blank" rel="noopener noreferrer">→ {label}</a>
 ));
 
-// Dashboard parts print in order: logo, info, intro, clock + cat, yiyi, links, then the prompt
-const LAST_STAGE = 6;
+const CONTRIB_ERROR = [<span className="contrib-error">github: could not load contributions, try again later</span>];
+
+// Animated pieces from ASCII Magic (MIT, see art/magic/README.md)
+const ART = [star, earth, galaxy, campfire, hilbert, mandelbrot];
+const ART_SITE = 'https://www.ascii-magic.com/ascii';
+
+// Dashboard parts print in order: logo, info, intro, clock + cat, yiyi, links, contributions,
+// then the art boxes and the prompt together
+const LAST_STAGE = 7;
 
 const HomeTerminal = () => {
   const skip = usePlayOnce('home');
@@ -48,6 +64,17 @@ const HomeTerminal = () => {
   const [progress, setProgress] = useState(skip ? PROGRESS_DOTS : 0);
   const [stage, setStage] = useState(skip ? LAST_STAGE : 0);
   const [printed, setPrinted] = useState(0);
+  const [contrib, setContrib] = useState(null);
+  const [contribFailed, setContribFailed] = useState(false);
+
+  // Start fetching right away so the graph is usually ready by the time its box prints
+  useEffect(() => {
+    let live = true;
+    fetchContributions()
+      .then((d) => live && setContrib(d))
+      .catch(() => live && setContribFailed(true));
+    return () => { live = false; };
+  }, []);
 
   // Progress handler for stage n: counts printed lines (for scrolling) and moves on when complete
   const advance = (n) => (_, complete) => {
@@ -86,7 +113,7 @@ const HomeTerminal = () => {
   const endRef = useRef(null);
   useEffect(() => {
     scrollTerminalToBottom(endRef.current);
-  }, [typed, lines, progress, done, stage, printed]);
+  }, [typed, lines, progress, done, stage, printed, contrib, contribFailed]);
 
   return (
     <>
@@ -148,9 +175,51 @@ const HomeTerminal = () => {
               <PrintLines lines={SOCIAL_LINES} interval={120} animate={!skip} onProgress={advance(5)} />
             </SymbolBox>
           )}
+
+          {stage >= 6 && (
+            <SymbolBox className="tile tile-wide" accent={BOX_ACCENTS[5]} title={<h2 className="pbox-title">contributions</h2>}>
+              {contrib ? (
+                <>
+                  <div className="ide-line contrib-total">
+                    <a className="term-link" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                      {contrib.total.toLocaleString()}
+                    </a> contributions in the last year
+                  </div>
+                  <ContributionGraph weeks={contrib.weeks} animate={!skip} onProgress={advance(6)} />
+                </>
+              ) : contribFailed ? (
+                <PrintLines lines={CONTRIB_ERROR} animate={!skip} onProgress={advance(6)} />
+              ) : (
+                <div className="ide-line"><span className="boot-status">[..]</span> fetching contributions from github</div>
+              )}
+            </SymbolBox>
+          )}
+
+          {stage >= 7 && (
+            <div className="art-tiles">
+              {ART.map((piece, i) => (
+                <SymbolBox
+                  key={piece.meta.slug}
+                  className="tile"
+                  accent={BOX_ACCENTS[i % BOX_ACCENTS.length]}
+                  title={<h2 className="pbox-title">{piece.meta.name.toLowerCase()}</h2>}
+                >
+                  <figure className="tile-cat">
+                    <AsciiAnimation piece={piece} label={`${piece.meta.name}, animated ASCII art`} />
+                    <figcaption>
+                      art by{' '}
+                      <a className="art-credit" href={`${ART_SITE}/${piece.meta.slug}`} target="_blank" rel="noopener noreferrer">
+                        Kailash · ASCII Magic
+                      </a>
+                    </figcaption>
+                  </figure>
+                </SymbolBox>
+              ))}
+            </div>
+          )}
         </div>
       )}
-      {stage >= 6 && <ShellInput path="home" />}
+      {stage >= 7 && <ShellInput path="home" />}
       <div ref={endRef} />
     </>
   );

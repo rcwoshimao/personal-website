@@ -56,6 +56,13 @@
   /* Decoration */
   --tree-line: #1f3b55;                   /* sidebar branch lines */
 
+  /* Contribution graph, from no activity (0) to most (4) */
+  --heat-0: rgba(255, 255, 255, 0.06);
+  --heat-1: color-mix(in srgb, var(--accent) 30%, var(--bg));
+  --heat-2: color-mix(in srgb, var(--accent) 55%, var(--bg));
+  --heat-3: color-mix(in srgb, var(--accent) 80%, var(--bg));
+  --heat-4: var(--accent);
+
   /* Logo palette (from the RC logo); art/rcLogo.js refers to these by index */
   --logo-0: #000000;
   --logo-1: #00FFFF;  /* cyan */

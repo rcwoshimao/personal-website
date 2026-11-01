@@ -53,7 +53,7 @@ const parse = (art) => {
 // at a time like terminal output. `colors` maps color indexes to CSS colors; `squash` scales the
 // vertical dot spacing (fonts usually space braille dots wider than tall).
 // `onProgress(shown, done)` fires after each line so the parent can scroll or chain the next part.
-const BrailleArt = ({ art, colors, label, squash = 1, interval = 25, animate = true, onProgress, className = '' }) => {
+const BrailleArt = ({ art, colors, label, squash = 1, interval = 8, animate = true, onProgress, className = '' }) => {
   const { dots, blocks, blockColors, cols, lines } = useMemo(() => parse(art), [art]);
   const shown = usePrinter(lines, { interval, animate, onProgress });
   const cellY = CELL * squash;

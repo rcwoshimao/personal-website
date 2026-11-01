@@ -33,6 +33,25 @@
 /* Yiyi's box: on its own row, sized to her portrait like a framed photo */
 .tile-yiyi { justify-self: start; width: min(100%, 360px); }
 
+.contrib-total { margin-bottom: 10px; color: var(--text); }
+.contrib-error { color: var(--error); }
+
+/* ASCII art gallery: its own full-width grid, three across on wide screens */
+.art-tiles {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Boxes in a row share a height: center the art, keep the credit on the bottom line */
+.art-tiles .pbox-body { display: flex; }
+.art-tiles .tile-cat { flex: 1; display: flex; flex-direction: column; }
+.art-tiles .ascii-anim { margin-block: auto; }
+.art-credit { color: inherit; }
+.art-credit:hover,
+.art-credit:focus-visible { color: var(--text-bright); }
+
 /* Once the column wraps below the text, line it up on the left */
 @media (max-width: 900px) {
   .tile-side { margin-left: 0; }
