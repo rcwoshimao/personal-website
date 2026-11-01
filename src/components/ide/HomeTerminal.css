@@ -1,17 +1,5 @@
 .boot-status { color: var(--accent); }
 
-/* Dashboard: symbol-box tiles */
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin: 16px 0 20px;
-}
-
-.tile { animation: fade-up 0.3s ease both; }
-
-.tile-wide { grid-column: 1 / -1; }
-
 .tile-about .pbox-body {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +8,6 @@
 
 .tile-logo { width: 200px; flex-shrink: 0; }
 .tile-about-text { flex: 1; min-width: 220px; color: var(--terminal-text); }
-.tile-key { display: inline-block; width: 7ch; color: var(--accent); }
 .tile-palette { display: inline-flex; vertical-align: middle; }
 .tile-palette span { width: 18px; height: 12px; }
 .tile-intro { max-width: 72ch; margin-top: 14px; color: var(--text); }
@@ -46,8 +33,4 @@
 /* Once the column wraps below the text, line it up on the left */
 @media (max-width: 900px) {
   .tile-side { margin-left: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tile { animation: none; }
 }

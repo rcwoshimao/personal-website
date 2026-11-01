@@ -371,6 +371,18 @@
 .ide-deco.is-ok { color: var(--ok); width: 16px; height: 16px; left: -16px; }
 .ide-deco.is-error { color: var(--error); }
 
+/* Choices for a command's question, e.g. y / n */
+.shell-choice {
+  margin-right: 1ch;
+  padding: 0 0.5ch;
+  color: var(--muted);
+}
+
+.shell-choice.is-selected { background: var(--accent); color: var(--bg); }
+.shell-picked { color: var(--accent); }
+
+.ide-line.is-error { color: var(--error); }
+
 .ide-prompt { color: var(--prompt); }
 .ide-path { color: var(--path); }
 

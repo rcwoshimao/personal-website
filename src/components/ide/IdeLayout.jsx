@@ -13,6 +13,7 @@ import StatusKeycast from './StatusKeycast';
 import { ShellContext } from './shellContext';
 import HomeTerminal from './HomeTerminal';
 import ProjectsTerminal from './ProjectsTerminal';
+import MiscTerminal from './MiscTerminal';
 import { tagSlug } from './tags';
 import { projectsData } from '../../personal-data';
 import './IdeLayout.css';
@@ -208,6 +209,8 @@ const IdeLayout = () => {
                   <HomeTerminal />
                 ) : active === 'projects' ? (
                   <ProjectsTerminal />
+                ) : active === 'misc' ? (
+                  <MiscTerminal />
                 ) : (
                   <ShellInput key={active} path={active} />
                 )}

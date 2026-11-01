@@ -73,7 +73,23 @@
 .pbox-side-left { left: 0; }
 .pbox-side-right { right: 0; }
 
+/* Dashboard grid of boxes (home, misc) */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 16px 0 20px;
+}
+
+.tile { animation: fade-up 0.3s ease both; }
+
+.tile-wide { grid-column: 1 / -1; }
+
+/* Label column for key: value rows */
+.tile-key { display: inline-block; width: 7ch; color: var(--accent); }
+
 @media (prefers-reduced-motion: reduce) {
   .pbox-edge,
   .pbox-side { transition: none; }
+  .tile { animation: none; }
 }

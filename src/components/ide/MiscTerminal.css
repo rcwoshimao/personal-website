@@ -1,0 +1,42 @@
+/* Time and words boxes split the row in half; stacked on narrow screens */
+.mt-tiles { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 900px) {
+  .mt-tiles { grid-template-columns: 1fr; }
+}
+
+/* Personal best rows: mode, wpm bar, wpm, accuracy */
+.mt-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5ch;
+}
+
+.mt-mode { width: 4ch; color: var(--accent); }
+
+.mt-bar {
+  flex: 1;
+  min-width: 6ch;
+  height: 8px;
+  background: var(--border);
+}
+
+.mt-bar span {
+  display: block;
+  height: 100%;
+  background: var(--box-accent, var(--accent));
+  animation: mt-grow 0.6s ease both;
+}
+
+.mt-wpm { width: 7ch; text-align: right; color: var(--text-bright); }
+.mt-acc { width: 4ch; text-align: right; color: var(--muted); }
+
+.mt-error { color: var(--error); }
+
+@keyframes mt-grow {
+  from { width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mt-bar span { animation: none; }
+}
